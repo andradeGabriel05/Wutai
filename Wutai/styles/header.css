@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #161a1d;
+  color: #FFFFFF;
+}
+header img {
+  width: 150px;
+  margin: 0px 20px;
+}
+header a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.search__box {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px;
+}
+.search__box #searchInput {
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+}
+.search__box #searchButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  margin-left: -55px;
+  height: 40px;
+  padding: 15px;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
+
+.user, .cart__shopping, .language {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+.user i, .cart__shopping i, .language i {
+  font-size: clamp(1rem, 5vw, 2rem);
+}
+.user a, .user span, .cart__shopping a, .cart__shopping span, .language a, .language span {
+  margin: 10px;
+  text-decoration: none;
+}
+.user:hover, .cart__shopping:hover, .language:hover {
+  color: #a4161a;
+  cursor: pointer;
+}
+
+.dropdown {
+  height: 100%;
+}/*# sourceMappingURL=header.css.map */

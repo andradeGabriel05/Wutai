@@ -1,0 +1,71 @@
+@import 'global.scss';
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: $bg;
+    color: $text-color-white;
+    img {
+        width: 150px;
+        margin: 0px 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $text-color-white;
+    }
+}
+
+.search__box {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 20px;
+    
+    #searchInput {
+        padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+        
+    }
+
+    #searchButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+        margin-left: -55px;
+        height: 40px;
+        padding: 15px;
+        border-radius: 10px;
+
+        color: $text-color-white;
+    }
+
+}
+
+.user, .cart__shopping, .language {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    i {
+        font-size: clamp(1rem, 5vw, 2rem);
+    }
+
+    a, span {
+        margin: 10px;
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: $text-color-light;
+        cursor: pointer;
+    }
+}
+
+.dropdown {
+    height: 100%;
+}
