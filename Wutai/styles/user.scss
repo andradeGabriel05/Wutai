@@ -1,0 +1,71 @@
+@import 'global.scss';
+
+.logo {
+    width: 100%;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+#logoImg {
+    width: 17%;
+
+}
+
+.switch__tab {
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+
+        li {
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin: 0px 10px;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: clamp(1rem, 1.7vw, 2rem);
+            color: $text-color;
+        }
+
+
+    }
+}
+
+#createAccount, #join {
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center
+    }
+
+    input {
+        padding: 17px;
+        margin: 15px;
+        width: 35%;
+        border-radius: 10px;
+        border: solid 1px #cccccc94;
+        font-size: clamp(1rem, 1.2vw, 2rem);
+
+    }
+
+    #name, #surname {
+        width: 100%;
+        margin: 9px;
+    }
+
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-size: clamp(1rem, 1.7vw, 2rem);
+    color: $text-color;
+}
