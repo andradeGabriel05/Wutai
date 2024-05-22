@@ -1,71 +1,81 @@
-@import 'global.scss';
+@import "global.scss";
 
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: $bg;
-    color: $text-color-white;
-    img {
-        width: 150px;
-        margin: 0px 20px;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: $bg;
+  color: $text-color-white;
+  img {
+    width: 150px;
+    margin: 0px 20px;
+  }
 
-    a {
-        text-decoration: none;
-        color: $text-color-white;
-    }
+  a {
+    text-decoration: none;
+    color: $text-color-white;
+  }
 }
 
 .search__box {
-    width: 50%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px;
+
+  #searchInput {
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  #searchButton {
     display: flex;
+    justify-content: center;
     align-items: center;
-    flex-direction: row;
-    margin: 20px;
-    
-    #searchInput {
-        padding: 10px;
-        width: 100%;
-        border-radius: 10px;
-        
-    }
+    background-color: #000;
+    margin-left: -55px;
+    height: 40px;
+    padding: 15px;
+    border-radius: 10px;
 
-    #searchButton {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #000;
-        margin-left: -55px;
-        height: 40px;
-        padding: 15px;
-        border-radius: 10px;
-
-        color: $text-color-white;
-    }
-
+    color: $text-color-white;
+  }
 }
 
-.user, .cart__shopping, .language {
-    display: flex;
-    align-items: center;
+.user,
+.cart__shopping,
+.language {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  i {
+    font-size: clamp(1rem, 5vw, 2rem);
+  }
+
+  a,
+  span,
+  button {
     margin: 10px;
-    i {
-        font-size: clamp(1rem, 5vw, 2rem);
-    }
+    text-decoration: none;
+  }
 
-    a, span {
-        margin: 10px;
-        text-decoration: none;
-    }
+  &:hover {
+    color: $text-color;
+    cursor: pointer;
 
-    &:hover {
-        color: $text-color-light;
-        cursor: pointer;
+    a {
+      color: $text-color;
     }
+  }
 }
 
-.dropdown {
-    height: 100%;
+.header__wrapper {
+  display: flex;
+  .user {
+    a {
+    }
+  }
 }

@@ -9,13 +9,13 @@
 </head>
 <body>
 <div class="logo">
-        <img src="../../../public/img/logo.png" alt="logo" id="logoImg">
+        <img src="../../../public/img/logo2.png" alt="logo" id="logoImg">
     </div>
 
     <div class="switch__tab">
         <ul>
-            <li><button id="joinBtn">Join</button></li>
-            <li><button id="createAccountBtn">Create account</button></li>
+            <li><button id="joinBtn">Entrar</button></li>
+            <li><button id="createAccountBtn">Criar conta</button></li>
         </ul>
     </div>
 
@@ -25,10 +25,10 @@
 
 
             <label for="email"></label>
-            <input type="text" name="email" id="email">
+            <input type="text" name="email" id="email" placeholder="Email">
 
             <label for="password"></label>
-            <input type="text" name="password" id="password">
+            <input type="text" name="password" id="password" placeholder="Password">
        
             <input type="submit" value="Entrar">
         </form>

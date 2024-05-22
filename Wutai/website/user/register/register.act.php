@@ -1,5 +1,5 @@
 <?php
-require('../../../connect.php');
+require('../../connect.php');
 session_start();
 
 extract($_POST);
@@ -10,7 +10,7 @@ $sql = "INSERT INTO `user` (`id`, `name`, `surname`, `email`, `password`, `birth
 
 $result = mysqli_query($conn, $sql);
 
-if ($result) {´
+if ($result) {
     $_SESSION['name'] = $name;
     $_SESSION['surname'] = $surname;
     $_SESSION['email'] = $email;

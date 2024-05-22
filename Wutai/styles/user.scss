@@ -11,6 +11,14 @@
 
 }
 
+#createAccountBtn, #joinBtn {
+    padding: 15px;
+    width: 120px;
+    background-color: #fff;
+    border: solid 1px #cccccc94;
+
+}
+
 .switch__tab {
     ul {
         display: flex;
@@ -47,7 +55,7 @@
     input {
         padding: 17px;
         margin: 15px;
-        width: 35%;
+        width: 30%;
         border-radius: 10px;
         border: solid 1px #cccccc94;
         font-size: clamp(1rem, 1.2vw, 2rem);
@@ -68,4 +76,5 @@
     margin: 10px;
     font-size: clamp(1rem, 1.7vw, 2rem);
     color: $text-color;
+    width: 31.4%;
 }

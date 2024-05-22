@@ -47,23 +47,42 @@ header a {
   color: #FFFFFF;
 }
 
-.user, .cart__shopping, .language {
+.user,
+.cart__shopping,
+.language {
   display: flex;
   align-items: center;
   margin: 10px;
 }
-.user i, .cart__shopping i, .language i {
+.user i,
+.cart__shopping i,
+.language i {
   font-size: clamp(1rem, 5vw, 2rem);
 }
-.user a, .user span, .cart__shopping a, .cart__shopping span, .language a, .language span {
+.user a,
+.user span,
+.user button,
+.cart__shopping a,
+.cart__shopping span,
+.cart__shopping button,
+.language a,
+.language span,
+.language button {
   margin: 10px;
   text-decoration: none;
 }
-.user:hover, .cart__shopping:hover, .language:hover {
-  color: #a4161a;
+.user:hover,
+.cart__shopping:hover,
+.language:hover {
+  color: #660708;
   cursor: pointer;
 }
+.user:hover a,
+.cart__shopping:hover a,
+.language:hover a {
+  color: #660708;
+}
 
-.dropdown {
-  height: 100%;
+.header__wrapper {
+  display: flex;
 }/*# sourceMappingURL=header.css.map */

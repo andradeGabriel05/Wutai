@@ -8,13 +8,13 @@
 </head>
 <body>
     <div class="logo">
-        <img src="../../../public/img/logo.png" alt="logo" id="logoImg">
+        <img src="../../../public/img/logo2.png" alt="logo" id="logoImg">
     </div>
 
     <div class="switch__tab">
         <ul>
-            <li><button id="joinBtn">Join</button></li>
-            <li><button id="createAccountBtn">Create account</button></li>
+            <li><button id="joinBtn">Entrar</button></li>
+            <li><button id="createAccountBtn">Criar conta</button></li>
         </ul>
 
     </div>
@@ -41,20 +41,6 @@
         </form>
     </section>
 
-    <section id="join">
-        <form action="login.act.php" method="post">
-            
-
-
-            <label for="email"></label>
-            <input type="text" name="email" id="email">
-
-            <label for="password"></label>
-            <input type="text" name="password" id="password">
-       
-            <input type="submit" value="Entrar">
-        </form>
-    </section>
 </body>
 <script src="../../../js/user.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
