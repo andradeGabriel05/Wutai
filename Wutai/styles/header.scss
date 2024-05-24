@@ -45,6 +45,42 @@ header {
   }
 }
 
+.user {
+  position: relative;
+
+  .user__panel {
+    display: none;
+    
+  }
+
+  &:hover {
+    .user__panel {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      background-color: $bg;
+      color: $text-color;
+      border-radius: 10px;
+      padding: 10px;
+      z-index: 100;
+
+      a {
+        color: $text-color-white;
+
+        &:hover {
+          color: $text-color;
+          cursor: pointer;
+        }
+      }
+      &:hover {
+        display: flex;
+      }
+
+    }
+  }
+}
+
 .user,
 .cart__shopping,
 .language {
@@ -64,11 +100,17 @@ header {
 
   &:hover {
     color: $text-color;
-    cursor: pointer;
 
     a {
       color: $text-color;
     }
+  }
+}
+
+.cart__shopping,
+.language {
+  &:hover {
+    cursor: pointer;
   }
 }
 
@@ -79,3 +121,5 @@ header {
     }
   }
 }
+
+

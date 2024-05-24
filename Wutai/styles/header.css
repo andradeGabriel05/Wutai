@@ -47,6 +47,34 @@ header a {
   color: #FFFFFF;
 }
 
+.user {
+  position: relative;
+}
+.user .user__panel {
+  display: none;
+}
+.user:hover .user__panel {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  background-color: #161a1d;
+  color: #660708;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 100;
+}
+.user:hover .user__panel a {
+  color: #FFFFFF;
+}
+.user:hover .user__panel a:hover {
+  color: #660708;
+  cursor: pointer;
+}
+.user:hover .user__panel:hover {
+  display: flex;
+}
+
 .user,
 .cart__shopping,
 .language {
@@ -75,12 +103,16 @@ header a {
 .cart__shopping:hover,
 .language:hover {
   color: #660708;
-  cursor: pointer;
 }
 .user:hover a,
 .cart__shopping:hover a,
 .language:hover a {
   color: #660708;
+}
+
+.cart__shopping:hover,
+.language:hover {
+  cursor: pointer;
 }
 
 .header__wrapper {

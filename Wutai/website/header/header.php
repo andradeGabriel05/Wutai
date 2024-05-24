@@ -4,8 +4,6 @@ require("./connect.php");
 @$id = $_SESSION['id'];
 
 $userQueryPanel = mysqli_query($conn, "SELECT * FROM `user` WHERE `id` = '$id'");
-$userPanel = mysqli_fetch_assoc($userQueryPanel);
-
 
 if (isset($_SESSION['name'])) {
     $name = $_SESSION['name'];
@@ -42,7 +40,16 @@ if (isset($_SESSION['name'])) {
 
             <?php
             if ($name != "Entrar/Registar") {
-                echo "<button id='menu'>$name</button>";
+                echo "<a href='../website/user/homepage/homepage.php' id='menu'>Olá, $name!</a>
+                    <div class='user__panel'>
+                        <a href='../website/user/homepage/homepage.php?user=$id'>Perfil</a>
+                        <a href='../website/user/orders/orders.php?user=$id'>Pedidos</a>
+                        <a href='../website/user/address/address.php?user=$id'>Endereços</a>
+                        <a href='../website/user/settings/settings.php?user=$id'>Definições</a>
+                        <a href='../website/user/login/logout.php?user=$id'>Sair</a>
+                    </div>
+                
+                ";
             } else {
                 echo "<a href='../website/user/register/register.php'>Entrar/Registar</a>";  // class='login_link'
             }
@@ -53,7 +60,7 @@ if (isset($_SESSION['name'])) {
 
         <div class="cart__shopping">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span>Carrinho</span>
+            <a href="">Carrinho</a>
         </div>
     </div>
 </header>
