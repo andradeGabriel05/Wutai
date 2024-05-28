@@ -1,6 +1,10 @@
 <?php
 session_start();
-require("./connect.php");
+define('BASE_PATH', realpath(dirname(__FILE__) . '/..'));
+
+require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
+
+
 @$id = $_SESSION['id'];
 
 $userQueryPanel = mysqli_query($conn, "SELECT * FROM `user` WHERE `id` = '$id'");
@@ -14,7 +18,7 @@ if (isset($_SESSION['name'])) {
 ?>
 
 <header>
-    <a href="../website/index.php"><img src="../public/img/logo2.png" alt=""></a>
+    <a href="/php_programs/Wutai/Wutai/website/index.php"><img src="/php_programs/Wutai/Wutai/public/img/logo2.png" alt=""></a>
     <div class="search__box">
         <!-- <div class="dropdown"> -->
         <!-- <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,7 +64,7 @@ if (isset($_SESSION['name'])) {
 
         <div class="cart__shopping">
             <i class="fa-solid fa-cart-shopping"></i>
-            <a href="">Carrinho</a>
+            <a href="/php_programs/Wutai/Wutai/website/user/cart/cart.php">Carrinho</a>
         </div>
     </div>
 </header>
