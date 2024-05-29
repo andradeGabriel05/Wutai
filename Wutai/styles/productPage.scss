@@ -1,0 +1,114 @@
+@import 'global';
+
+.product__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+
+    span {
+        margin-top: 13px !important;
+    }
+    .product__image__container {
+        height: auto !important;
+        width: 100% !important;
+
+        display: flex;
+        flex-direction: row;
+
+            ul {
+                height: 100%;
+                li {
+                    width: 5% !important;
+                    padding: 35px;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    margin: 15px;
+                    background-color: red;
+                }
+            }
+        }
+
+
+    .product__image {
+        width: 100% !important;
+        height: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px;
+        padding: 0 15px;
+        img {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+    .product__title {
+        margin: 0 10px;
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        #titleProduct {
+            width: 100%;
+            font-size: clamp(1rem, 10vw, 1.3rem);
+            color: black;
+        }
+
+        #priceProduct {
+            margin: 10px 0;
+            font-size: clamp(1rem, 10vw, 1.3rem);
+            font-weight: 600;
+        }
+    }
+
+    .product__price {
+        border: #c3c3c370 2px solid;
+        display: flex;
+        flex-direction: column;
+        padding: 0 15px;
+        input {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: $text-color;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .priceSpan {
+
+            font-size: clamp(1rem, 10vw, 1.3rem);
+        }
+    }
+    .product__price__details__seller{
+        margin-top: 13px !important;
+    }
+
+    .product__add {
+    
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        input {
+            text-align: center;
+            width: 70%;
+        }
+
+        .quantity {
+            margin-top: 0;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        #minus, #add {
+            width: auto;
+            margin-top: 0;
+        }
+    }
+}

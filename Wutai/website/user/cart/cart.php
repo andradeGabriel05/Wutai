@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Cart | Wutai</title>
 
     <link rel="stylesheet" href="../../../styles/cart.css">
 
@@ -28,7 +28,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Sim</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="noOption">Não</button>
       </div>
     </div>
   </div>

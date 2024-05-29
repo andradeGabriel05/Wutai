@@ -64,7 +64,7 @@ if (isset($_SESSION['name'])) {
 
         <div class="cart__shopping">
             <i class="fa-solid fa-cart-shopping"></i>
-            <a href="/php_programs/Wutai/Wutai/website/user/cart/cart.php">Carrinho</a>
+            <?php echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'>Carrinho</a>" ?>
         </div>
     </div>
 </header>

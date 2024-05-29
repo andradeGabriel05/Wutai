@@ -12,11 +12,12 @@
   align-items: center;
 }
 .spanPadText span {
-  font-size: clamp(1rem, 10vw, 2.3rem);
+  font-size: clamp(1rem, 10vw, 2rem);
 }
 .spanPadText p {
   margin-left: 20px;
   font-size: clamp(1rem, 10vw, 1.3rem);
+  margin-bottom: 0;
 }
 
 #cart {
@@ -38,7 +39,7 @@
 }
 #cart .buy__box span {
   margin: 30px 50px;
-  font-size: clamp(0.5rem, 10vw, 1.5rem);
+  font-size: clamp(0.5rem, 10vw, 1.3rem);
 }
 #cart .buy__box input {
   padding: 10px;
@@ -47,14 +48,14 @@
   border: solid 2px rgba(177, 177, 177, 0.6352941176);
 }
 #cart .buy__box #buyButton {
-  padding: 20px;
+  padding: 15px;
   border: none;
   border-radius: 10px;
   background-color: #a4161a;
   color: white;
   cursor: pointer;
   margin: 30px 100px;
-  font-size: clamp(0.5rem, 10vw, 1.3rem);
+  font-size: clamp(0.5rem, 10vw, 1.2rem);
 }
 #cart .buy__box #buyButton:hover {
   background-color: #660708;
@@ -92,10 +93,12 @@
   width: 100%;
   height: 100%;
   background-color: gray;
+  padding: 20px;
 }
 #cart .product__information .product__card .product__left__wrapper .product__image img {
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 }
 #cart .product__information .product__card .product__left__wrapper .product__add {
   display: flex;

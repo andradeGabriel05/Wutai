@@ -4,22 +4,29 @@ let quantity = document.getElementById('quantity').value
 
 const popUp = document.getElementById('popUp')
 const close = document.getElementById('close')
+const noOption = document.getElementById('noOption')
 
 function quantityFunc(x) {
     quantity = x
     console.log(quantity)
     document.getElementById('quantity').value = quantity
+
+        
+
 }
 
 minus.addEventListener('click', () => {
     quantity--
     document.getElementById('quantity').value = quantity
-    if (quantity <= 0) {
-        quantityFunc(0)
-        popUp.style.display = 'block'
 
+    if (quantity <= 1) {
+        quantityFunc(1)
     }
 })
+
+//remover produto
+//popUp.style.display = 'block'
+
 
 add.addEventListener('click', () => {
     quantity++
@@ -31,3 +38,7 @@ close.addEventListener('click', () => {
     quantityFunc(1)
 })
 
+noOption.addEventListener('click', () => {
+    popUp.style.display = 'none'
+    quantityFunc(1)
+})
