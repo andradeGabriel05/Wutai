@@ -27,7 +27,8 @@ if(isset($_POST['email']) || isset($_POST['password'])) {
             $_SESSION['surname'] = $user['surname'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['birthdate'] = $user['birthdate'];;
-            header('Location:../../index.php');            
+
+            header('Location:../../index.php');
 
         } else {
             echo "FALHOU. EMAIL OU SENHA";

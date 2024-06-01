@@ -4,22 +4,22 @@ session_start();
 
 extract($_POST);
 
-$hashPassword = password_hash($password, PASSWORD_DEFAULT);
+$id = $_SESSION['idUser'];
+$idSeller = $_SESSION['idSeller'];
 
-$email = $_SESSION['email'];
-
-$sql = "INSERT INTO `seller` (`idSeller`, `enterpriseName`, `email`, `creationDate`) VALUES (null, '$enterpriseName', '$email', current_timestamp());";
+$sql = "INSERT INTO `seller` (`idSeller`, `enterpriseName`, `creationDate`, `idUser`) VALUES (null, '$enterpriseName', current_timestamp(), '$id');";
 
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
-    $_SESSION['name'] = $name;
-    $_SESSION['surname'] = $surname;
-    $_SESSION['email'] = $email;
-    $_SESSION['birthdate'] = $birthdate;
+    if (!isset($_SESSION['idSeller'])) {
+        $_SESSION['idSeller'] = mysqli_insert_id($conn);
+    }
+    $_SESSION['enterpriseName'] = $enterpriseName;
     header('Location:../../index.php');
+    exit;
 } else {
-    echo "Error: ". $sql. "<br>". mysqli_error($conn);
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
 mysqli_close($conn);

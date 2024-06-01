@@ -4,12 +4,12 @@ session_start();
 if($_GET['auth'] == "false"){
     //verificando se o usuario burlou o sistema
     if(isset($_SESSION['idUser'])) {
-        header('Location:sellerRegister/sellerRegister.php?auth=true');
+        header('Location:sellerRegister/sellerRegister.php?auth=true&seller=false');
     }
 
 }else{
     // logou
-    header('Location:sellerRegister/sellerRegister.php?auth=true');
+    header('Location:sellerRegister/sellerRegister.php?auth=true&seller=false');
 }
 
 
@@ -24,7 +24,7 @@ if($_GET['auth'] == "false"){
 </head>
 
 <body>
-<?php include('sellerHeader.php'); ?>
+<?php include('header/sellerHeader.php'); ?>
 
     <main>
         <div class="affiliate__wrapper">
@@ -39,7 +39,7 @@ if($_GET['auth'] == "false"){
 
                 <p>Sua conta de afiliado fica vinculada a sua conta de comprador. 
                     Caso já tenha uma conta na Wutai, faça o login antes de realizar a inscrição no programa.</p>
-                <a href="/php_programs/Wutai/Wutai/website/user/register/register.php">Começar</a>
+                <a href="/php_programs/Wutai/Wutai/website/user/login/login.php">Começar</a>
             </div>
 
             <div class="affiliate__concept__image">

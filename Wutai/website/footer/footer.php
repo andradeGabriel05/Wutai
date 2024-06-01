@@ -1,7 +1,7 @@
 <footer class="text-center text-lg-start text-white">
     <section class="d-flex justify-content-between p-4" id="socialMedia">
         <div class="me-5">
-            <span>Get connected with us on social networks:</span>
+            <span>Acompanhe a Wutai nas redes sociais:</span>
         </div>
 
         <div>
@@ -61,7 +61,7 @@
                     </p>
 
                     <p>
-                        <a href="/php_programs/Wutai/Wutai/website/seller/sellerRegister/sellerRegister.php?auth=<?php echo isset($_SESSION['idUser']) ? 'true' : 'false'; ?>" class="text-white">Torne-se afiliado</a>
+                        <a href="/php_programs/Wutai/Wutai/website/seller/sellerRegister/sellerRegister.php?auth=<?php echo isset($_SESSION['idUser']) ? 'true' : 'false'; ?>&seller=<?php echo isset($_SESSION['idSeller']) ? 'true' : 'false'; ?> " class="text-white">Torne-se afiliado</a>
                     </p>
                     <p>
                         <a href="#!" class="text-white">Acompanhe seu pedido</a>

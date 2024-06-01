@@ -4,10 +4,7 @@
 @define('BASE_PATH', realpath(dirname(__FILE__) . '/..'));
 require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
 
-
 @$id = $_SESSION['idUser'];
-
-$userQueryPanelSeller = mysqli_query($conn, "SELECT * FROM `seller` WHERE `idUser` = '$id'");
 
 if (isset($_SESSION['name'])) {
     $name = $_SESSION['name'];
@@ -15,12 +12,14 @@ if (isset($_SESSION['name'])) {
     $name = "Entrar/Registar";
 }
 
-if($userQueryPanelSeller) {
-    var_dump($userQueryPanelSeller);
-} else {
-    echo "NAO SEI";
-}
 
+$userQueryPanelSeller = mysqli_query($conn, "SELECT * FROM `seller` WHERE `idUser` = '$id'");
+
+$seller = mysqli_fetch_assoc($userQueryPanelSeller);
+if ($seller) {
+    $idSeller = $seller['idSeller'];
+    $_SESSION['idSeller'] = $idSeller;
+}
 ?>
 
 <header>
@@ -55,10 +54,12 @@ if($userQueryPanelSeller) {
                         <a href='../website/user/homepage/homepage.php?user=$id'>Perfil</a>
                         <a href='../website/user/orders/orders.php?user=$id'>Pedidos</a>
                         <a href='../website/user/address/address.php?user=$id'>Endereços</a>
-                        <a href='../website/user/settings/settings.php?user=$id'>Definições</a>
-                        <a href='../website/user/login/logout.php'>Sair</a>
+                        <a href='../website/user/settings/settings.php?user=$id'>Definições</a>";
+                        if(isset($idSeller)) {
+                            echo "<a href='../website/seller/affiliatePanel.php?user=$idSeller'>Afiliado</a>";
+                        }
+                        echo "<a href='../website/user/login/logout.php'>Sair</a>
                     </div>
-                
                 ";
             } else {
                 echo "<a href='../website/user/register/register.php'>Entrar/Registar</a>";  // class='login_link'
