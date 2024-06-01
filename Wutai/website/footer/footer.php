@@ -61,7 +61,7 @@
                             <a href="#!" class="text-white">Sua conta</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-white">Torne-se afiliado</a>
+                            <a href="/php_programs/Wutai/Wutai/website/seller/sellerRegister/sellerRegister.php" class="text-white">Torne-se afiliado</a>
                         </p>
                         <p>
                             <a href="#!" class="text-white">Acompanhe seu pedido</a>

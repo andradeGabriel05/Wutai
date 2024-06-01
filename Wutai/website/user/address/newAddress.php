@@ -1,33 +1,16 @@
-<?php 
-require('../../connect.php');
-session_start();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seus endereços | Wutai</title>
+</head>
+<body>
+<section id="createAccount">
 
-if($_SESSION['id'] == NULL){
-    // não logou
-    header('Location:../affiliatePage.php');
-}else{
-    // logado
-    // echo "Successfully logged in! " . $_SESSION['name'];
-}
-?>
+        <form action="newAddress.act.php" method="POST">
 
-
-<?php include('../sellerHeader.php'); ?>
-
-
-<h2>Bem vindo ao Programa de Afiliados, <?php echo $_SESSION['name'] ." " . $_SESSION['surname']?>!</h2>
-    <!-- create account -->
-    <section id="createAccount">
-        <form action="sellerRegister.act.php" method="post">
-
-            <div class="name">
-            <label for="enterpriseName"></label>
-            <input type="text" name="enterpriseName" id="enterpriseName" placeholder="Nome da empresa">
-
-            <label for="phoneNumber"></label>
-            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Telefone">
-
-            <select name="country" id="country">
+        <select name="country" id="country">
                 <option value="brasil">Brasil</option>
                 <option value="argentina">Argentina</option>
                 <option value="chile">Chile</option>
@@ -46,6 +29,14 @@ if($_SESSION['id'] == NULL){
             </select>
 
 
+            <label for="completeName"></label>
+            <input type="text" name="completeName" id="completeName" placeholder="Nome completo">
+
+            <label for="phoneNumber"></label>
+            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Telefone">
+
+ 
+
             <div class="seller__address">
                 <label for="zipcode"></label>
                 <input type="text" name="zipcode" id="zipcode" placeholder="CEP/Código postal">
@@ -53,6 +44,15 @@ if($_SESSION['id'] == NULL){
                 <label for="address"></label>
                 <input type="text" name="address" id="address" placeholder="Linha de endereço">
                 
+                <label for="number"></label>
+                <input type="text" name="number" id="number" placeholder="Número">
+
+                <label for="complement"></label>
+                <input type="text" name="complement" id="complement" placeholder="Complemento">
+
+                <label for="neighborhood"></label>
+                <input type="text" name="neighborhood" id="neighborhood" placeholder="Bairro">
+
                 <label for="state"></label>
                 <input type="text" name="state" id="state" placeholder="Estado">
 
@@ -60,11 +60,9 @@ if($_SESSION['id'] == NULL){
                 <input type="text" name="city" id="city" placeholder="Cidade">
             </div>
 
-            <input type="submit" value="Create account">
+            <input type="submit" value="Adicionar endereço">
         </form>
     </section>
 
 </body>
-<script src="https://kit.fontawesome.com/8aca4bf827.js" crossorigin="anonymous"></script>
-
 </html>

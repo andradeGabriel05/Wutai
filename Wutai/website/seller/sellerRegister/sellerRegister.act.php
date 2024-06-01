@@ -6,12 +6,13 @@ extract($_POST);
 
 $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO `user` (`idUser`, `name`, `surname`, `email`, `password`, `birthdate`) VALUES (NULL, '$name', '$surname', '$email', '$hashPassword', '$birthdate')";
+$email = $_SESSION['email'];
+
+$sql = "INSERT INTO `seller` (`idSeller`, `enterpriseName`, `email`, `creationDate`) VALUES (null, '$enterpriseName', '$email', current_timestamp());";
 
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
-    $_SESSION['idUser'] = $id;
     $_SESSION['name'] = $name;
     $_SESSION['surname'] = $surname;
     $_SESSION['email'] = $email;
@@ -22,4 +23,3 @@ if ($result) {
 }
 
 mysqli_close($conn);
-

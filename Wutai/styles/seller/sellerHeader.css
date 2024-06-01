@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  color: #000;
+}
+
+header {
+  padding: 20px 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+}
+header .logo span {
+  font-size: clamp(1rem, 10vw, 1.3rem);
+  text-transform: uppercase;
+  padding: 10px;
+}
+header .header__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+header .header__right .language {
+  border-right: solid 1px black;
+  padding: 15px;
+}
+header .header__right .language i {
+  color: #000;
+}
+header .header__right a {
+  text-decoration: none;
+  font-size: clamp(0.5rem, 10vw, 1rem);
+  text-transform: uppercase;
+  color: #000;
+  border: solid 1px black;
+  margin-left: 15px;
+  padding: 15px;
+}
+header span {
+  border-left: 1px solid black;
+}
+
+#logoImg {
+  background-image: url(/php_programs/Wutai/Wutai/public/img/logo2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 170px;
+  height: 80px;
+  margin-left: 20px;
+}/*# sourceMappingURL=sellerHeader.css.map */

@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.addresses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  padding: 20px 50px;
+  height: 45vh;
+}
+.addresses * {
+  border-radius: 5px;
+  text-decoration: none;
+}
+.addresses .new__address {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  outline: dashed;
+}
+.addresses .new__address i {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.addresses .new__address a {
+  text-decoration: none;
+}
+
+h1 {
+  padding: 20px 50px;
+}
+
+.user__address {
+  outline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+.user__address * {
+  margin: 0 10px;
+}
+.user__address .update__address {
+  display: flex;
+}
+.user__address .update__address a {
+  -webkit-text-decoration: dashed;
+          text-decoration: dashed;
+  color: #660708;
+  margin: 0 10px 0 0;
+}
+.user__address p {
+  margin: 0 10px;
+}/*# sourceMappingURL=address.css.map */

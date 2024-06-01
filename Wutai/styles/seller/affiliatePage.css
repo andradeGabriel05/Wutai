@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #a4161a;
+  color: #fff;
+}
+
+header {
+  padding: 20px 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+}
+header .logo span {
+  font-size: clamp(1rem, 10vw, 2rem);
+  text-transform: uppercase;
+  padding: 10px;
+}
+header .header__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+header .header__right .language {
+  border-right: solid 1px black;
+  padding: 15px;
+}
+header .header__right a {
+  text-decoration: none;
+  font-size: clamp(0.5rem, 10vw, 1rem);
+  text-transform: uppercase;
+  color: #fff;
+  border: solid 1px black;
+  margin-left: 15px;
+  padding: 15px;
+}
+header span {
+  border-left: 1px solid black;
+}
+
+#logoImg {
+  background-image: url(/php_programs/Wutai/Wutai/public/img/logo2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 170px;
+  height: 80px;
+  margin-left: 20px;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+}
+main .affiliate__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+}
+main .affiliate__wrapper .affiliate__panel {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  border-right: solid 1px black;
+}
+main .affiliate__wrapper .affiliate__panel * {
+  margin: 15px 0;
+}
+main .affiliate__wrapper .affiliate__panel h1 {
+  margin: 0;
+}
+main .affiliate__wrapper .affiliate__panel p {
+  width: 90%;
+}
+main .affiliate__wrapper .affiliate__panel a {
+  padding: 15px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #000;
+  width: 30%;
+  text-align: center;
+}
+main .affiliate__wrapper .affiliate__concept__image {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  width: 120%;
+}
+main .affiliate__wrapper .affiliate__concept__image img {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=affiliatePage.css.map */

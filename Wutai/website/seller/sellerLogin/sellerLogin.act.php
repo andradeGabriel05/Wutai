@@ -6,7 +6,7 @@ session_start();
 
 if(isset($_POST['email']) || isset($_POST['password'])) {
     if(strlen($_POST['email']) < 1 || strlen($_POST['password']) < 1) {
-        echo "Insira seu email ou senha";
+        echo "Please enter your email address or password";
     } else {
         $email = $conn -> real_escape_string($_POST['email']);
         $password = $conn -> real_escape_string($_POST['password']);
@@ -22,7 +22,7 @@ if(isset($_POST['email']) || isset($_POST['password'])) {
             if(!isset($_SESSION)) {
                 session_start();
             }
-            $_SESSION['idUser'] = $user['idUser'];
+            $_SESSION['id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
             $_SESSION['surname'] = $user['surname'];
             $_SESSION['email'] = $user['email'];

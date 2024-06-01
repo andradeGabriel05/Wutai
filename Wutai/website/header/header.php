@@ -1,13 +1,14 @@
 <?php
-session_start();
-define('BASE_PATH', realpath(dirname(__FILE__) . '/..'));
 
+@session_start();
+@define('BASE_PATH', realpath(dirname(__FILE__) . '/..'));
 require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
 
 
-@$id = $_SESSION['id'];
+$id = $_SESSION['idUser'];
 
-$userQueryPanel = mysqli_query($conn, "SELECT * FROM `user` WHERE `id` = '$id'");
+$userQueryPanel = mysqli_query($conn, "SELECT * FROM `user` WHERE `idUser` = '$id'");
+
 
 if (isset($_SESSION['name'])) {
     $name = $_SESSION['name'];
@@ -50,7 +51,7 @@ if (isset($_SESSION['name'])) {
                         <a href='../website/user/orders/orders.php?user=$id'>Pedidos</a>
                         <a href='../website/user/address/address.php?user=$id'>Endereços</a>
                         <a href='../website/user/settings/settings.php?user=$id'>Definições</a>
-                        <a href='../website/user/login/logout.php?user=$id'>Sair</a>
+                        <a href='../login/logout.php?user=$id'>Sair</a>
                     </div>
                 
                 ";
