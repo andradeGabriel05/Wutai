@@ -2,15 +2,38 @@
 require('../../connect.php');
 session_start();
 
-if($_SESSION['id'] == NULL){
+// if($_SESSION['idUser'] == NULL){
+//     // não logou
+//     header('Location:../affiliatePage.php');
+// }else{
+//     // logado
+//     // echo "Successfully logged in! " . $_SESSION['name'];
+// }
+
+if(@$_GET['auth'] == "false"){
     // não logou
-    header('Location:../affiliatePage.php');
-}else{
-    // logado
-    // echo "Successfully logged in! " . $_SESSION['name'];
+    header('Location:../affiliatePage.php?auth=false');
+    
+} else {
+    if(isset($_SESSION['idUser'])){
+
+    } else {
+        // não logou
+        header('Location:../affiliatePage.php?auth=false');
+    }
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar afiliado | Wutai</title>
+    <link rel="stylesheet" href="/php_programs/Wutai/Wutai/styles/seller/register/sellerRegister.css">
+    <link rel="stylesheet" href="/php_programs/Wutai/Wutai/styles/seller/sellerHeader.css">
+
+</head>
 
 <?php include('../sellerHeader.php'); ?>
 

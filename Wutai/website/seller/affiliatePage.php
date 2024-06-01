@@ -1,16 +1,30 @@
 <?php 
 session_start();
+//se não foi logado
+if($_GET['auth'] == "false"){
+    //verificando se o usuario burlou o sistema
+    if(isset($_SESSION['idUser'])) {
+        header('Location:sellerRegister/sellerRegister.php?auth=true');
+    }
 
-if(@$_SESSION['id'] == NULL){
-    // não logou
 }else{
     // logou
-    header('Location:sellerRegister/sellerRegister.php?auth=true&id='.$_SESSION['id']);
+    header('Location:sellerRegister/sellerRegister.php?auth=true');
 }
 
 
 ?>
-<?php include('sellerHeader.php '); ?>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afiliado | Wutai</title>
+    <link rel="stylesheet" href="/php_programs/Wutai/Wutai/styles/seller/sellerHeader.css">
+    <link rel="stylesheet" href="/php_programs/Wutai/Wutai/styles/seller/affiliatePage.css">
+</head>
+
+<body>
+<?php include('sellerHeader.php'); ?>
 
     <main>
         <div class="affiliate__wrapper">

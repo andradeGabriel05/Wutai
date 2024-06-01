@@ -5,15 +5,20 @@
 require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
 
 
-$id = $_SESSION['idUser'];
+@$id = $_SESSION['idUser'];
 
-$userQueryPanel = mysqli_query($conn, "SELECT * FROM `user` WHERE `idUser` = '$id'");
-
+$userQueryPanelSeller = mysqli_query($conn, "SELECT * FROM `seller` WHERE `idUser` = '$id'");
 
 if (isset($_SESSION['name'])) {
     $name = $_SESSION['name'];
 } else {
     $name = "Entrar/Registar";
+}
+
+if($userQueryPanelSeller) {
+    var_dump($userQueryPanelSeller);
+} else {
+    echo "NAO SEI";
 }
 
 ?>
@@ -51,7 +56,7 @@ if (isset($_SESSION['name'])) {
                         <a href='../website/user/orders/orders.php?user=$id'>Pedidos</a>
                         <a href='../website/user/address/address.php?user=$id'>Endereços</a>
                         <a href='../website/user/settings/settings.php?user=$id'>Definições</a>
-                        <a href='../login/logout.php?user=$id'>Sair</a>
+                        <a href='../website/user/login/logout.php'>Sair</a>
                     </div>
                 
                 ";

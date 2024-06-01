@@ -1,4 +1,9 @@
-@import "global";
+@import "../global";
+
+
+html {
+  overflow-y: hidden;
+}
 
 body {
   background-color: $bg3;
@@ -23,7 +28,6 @@ main {
       justify-content: space-between;
       flex-direction: column;
       width: 100%;
-      border-right: solid 1px black;
         & * {
             margin: 15px 0;
 

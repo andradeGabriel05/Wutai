@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../global.scss","sellerRegister.css","sellerRegister.scss"],"names":[],"mappings":"AAAQ,4EAAA;AAER;EACI,SAAA;EACA,UAAA;EACA,sBAAA;EACA,kCAAA;ACAJ;;ACJA;EACI,sBAAA;EACA,WAAA;ADOJ;;ACJA;EACI,WAAA;ADOJ;ACLI;EACI,YAAA;EACA,gBAAA;ADOR","file":"sellerRegister.css"}
+{"version":3,"sources":["../../global.scss","sellerRegister.css","sellerRegister.scss"],"names":[],"mappings":"AAAQ,4EAAA;AAER;EACI,SAAA;EACA,UAAA;EACA,sBAAA;EACA,kCAAA;ACAJ;;ACJA;EACI,sBAAA;EACA,WAAA;ADOJ","file":"sellerRegister.css"}
