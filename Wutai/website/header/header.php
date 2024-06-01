@@ -49,20 +49,20 @@ if ($seller) {
 
             <?php
             if ($name != "Entrar/Registar") {
-                echo "<a href='../website/user/homepage/homepage.php' id='menu'>Olá, $name!</a>
+                echo "<a href='/php_programs/Wutai/Wutai/website/user/homepage/homepage.php' id='menu'>Olá, $name!</a>
                     <div class='user__panel'>
-                        <a href='../website/user/homepage/homepage.php?user=$id'>Perfil</a>
-                        <a href='../website/user/orders/orders.php?user=$id'>Pedidos</a>
-                        <a href='../website/user/address/address.php?user=$id'>Endereços</a>
-                        <a href='../website/user/settings/settings.php?user=$id'>Definições</a>";
+                        <a href='/php_programs/Wutai/Wutai/website/user/homepage/homepage.php?user=$id'>Perfil</a>
+                        <a href='/php_programs/Wutai/Wutai/website/user/orders/orders.php?user=$id'>Pedidos</a>
+                        <a href='/php_programs/Wutai/Wutai/website/user/address/address.php?user=$id'>Endereços</a>
+                        <a href='/php_programs/Wutai/Wutai/website/user/settings/settings.php?user=$id'>Definições</a>";
                         if(isset($idSeller)) {
-                            echo "<a href='../website/seller/affiliatePanel.php?user=$idSeller'>Afiliado</a>";
+                            echo "<a href='/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?user=$idSeller'>Afiliado</a>";
                         }
-                        echo "<a href='../website/user/login/logout.php'>Sair</a>
+                        echo "<a href='/php_programs/Wutai/Wutai/website/user/login/logout.php'>Sair</a>
                     </div>
                 ";
             } else {
-                echo "<a href='../website/user/register/register.php'>Entrar/Registar</a>";  // class='login_link'
+                echo "<a href='/php_programs/Wutai/Wutai/website/user/register/register.php'>Entrar/Registar</a>";  // class='login_link'
             }
 
 

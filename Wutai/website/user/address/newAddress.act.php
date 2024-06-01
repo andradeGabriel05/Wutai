@@ -10,7 +10,6 @@ $sql = "INSERT INTO `address` (`idAddress`, `completeName`, `zipcode`, `state`, 
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
-    $_SESSION['idAddress'] = $idAddress;
     $_SESSION['completeName'] = $completeName;
     $_SESSION['zipcode'] = $zipcode;
     $_SESSION['state'] = $state;

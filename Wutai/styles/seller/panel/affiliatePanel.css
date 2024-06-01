@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.affiliate__wrapper {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  justify-content: space-between;
+  padding: 20px;
+}
+.affiliate__wrapper aside {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+.affiliate__wrapper aside a {
+  outline: auto #660708;
+  text-decoration: none;
+  color: #660708;
+  padding: 30px;
+}
+
+#productsSelled {
+  display: flex;
+  flex-direction: column;
+}
+#productsSelled .product__information {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 20px;
+}
+#productsSelled .product__information .block1 {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  outline: auto #660708;
+}
+
+#addProduct {
+  display: flex;
+}
+#addProduct form {
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#addProduct form .form-group {
+  margin: 15px 20px;
+}
+#addProduct form .form-group input {
+  width: 100%;
+}
+#addProduct form #productName {
+  margin-top: 0;
+}
+
+#productImage {
+  height: inherit;
+}
+#productImage img {
+  width: 500px;
+  height: 500px;
+  outline: auto #660708;
+  padding: 50px;
+}/*# sourceMappingURL=affiliatePanel.css.map */

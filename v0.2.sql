@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/06/2024 às 03:18
+-- Tempo de geração: 01/06/2024 às 23:26
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -49,17 +49,32 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`idAddress`, `completeName`, `zipcode`, `state`, `city`, `country`, `address`, `houseNumber`, `complement`, `neighborhood`, `phoneNumber`, `idUser`) VALUES
-(1, '', '', '', '', '', '', 0, '', '', '', 8),
-(2, 'Gabriel Lima Andrade', '310289', 'pais itaquera', 'tatuape', 'brasil', 'rua numero teste', 40, 'casa', '', '', 8),
-(3, 'Gabriel Lima Andrade', '310289', 'pais itaquera', 'tatuape', 'brasil', 'rua numero teste', 40, 'casa', '', '', 8),
-(4, 'Gabriel Lima Andrade', '310289', 'pais itaquera', 'tatuape', 'brasil', 'rua numero teste', 40, 'casa', '', '', 8),
-(5, 'Gabriel Lima Andrade', '310289', 'pais itaquera', 'tatuape', 'brasil', 'rua numero teste', 40, 'casa', '', '', 8),
-(6, 'Gabriel Lima Andrade', '310289', 'pais itaquera', 'tatuape', 'brasil', 'rua numero teste', 40, 'casa', '', '', 8),
-(7, 'Gabriel Lima Andrade', '310289', 'pais itaquera', 'tatuape', 'brasil', 'rua numero teste', 40, 'casa', '', '', 8),
-(8, 'Gabriel Lima Andrade', '310289', 'pais itaquera', 'tatuape', 'brasil', 'ruanumeroteste', 40, 'casa', '', '', 8),
-(9, 'Gabriel Lima Andrade', '310289', 'pais itaquera', 'tatuape', 'brasil', 'ruanumeroteste', 40, 'casa', '', '', 8),
-(10, 'Gabriel Lima Andrade', '310289', 'pais itaquera', 'tatuape', 'brasil', 'ruanumeroteste', 40, 'casa', '', '', 8),
-(18, 'Gabriel3 Lima3', '321838', 'guarulhos', 'sao paulo', 'brasil', 'rua numero dois', 20, 'casa', 'dezessete', '123123123', 10);
+(19, 'Gabriel3 Lima3', '321838', 'guarulhos', 'sao paulo', 'brasil', 'rua numero dois', 20, 'casa', 'dezessete', '', 8);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `product`
+--
+
+CREATE TABLE `product` (
+  `idProduct` bigint(20) NOT NULL,
+  `productName` varchar(100) NOT NULL,
+  `category` varchar(60) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `productDescription` varchar(1000) NOT NULL,
+  `productImage` varchar(255) NOT NULL,
+  `price` varchar(60) NOT NULL,
+  `idSeller` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Despejando dados para a tabela `product`
+--
+
+INSERT INTO `product` (`idProduct`, `productName`, `category`, `quantity`, `productDescription`, `productImage`, `price`, `idSeller`) VALUES
+(1, 'teste', '1', 7, 'asdaasd', 'HD-wallpaper-plain-black-black.jpg', '123', 3),
+(2, 'teste2', 'drink', 4, 'asdasd', 'kisspng-silhouette-project-wolfpack-dog-wolf-5ad0a56d8d2f30.7181102015236232775783.png', '1231231', 3);
 
 -- --------------------------------------------------------
 
@@ -70,10 +85,16 @@ INSERT INTO `address` (`idAddress`, `completeName`, `zipcode`, `state`, `city`, 
 CREATE TABLE `seller` (
   `idSeller` bigint(20) NOT NULL,
   `enterpriseName` varchar(60) NOT NULL,
-  `phoneNumber` varchar(30) NOT NULL,
   `creationDate` datetime NOT NULL DEFAULT current_timestamp(),
   `idUser` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Despejando dados para a tabela `seller`
+--
+
+INSERT INTO `seller` (`idSeller`, `enterpriseName`, `creationDate`, `idUser`) VALUES
+(3, 'empresaBucha', '2024-06-01 02:28:13', 8);
 
 -- --------------------------------------------------------
 
@@ -119,12 +140,18 @@ ALTER TABLE `address`
   ADD KEY `fkUserAddress` (`idUser`);
 
 --
+-- Índices de tabela `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`idProduct`),
+  ADD KEY `fkIdSeller` (`idSeller`);
+
+--
 -- Índices de tabela `seller`
 --
 ALTER TABLE `seller`
   ADD PRIMARY KEY (`idSeller`),
   ADD UNIQUE KEY `enterpriseName` (`enterpriseName`),
-  ADD UNIQUE KEY `phoneNumber` (`phoneNumber`),
   ADD KEY `fkUserSeller` (`idUser`);
 
 --
@@ -141,13 +168,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `address`
 --
 ALTER TABLE `address`
-  MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de tabela `product`
+--
+ALTER TABLE `product`
+  MODIFY `idProduct` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `seller`
 --
 ALTER TABLE `seller`
-  MODIFY `idSeller` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idSeller` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `user`
@@ -164,6 +197,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `address`
   ADD CONSTRAINT `fkUserAddress` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`);
+
+--
+-- Restrições para tabelas `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `fkIdSeller` FOREIGN KEY (`idSeller`) REFERENCES `seller` (`idSeller`);
 
 --
 -- Restrições para tabelas `seller`
