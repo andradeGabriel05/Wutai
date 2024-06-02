@@ -5,6 +5,7 @@ session_start();
 extract($_POST);
 $id = $_SESSION['idUser'];
 
+
 $sql = "INSERT INTO `address` (`idAddress`, `completeName`, `zipcode`, `state`, `city`, `country`, `address`, `houseNumber`, `complement`, `neighborhood`, `phoneNumber`, `idUser`) VALUES (null, '$completeName', '$zipcode', '$state', '$city', '$country', '$address', '$number', '$complement', '$neighborhood', '$phoneNumber', '$id');";
 
 $result = mysqli_query($conn, $sql);

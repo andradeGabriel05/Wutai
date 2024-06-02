@@ -48,10 +48,21 @@ display: flex;
         flex-direction: column;
         justify-content: center;
         .form-group {
-            margin: 15px 20px;
+            margin: 15px 0;
             input {
                 width: 100%;
             }
+        }
+
+        .form-check {
+          padding-top: 15px;
+          padding-bottom: 15px;
+          margin: 20px 0;
+          border: solid 1px #e2e2e2c3;
+          input {
+            margin-left: 0;
+            margin-right: 12px;
+          }
         }
 
         #productName {

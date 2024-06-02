@@ -15,6 +15,9 @@ if (isset($_SESSION['idUser'])) {
     header('Location: /php_programs/Wutai/Wutai/website/user/login/login.php');
 }
 
+if($_GET['user'] != $id) {
+    header('Location: /php_programs/Wutai/Wutai/website/user/address/address.php?user='.$id);
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +29,10 @@ if (isset($_SESSION['idUser'])) {
     <title>Seus endereços | Wutai</title>
     <link rel="stylesheet" href="../../../styles/header.css">
     <link rel="stylesheet" href="../../../styles/user/address.css">
+    <link rel="stylesheet" href="../../../styles/footer.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
 </head>
 
 <body>
@@ -66,7 +73,5 @@ if (isset($_SESSION['idUser'])) {
         }
     ?>
     </section>
-</body>
-<script src="https://kit.fontawesome.com/8aca4bf827.js" crossorigin="anonymous"></script>
-
-</html>
+    
+    <?php include('../../footer/footer.php'); ?>

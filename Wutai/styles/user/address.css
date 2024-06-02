@@ -11,7 +11,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
   padding: 20px 50px;
-  height: 45vh;
+  height: 100%;
 }
 .addresses * {
   border-radius: 5px;
@@ -24,7 +24,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 50vh;
   outline: dashed;
 }
 .addresses .new__address i {
@@ -45,6 +45,7 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+  height: 50vh;
 }
 .user__address * {
   margin: 0 10px;

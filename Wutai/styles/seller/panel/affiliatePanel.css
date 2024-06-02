@@ -51,10 +51,20 @@
   justify-content: center;
 }
 #addProduct form .form-group {
-  margin: 15px 20px;
+  margin: 15px 0;
 }
 #addProduct form .form-group input {
   width: 100%;
+}
+#addProduct form .form-check {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 20px 0;
+  border: solid 1px rgba(226, 226, 226, 0.7647058824);
+}
+#addProduct form .form-check input {
+  margin-left: 0;
+  margin-right: 12px;
 }
 #addProduct form #productName {
   margin-top: 0;

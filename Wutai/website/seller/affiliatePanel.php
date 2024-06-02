@@ -1,5 +1,8 @@
 <?php
 session_start();
+@define('BASE_PATH', realpath(dirname(__FILE__) . '/..'));
+require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
+
 
 if (@$_GET['seller'] == "true") {
     // logado como vendedor
@@ -11,6 +14,9 @@ if (@$_GET['seller'] == "true") {
         header('Location:/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?seller=true');
     }
 }
+
+    $sellerNameResult = mysqli_query($conn, "SELECT * FROM `seller` WHERE `idSeller` = '$_SESSION[idSeller]'");
+    $seller = mysqli_fetch_array($sellerNameResult);
 
 ?>
 
@@ -58,9 +64,12 @@ if (@$_GET['seller'] == "true") {
                     <input type="text" class="form-control" id="productName" name="productName" placeholder="Nome do produto">
                 </div>
 
-                <div class="form-group">
-                    <label for="price">Preço do produto</label>
-                    <input type="text" class="form-control" id="price" name="price" placeholder="Preço do produto">
+                <label for="price">Preço</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="money">R$</span>
+                    </div>
+                    <input type="text" class="form-control" id="price" name="price" placeholder="Preço" aria-describedby="money" required>
                 </div>
 
                 <div class="form-group">
@@ -71,6 +80,7 @@ if (@$_GET['seller'] == "true") {
                         <option value="hygiene">Higiene</option>
                         <option value="cleaning">Limpeza</option>
                         <option value="perfumery">Perfumaria</option>
+                        <option value="perfumery">Casa</option>
                         <option value="clothing">Roupas</option>
                         <option value="health">Saúde</option>
                         <option value="apparel">Vestuário</option>
@@ -78,22 +88,9 @@ if (@$_GET['seller'] == "true") {
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="quantity">
                     <label for="quantity">Quantidade</label>
-                    <select class="form-control" id="quantity" name="quantity">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
+                    <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantidade">
                 </div>
 
                 <div class="form-group">
@@ -101,9 +98,23 @@ if (@$_GET['seller'] == "true") {
                     <textarea class="form-control" id="productDescription" name="productDescription" rows="5" placeholder="Descrição do produto"></textarea>
                 </div>
 
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="deliver" id="deliverSeller" value="<?php echo $seller['enterpriseName'] ?>" checked>
+                    <label class="form-check-label" for="deliverSeller">
+                    Eu mesmo entregarei este produto
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="deliver" id="deliverWutai" value="Wutai">
+                    <label class="form-check-label" for="deliverWutai">
+                    A Wutai entregará o produto
+                    </label>
+                </div>
+
                 <div class="form-group">
                     <label for="productImage">Imagem do produto</label>
-                    <input type="file" class="form-control" id="productImage" name="productImage" onchange="previewFile(this)">
+                    <input type="file" class="form-control" id="productImage" name="productImage" >
                 </div>
 
                 <div class="form-group">
@@ -119,23 +130,4 @@ if (@$_GET['seller'] == "true") {
 
     </div>
 
-    <script>
-        function previewFile(input) {
-            $("#previewImg").fadeOut(100);
-            $("#imagemAtual").css("filter", "blur(5px)");
-            $("#previewImg").css("filter", "blur(0px)");
-            var file = $("input[type=file]").get(0).files[0];
-
-            if (file) {
-                var reader = new FileReader();
-
-                reader.onload = function() {
-                    $("#previewImg").attr("src", reader.result);
-                };
-
-                reader.readAsDataURL(file);
-            }
-            $("#previewImg").fadeIn(800);
-        }
-    </script>
     <?php include('../footer/footer.php'); ?>

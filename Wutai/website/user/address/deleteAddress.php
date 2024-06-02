@@ -1,6 +1,12 @@
 <?php
 require('../../connect.php');
+session_start();
 $idAddress = $_GET['address'];
+
+
+if($_GET['user'] != $_SESSION['idUser']) {
+    header('Location: /php_programs/Wutai/Wutai/website/user/address/address.php?user='.$id);
+}
 
 $sql = "DELETE FROM `address` WHERE `idAddress` = '$idAddress'";
 

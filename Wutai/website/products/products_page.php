@@ -12,60 +12,74 @@
 <body>
 
 
-<?php include ('../header/header.php'); ?>
+<?php include ('../header/header.php'); 
 
-<div class="product__container">
-    <div class="product__image__container">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
 
-        <div class="product__image"><img src="https://static.javatpoint.com/tutorial/software-testing/images/beta-testing-logo.png" alt=""></div>
 
-    </div>
+$product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = '$_GET[productId]'");
 
-    <div class="product__title">
+$idSellerResult = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = '$_GET[productId]'");
+$idSeller = mysqli_fetch_array($idSellerResult);
 
-        <span id="titleProduct">Nome de um produto inutil criado por crinças asiaticas escravisadas pela shein. Compre e ajude esse comercio ;) </span>
-        <span id="priceProduct">R$Preco</span>
-        <div class="product__details">
-            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium consectetur repellendus nemo et alias, labore similique blanditiis id nisi eius ratione dolores quis, earum deserunt?</span>
-        </div>
+if ($idSeller) {
+    $sellerNameResult = mysqli_query($conn, "SELECT * FROM `seller` WHERE `idSeller` = '$idSeller[idSeller]'");
+    $seller = mysqli_fetch_array($sellerNameResult);
+
+}
+
+while ($usuario = mysqli_fetch_assoc($product)) {
+echo '<div class="product__container">';
+    echo '<div class="product__image__container">';
+        echo '<ul>';
+            echo '<li></li>';
+            echo '<li></li>';
+            echo '<li></li>';
+            echo '<li></li>';
+            echo '<li></li>';
+            echo '<li></li>';
+        echo '</ul>';
+
+        echo '<div class="product__image"><img src="https://static.javatpoint.com/tutorial/software-testing/images/beta-testing-logo.png" alt=""></div>';
+
+    echo '</div>';
+
+    echo '<div class="product__title">';
+
+        echo '<span id="titleProduct">'.$usuario['productName'] . '</span>';
+        echo '<span id="priceProduct">R$ <span>'.$usuario['price'] . '</span></span>';
+        echo '<span id="quantity">Quantidade disponível: '.$usuario['quantity'] . ' </span>';
+        echo '<span class="product__details">'.$usuario['productDescription'] . ' </span>';
     
-    </div>
+    echo '</div>';
 
-    <div class="product__price">
-        <span class="priceSpan">R$ <span>Preco</span></span>
-        <span>Entrega GRÁTIS: Segunda-feira, 3 de Junho no seu primeiro pedido</span>
-        <span>Lorem ipsum dolor sit.</span>
-        <div class="product__add">
-                        <div class="minus">
-                            <input type="button" value="-" id="minus">
-                        </div>
-                        <div class="quantity">
-                            <input type="text" name="" id="quantity" value="1">
-                        </div>
-                        <div class="add">
-                            <input type="button" value="+" id="add">
-                        </div>
-                    </div>
-        <input type="submit" value="Adicionar ao carrinho">
-        <input type="submit" value="Comprar agora">
-        <div class="product__price__details__seller">
-            <span class="span__seller">Enviado por: <span class="span__seller">DISSSS</span></span>
-            <span class="span__seller">Vendido por: <span class="span__seller">DSADAU</span></span>
-        </div>
+    echo '<div class="product__price">';
+        echo '<span class="price__span">R$'.$usuario['price'] . '</span>';
+        echo '<span>Entrega GRÁTIS: Segunda-feira, 3 de Junho no seu primeiro pedido</span>';
+        echo '<span>Lorem ipsum dolor sit.</span>';
+        echo '<div class="product__add">';
+                        echo '<div class="minus">';
+                            echo '<input type="button" value="-" id="minus">';
+                        echo '</div>';
+                        echo '<div class="quantity">';
+                            echo '<input type="text" name="" id="quantity" value="1">';
+                        echo '</div>';
+                        echo '<div class="add">';
+                            echo '<input type="button" value="+" id="add">';
+                        echo '</div>';
+                    echo '</div>';
+        echo '<input type="submit" value="Adicionar ao carrinho">';
+        echo '<input type="submit" value="Comprar agora">';
+        echo '<div class="product__price__details__seller">';
+            echo '<span class="span__seller">Enviado por: '.$usuario['deliver'] . '</span></span>';
+            echo '<span class="span__seller">Vendido por: '.$seller['enterpriseName'] . '</span></span>';
+        echo '</div>';
 
 
         
-    </div>
-</div>
-    
+    echo '</div>';
+echo '</div>';
+}
+?>
 </body>
 <script src="/php_programs/Wutai/Wutai/js/inputAddProduct.js"></script>
 <script src="https://kit.fontawesome.com/8aca4bf827.js" crossorigin="anonymous"></script>

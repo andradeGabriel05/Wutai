@@ -10,16 +10,9 @@ $sql = "INSERT INTO `user` (`idUser`, `name`, `surname`, `email`, `password`, `b
 
 $result = mysqli_query($conn, $sql);
 
-if ($result) {
-    $_SESSION['idUser'] = $id;
-    $_SESSION['name'] = $name;
-    $_SESSION['surname'] = $surname;
-    $_SESSION['email'] = $email;
-    $_SESSION['birthdate'] = $birthdate;
-    header('Location:../../index.php');
-} else {
-    echo "Error: ". $sql. "<br>". mysqli_error($conn);
-}
+
+header('Location:../login/login.php');
+
 
 mysqli_close($conn);
 

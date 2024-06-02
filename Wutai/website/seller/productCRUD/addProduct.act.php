@@ -9,8 +9,8 @@ extract($_POST);
 
 $idSeller = $_SESSION['idSeller'];
 
-$sql = "INSERT INTO `product` (`idProduct`, `productName`, `category`, `quantity`, `productDescription`, `productImage`, `price`, `idSeller`) VALUES 
-    (null, '$productName', '$category', '$quantity', '$productDescription', '$productImage', '$price', '$idSeller');";
+$sql = "INSERT INTO `product` (`idProduct`, `productName`, `category`, `quantity`, `productDescription`, `productImage`, `price`, `deliver`, `idSeller`) VALUES 
+    (null, '$productName', '$category', '$quantity', '$productDescription', '$productImage', '$price', '$deliver', '$idSeller');";
 
     
 $result = mysqli_query($conn, $sql);
