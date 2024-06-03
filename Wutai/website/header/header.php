@@ -20,6 +20,8 @@ if ($seller) {
     $idSeller = $seller['idSeller'];
     $_SESSION['idSeller'] = $idSeller;
 }
+
+$idCart = $_SESSION['idCart'];
 ?>
 
 <header>
@@ -55,14 +57,21 @@ if ($seller) {
                         <a href='/php_programs/Wutai/Wutai/website/user/orders/orders.php?user=$id'>Pedidos</a>
                         <a href='/php_programs/Wutai/Wutai/website/user/address/address.php?user=$id'>Endereços</a>
                         <a href='/php_programs/Wutai/Wutai/website/user/settings/settings.php?user=$id'>Definições</a>";
-                        if(isset($idSeller)) {
-                            echo "<a href='/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?user=$idSeller'>Afiliado</a>";
-                        }
-                        echo "<a href='/php_programs/Wutai/Wutai/website/user/login/logout.php'>Sair</a>
+                if (isset($idSeller)) {
+                    echo "<a href='/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?user=$idSeller'>Afiliado</a>";
+                }
+                echo "<a href='/php_programs/Wutai/Wutai/website/user/login/logout.php'>Sair</a>
                     </div>
                 ";
             } else {
-                echo "<a href='/php_programs/Wutai/Wutai/website/user/register/register.php'>Entrar/Registar</a>";  // class='login_link'
+                echo "<a href='/php_programs/Wutai/Wutai/website/user/login/login.php'>Entrar</a>
+                <div class='user__panel'>
+                <a href='/php_programs/Wutai/Wutai/website/user/register/register.php'>Registrar</a>
+                <a href='/php_programs/Wutai/Wutai/website/user/login/login.php'>Entrar</a>";
+                if (isset($idSeller)) {
+                    echo "<a href='/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?user=$idSeller'>Afiliado</a>";
+                }
+                echo "</div>";
             }
 
 
@@ -70,8 +79,16 @@ if ($seller) {
         </div>
 
         <div class="cart__shopping">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <?php echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'>Carrinho</a>" ?>
+            <?php
+
+            @$sqlCount = "SELECT COUNT(idCart) FROM `cart_items` WHERE `idCart` = $idCart";
+            @$sqlQueryCount = mysqli_query($conn, $sqlCount);
+            @$count = mysqli_fetch_array($sqlQueryCount);
+
+            echo "<i class='fa-solid fa-cart-shopping'><span> $count[0]</span></i>
+            <a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'>Carrinho</a>"
+
+            ?>
         </div>
     </div>
 </header>

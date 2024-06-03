@@ -29,8 +29,7 @@
             <div class="row mt-3">
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" id="logo">
                     <img src="/php_programs/Wutai/Wutai/public/img/logo2.png" alt="">
-                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-                    <p>
+                    <p  style="margin-top: 1rem;">
                         A Wutai é uma loja fictícia de artigos da China. Este é um projeto foi feito somente para fins educacionais.
                         Qualquer semelhança com a realidade se deve a uma mera coincidência.
                     </p>

@@ -8,8 +8,6 @@ $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
 $sql = "INSERT INTO `user` (`idUser`, `name`, `surname`, `email`, `password`, `birthdate`) VALUES (NULL, '$name', '$surname', '$email', '$hashPassword', '$birthdate')";
 
-$result = mysqli_query($conn, $sql);
-
 
 header('Location:../login/login.php');
 

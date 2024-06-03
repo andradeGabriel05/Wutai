@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02/06/2024 às 05:53
+-- Tempo de geração: 03/06/2024 às 05:37
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -54,6 +54,46 @@ INSERT INTO `address` (`idAddress`, `completeName`, `zipcode`, `state`, `city`, 
 (26, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 10),
 (27, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 10),
 (28, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 11);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `cart`
+--
+
+CREATE TABLE `cart` (
+  `idCart` bigint(20) NOT NULL,
+  `idUser` bigint(20) NOT NULL,
+  `createdDate` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Despejando dados para a tabela `cart`
+--
+
+INSERT INTO `cart` (`idCart`, `idUser`, `createdDate`) VALUES
+(1, 11, '2024-06-02 18:51:48');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `cart_items`
+--
+
+CREATE TABLE `cart_items` (
+  `idCartItem` bigint(20) NOT NULL,
+  `idCart` bigint(20) NOT NULL,
+  `idProduct` bigint(20) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `addedDate` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Despejando dados para a tabela `cart_items`
+--
+
+INSERT INTO `cart_items` (`idCartItem`, `idCart`, `idProduct`, `quantity`, `addedDate`) VALUES
+(43, 1, 5, 1, '2024-06-02 22:47:09');
 
 -- --------------------------------------------------------
 
@@ -151,6 +191,21 @@ ALTER TABLE `address`
   ADD KEY `fkUserAddress` (`idUser`);
 
 --
+-- Índices de tabela `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`idCart`),
+  ADD KEY `fkUserCart` (`idUser`);
+
+--
+-- Índices de tabela `cart_items`
+--
+ALTER TABLE `cart_items`
+  ADD PRIMARY KEY (`idCartItem`),
+  ADD KEY `fkCartItemsCart` (`idCart`),
+  ADD KEY `fkCartItemsProduct` (`idProduct`);
+
+--
 -- Índices de tabela `product`
 --
 ALTER TABLE `product`
@@ -182,6 +237,18 @@ ALTER TABLE `address`
   MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
+-- AUTO_INCREMENT de tabela `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `idCart` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `cart_items`
+--
+ALTER TABLE `cart_items`
+  MODIFY `idCartItem` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
 -- AUTO_INCREMENT de tabela `product`
 --
 ALTER TABLE `product`
@@ -208,6 +275,19 @@ ALTER TABLE `user`
 --
 ALTER TABLE `address`
   ADD CONSTRAINT `fkUserAddress` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`);
+
+--
+-- Restrições para tabelas `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `fkUserCart` FOREIGN KEY (`idUser`) REFERENCES `user` (`idUser`);
+
+--
+-- Restrições para tabelas `cart_items`
+--
+ALTER TABLE `cart_items`
+  ADD CONSTRAINT `fkCartItemsCart` FOREIGN KEY (`idCart`) REFERENCES `cart` (`idCart`),
+  ADD CONSTRAINT `fkCartItemsProduct` FOREIGN KEY (`idProduct`) REFERENCES `product` (`idProduct`);
 
 --
 -- Restrições para tabelas `product`

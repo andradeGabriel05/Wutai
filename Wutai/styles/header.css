@@ -16,7 +16,7 @@ header {
   color: #FFFFFF;
 }
 header img {
-  width: 150px;
+  width: 100px;
   margin: 0px 20px;
 }
 header a {
@@ -88,6 +88,20 @@ header a {
 .cart__shopping i,
 .language i {
   font-size: clamp(1rem, 5vw, 2rem);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user i span,
+.cart__shopping i span,
+.language i span {
+  position: absolute;
+  font-size: 15px;
+  color: black;
+  margin: 0;
+  left: 16.5px;
+  bottom: 13px;
 }
 .user a,
 .user span,

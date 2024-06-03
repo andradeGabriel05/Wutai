@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #660708;
+}
+
+.wrapper__page {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.concept {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+#conceptImg {
+  width: 100%;
+  height: 100%;
+}
+
+#formWrapperId {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#createAccount,
+#join {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #000;
+}
+#createAccount .form__wrapper,
+#join .form__wrapper {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  padding: 10PX 30px;
+  height: 100%;
+}
+#createAccount .form__wrapper a,
+#join .form__wrapper a {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+#createAccount .form__wrapper a img,
+#join .form__wrapper a img {
+  width: 45%;
+}
+#createAccount .form__wrapper h1,
+#join .form__wrapper h1 {
+  text-align: center;
+  padding: 10px 0;
+  font-size: clamp(1rem, 10vw, 2rem);
+}
+#createAccount .form__wrapper form input,
+#join .form__wrapper form input {
+  background-color: #660708;
+  color: #FFFFFF;
+}
+#createAccount .form__wrapper form input::-moz-placeholder, #join .form__wrapper form input::-moz-placeholder {
+  color: rgb(194, 194, 194);
+}
+#createAccount .form__wrapper form input::placeholder,
+#join .form__wrapper form input::placeholder {
+  color: rgb(194, 194, 194);
+}
+#createAccount .form__wrapper form input label,
+#join .form__wrapper form input label {
+  text-align: start;
+}
+#createAccount .form__wrapper form .col,
+#join .form__wrapper form .col {
+  display: flex;
+}
+#createAccount .form__wrapper form .col #name,
+#join .form__wrapper form .col #name {
+  margin-right: 10px;
+}
+#createAccount .form__wrapper form .col #surname,
+#join .form__wrapper form .col #surname {
+  margin-left: 10px;
+}
+#createAccount .form__wrapper input,
+#join .form__wrapper input {
+  padding: 17px;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 10px;
+  border: solid 1px rgba(204, 204, 204, 0.5803921569);
+  font-size: clamp(1rem, 1.2vw, 2rem);
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  font-size: clamp(1rem, 1.7vw, 2rem);
+  color: #660708;
+  width: 31.4%;
+}
+
+.after__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.after__form .before__after__span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: rgba(107, 107, 107, 0.668);
+  padding: 20px;
+}
+.after__form .before__after__span::before, .after__form .before__after__span::after {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 1px;
+  background-color: #660708;
+  margin: 10px;
+}
+.after__form a {
+  text-align: center;
+  width: 50%;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: solid 1px #660708;
+  color: #000;
+}/*# sourceMappingURL=user.css.map */

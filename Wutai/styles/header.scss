@@ -8,8 +8,9 @@ header {
   height: 100px;
   background-color: $bg;
   color: $text-color-white;
+
   img {
-    width: 150px;
+    width: 100px;
     margin: 0px 20px;
   }
 
@@ -52,7 +53,6 @@ header {
 
   .user__panel {
     display: none;
-    
   }
 
   &:hover {
@@ -78,7 +78,6 @@ header {
       &:hover {
         display: flex;
       }
-
     }
   }
 }
@@ -91,6 +90,19 @@ header {
   margin: 10px;
   i {
     font-size: clamp(1rem, 5vw, 2rem);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      position: absolute;
+      font-size: 15px;
+      color: black;
+      margin: 0;
+      left: 16.5px;
+      bottom: 13px;
+    }
   }
 
   a,
@@ -119,5 +131,3 @@ header {
 .header__wrapper {
   display: flex;
 }
-
-

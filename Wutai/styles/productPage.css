@@ -98,23 +98,14 @@
   display: flex;
   justify-content: space-between;
 }
-.product__container .product__add {
+.product__container .quantity__input {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
+  justify-content: space-between;
 }
-.product__container .product__add input {
+.product__container .quantity__input #quantity {
+  width: 50%;
   text-align: center;
-  width: 70%;
 }
-.product__container .product__add .quantity {
-  margin-top: 0;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-.product__container .product__add #minus, .product__container .product__add #add {
+.product__container .quantity__input #minus, .product__container .quantity__input #add {
   width: auto;
-  margin-top: 0;
 }/*# sourceMappingURL=productPage.css.map */

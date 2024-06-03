@@ -100,27 +100,16 @@
         }
     }
 
-    .product__add {
-    
+    .quantity__input {
         display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: center;
-        input {
+        justify-content: space-between;
+        #quantity {
+            width: 50%;
             text-align: center;
-            width: 70%;
         }
-
-        .quantity {
-            margin-top: 0;
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
+    
         #minus, #add {
             width: auto;
-            margin-top: 0;
         }
     }
 }
