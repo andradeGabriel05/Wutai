@@ -55,3 +55,4 @@ arrumar = fazer o SCSS
 
 // Cookies para manter login
 
+// Aumentar valor do #productsSpanId se eu clicar no add no carrinho
