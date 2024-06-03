@@ -14,14 +14,23 @@ if (isset($_SESSION['name'])) {
 
 
 $userQueryPanelSeller = mysqli_query($conn, "SELECT * FROM `seller` WHERE `idUser` = '$id'");
-
 $seller = mysqli_fetch_assoc($userQueryPanelSeller);
 if ($seller) {
     $idSeller = $seller['idSeller'];
     $_SESSION['idSeller'] = $idSeller;
 }
 
-$idCart = $_SESSION['idCart'];
+$userQueryCart = mysqli_query($conn, "SELECT idCart FROM `cart` WHERE `idUser` = '$id'");
+$cart = mysqli_fetch_assoc($userQueryCart);
+
+if ($cart) {
+    $idCart = $cart['idCart'];
+    $_SESSION['idCart'] = $idCart;
+}
+
+if(isset($_SESSION['idCart'])) {
+    $idCart = $_SESSION['idCart'];
+}
 ?>
 
 <header>
@@ -80,15 +89,20 @@ $idCart = $_SESSION['idCart'];
 
         <div class="cart__shopping">
             <?php
-
+        if(isset($_SESSION['idCart'])) {
             @$sqlCount = "SELECT COUNT(idCart) FROM `cart_items` WHERE `idCart` = $idCart";
             @$sqlQueryCount = mysqli_query($conn, $sqlCount);
             @$count = mysqli_fetch_array($sqlQueryCount);
 
             echo "<i class='fa-solid fa-cart-shopping'><span> $count[0]</span></i>
-            <a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'>Carrinho</a>"
+            <a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'>Carrinho</a>";
+        } else {
 
-            ?>
+
+        echo "<i class='fa-solid fa-cart-shopping'><span></span></i>
+            <a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'>Carrinho</a>";
+        }
+?>
         </div>
     </div>
 </header>

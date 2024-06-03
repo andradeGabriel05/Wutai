@@ -58,7 +58,7 @@ if (@$_GET['seller'] == "true") {
         </section> -->
 
         <section id="addProduct">
-            <form action="/php_programs/Wutai/Wutai/website/seller/productCRUD/addProduct.act.php" method="POST">
+            <form action="/php_programs/Wutai/Wutai/website/seller/productCRUD/addProduct.act.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group" id="productName">
                     <label for="productName">Nome do produto</label>
                     <input type="text" class="form-control" id="productName" name="productName" placeholder="Nome do produto">
@@ -80,10 +80,12 @@ if (@$_GET['seller'] == "true") {
                         <option value="hygiene">Higiene</option>
                         <option value="cleaning">Limpeza</option>
                         <option value="perfumery">Perfumaria</option>
-                        <option value="perfumery">Casa</option>
+                        <option value="house">Casa</option>
+                        <option value="garden">Jardim</option>
                         <option value="clothing">Roupas</option>
                         <option value="health">Saúde</option>
                         <option value="apparel">Vestuário</option>
+                        <option value="electronic">Eletrônico</option>
                         <option value="book">Livro</option>
                     </select>
                 </div>

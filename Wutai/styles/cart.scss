@@ -18,8 +18,8 @@
 #cart {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 0 50px;
-
   .buy__box {
     display: flex;
     justify-content: center;
@@ -167,6 +167,29 @@
           font-weight: bold;
         }
       }
+    }
+  }
+
+  .product__wrapper {
+    width: 100%;
+    .empty__cart {
+    width: 100%;
+      padding: 20px ;
+      border: solid 1px #dadada;
+      display: block;
+
+      p {
+        font-size: clamp(0.5rem, 10vw, 1rem);
+      }
+
+      a {
+        text-decoration: none;
+        color: $text-color;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
     }
   }
 }

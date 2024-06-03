@@ -5,15 +5,33 @@ require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
 
 extract($_POST);
 
-$id = $_SESSION['idUser'];
+if (isset($_SESSION['idUser'])) {
+    $id = $_SESSION['idUser'];
+}
 
-$idCart = $_SESSION['idCart'];
+if (isset($_SESSION['idCart'])) {
+    $idCart = $_SESSION['idCart'];
 
-$sql = "SELECT * FROM `cart_items` WHERE `idCart` = $idCart";
+    $sql = "SELECT * FROM `cart_items` WHERE `idCart` = $idCart";
 
-$sqlQuery = mysqli_query($conn, $sql);
-$sqlArray = mysqli_fetch_array($sqlQuery);
+    $sqlQuery = mysqli_query($conn, $sql);
+    $sqlArray = mysqli_fetch_array($sqlQuery);
+} else {
+    if (isset($_SESSION['idUser'])) {
+        $sql__query = mysqli_query($conn, "SELECT `idCart` FROM `cart` WHERE `idUser` = $id;");
+        $sql__array = mysqli_fetch_array($sql__query);
 
+        if ($sql__array == null) {
+            $sqlInsertIdCart = "INSERT INTO `cart` (`idCart`, `idUser`, `createdDate`) VALUES (NULL, '$id', current_timestamp());";
+            mysqli_query($conn, $sqlInsertIdCart);
+        }
+        $idCart = $sql__array['idCart'];
+
+        $_SESSION['idCart'] = $idCart;
+    } else {
+
+    }
+}
 // print_r($sqlArray);
 
 
@@ -69,72 +87,106 @@ $sqlArray = mysqli_fetch_array($sqlQuery);
 
     <div class="spanPadText">
         <span>Carrinho de compras</span>
-        <p>(<?php
-            $sqlCount = "SELECT COUNT(idCart) FROM `cart_items` WHERE `idCart` = $idCart";
-            $sqlQueryCount = mysqli_query($conn, $sqlCount);
-            $count = mysqli_fetch_array($sqlQueryCount);
-            echo $count[0];
-            ?> produtos)</p>
+        <p><?php
+        if(isset($idCart)) {
+            $sqlProduct = "SELECT * FROM `cart_items` WHERE `idCart` = '$idCart'";
+            $sqlQueryProduct = mysqli_query($conn, $sqlProduct);
+            $product = mysqli_fetch_assoc($sqlQueryProduct);
+
+            $sqlSum = "SELECT SUM(quantity) FROM `cart_items` WHERE `idCart` = '$idCart'";
+            $sqlQuerySum = mysqli_query($conn, $sqlSum);
+            $sum = mysqli_fetch_array($sqlQuerySum);
+
+            if ($sum[0] == 0) {
+                echo "";
+            } elseif ($sum[0] == 1) {
+                echo "<p id='productsSpanId'>(" . $sum[0] . " produto) </p>";
+            } else {
+                echo "<p id='productsSpanId'>(" . $sum[0] . " produtos) </p>";
+            }
+            ?></p>
     </div>
 
     <section id="cart">
         <div class="product__wrapper">
 
             <?php
-            $sqlProduct = "SELECT * FROM `cart_items` WHERE `idCart` = '$idCart'";
 
-            $sqlQueryProduct = mysqli_query($conn, $sqlProduct);
+            $sqlCount = "SELECT COUNT(idCart) FROM `cart_items` WHERE `idCart` = $idCart";
+            $sqlQueryCount = mysqli_query($conn, $sqlCount);
+            $count = mysqli_fetch_array($sqlQueryCount);
 
-            while ($product = mysqli_fetch_assoc($sqlQueryProduct)) {
+            $sqlProduct = "SELECT * FROM `cart_items` WHERE `idCart` = '$idCart'"; // para o while
+            $sqlQueryProduct = mysqli_query($conn, $sqlProduct); // para o while
+            $product = mysqli_fetch_assoc($sqlQueryProduct); // para o while
 
-                $sqlProduct = "SELECT * FROM `product` WHERE `idProduct` = '$product[idProduct]'";
-                $sqlQueryIdProduct = mysqli_query($conn, $sqlProduct);
-                $sqlArray = mysqli_fetch_array($sqlQueryIdProduct);
+            if ($count[0] == 0) {
 
-                $idProduct = $product['idProduct'];
-                $idCartItem = $product['idCartItem'];
-                $_SESSION['idProduct'] = $product['idProduct'];
-                $_SESSION['idCartItem'] = $product['idCartItem'];
+                echo "<div class='empty__cart' id='emptyCart'>
+                <p>Seu carrinho de compras está vazio</p>
+                <p>Continue suas compras na <a href='/php_programs/Wutai/Wutai/website/user/index/index.php'>página inicial da Wutai.com</a></p>
+                </div>";
 
-?>
-                <form action="" method="post">
-                    <div class="product__information">
+            } else {
 
-                        <div class="product__card">
-                            <div class="product__left__wrapper">
-                                <div class="product__image"><img src="https://www.shutterstock.com/image-vector/beta-red-stamp-text-on-260nw-219686944.jpg" alt=""></div>
-                                <div class="product__add">
-                                    <div class="minus">
-                                        <input type="button" value="-" id="minus">
+                while ($product) {
+
+                    $sqlProduct = "SELECT * FROM `product` WHERE `idProduct` = '$product[idProduct]'";
+                    $sqlQueryIdProduct = mysqli_query($conn, $sqlProduct);
+                    $sqlArray = mysqli_fetch_array($sqlQueryIdProduct);
+
+                    $idProduct = $product['idProduct'];
+                    $idCartItem = $product['idCartItem'];
+                    $quantity = $product['quantity'];
+                    $_SESSION['idProduct'] = $product['idProduct'];
+                    $_SESSION['idCartItem'] = $product['idCartItem'];
+
+            ?>
+                    <form action="" method="post">
+                        <div class="product__information">
+
+                            <div class="product__card">
+                                <div class="product__left__wrapper">
+                                    <div class="product__image"><img src="https://www.shutterstock.com/image-vector/beta-red-stamp-text-on-260nw-219686944.jpg" alt=""></div>
+                                    <div class="product__add">
+                                        <div class="minus">
+                                            <input type="button" value="-" id="minus">
+                                        </div>
+                                        <div class="quantity">
+                                            <input type="text" name="" id="quantity" value="<?php echo $quantity ?>">
+                                        </div>
+                                        <div class="add">
+                                            <input type="button" value="+" id="add">
+                                        </div>
                                     </div>
-                                    <div class="quantity">
-                                        <input type="text" name="" id="quantity" value="1">
-                                    </div>
-                                    <div class="add">
-                                        <input type="button" value="+" id="add">
-                                    </div>
+
                                 </div>
+                                <div class="product__description">
+                                    <div class="title">
+                                        <span><?php echo $sqlArray['productName'] ?></span>
 
-                            </div>
-                            <div class="product__description">
-                                <div class="title">
-                                    <span><?php echo $sqlArray['productName'] ?></span>
-
-                                    <a href="../../products/deleteProduct.act.php?idProduct=<?php echo $idCartItem; ?>">Excluir</a>
+                                        <a href="../../products/deleteProduct.act.php?idProduct=<?php echo $idCartItem; ?>">Excluir</a>
+                                    </div>
+                                    <span class="title price">R$<?php echo $sqlArray['price'] ?></span>
                                 </div>
-                                <span class="title price">R$<?php echo $sqlArray['price'] ?></span>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
             <?php
+                }
             }
+        } else {
+            echo "<div class='empty__cart' id='emptyCart'>
+            <p>Faça login</p>
+            <p>Continue suas compras na <a href='/php_programs/Wutai/Wutai/website/user/index/index.php'>página inicial da Wutai.com</a></p>
+            </div>";
+        }
             ?>
         </div>
 
 
 
-        <div class="buy__box">
+        <div class="buy__box" id="buyBox">
             <span>Total</span>
             <div class="final__price">
                 <span>Subtotal: </span>
@@ -180,6 +232,6 @@ $sqlArray = mysqli_fetch_array($sqlQuery);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 <script src="https://kit.fontawesome.com/8aca4bf827.js" crossorigin="anonymous"></script>
-<script src="/php_programs/Wutai/Wutai/js/inputAddProduct.js"></script>
+<script src="/php_programs/Wutai/Wutai/js/cart.js"></script>
 
 </html>

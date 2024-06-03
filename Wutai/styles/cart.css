@@ -23,6 +23,7 @@
 #cart {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 0 50px;
 }
 #cart .buy__box {
@@ -157,6 +158,25 @@
 #cart .product__information .product__card .product__description .price {
   font-size: clamp(0.5rem, 10vw, 1.2rem);
   font-weight: bold;
+}
+#cart .product__wrapper {
+  width: 100%;
+}
+#cart .product__wrapper .empty__cart {
+  width: 100%;
+  padding: 20px;
+  border: solid 1px #dadada;
+  display: block;
+}
+#cart .product__wrapper .empty__cart p {
+  font-size: clamp(0.5rem, 10vw, 1rem);
+}
+#cart .product__wrapper .empty__cart a {
+  text-decoration: none;
+  color: #660708;
+}
+#cart .product__wrapper .empty__cart a:hover {
+  text-decoration: underline;
 }
 
 .modal .close {

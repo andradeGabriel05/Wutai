@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03/06/2024 às 05:37
+-- Tempo de geração: 03/06/2024 às 17:47
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -72,7 +72,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`idCart`, `idUser`, `createdDate`) VALUES
-(1, 11, '2024-06-02 18:51:48');
+(1, 11, '2024-06-02 18:51:48'),
+(2, 8, '2024-06-03 12:01:18');
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,7 @@ CREATE TABLE `cart_items` (
 --
 
 INSERT INTO `cart_items` (`idCartItem`, `idCart`, `idProduct`, `quantity`, `addedDate`) VALUES
-(43, 1, 5, 1, '2024-06-02 22:47:09');
+(61, 1, 3, 5, '2024-06-03 10:22:54');
 
 -- --------------------------------------------------------
 
@@ -123,7 +124,13 @@ INSERT INTO `product` (`idProduct`, `productName`, `category`, `quantity`, `prod
 (3, 'Copo Mágico', 'drink', 12, 'O Copo Mágico é feito de material resistente e possui um design inovador. Ele muda de cor quando você coloca líquido quente dentro, revelando uma imagem surpresa. Perfeito para presentear alguém especial ou para uso pessoal!', 'plano.png', '29', '', 4),
 (4, 'Delícia Tropical de Manga', 'food', 10, 'A Delícia Tropical de Manga é uma seleção premium de mangas frescas e suculentas, colhidas no ponto ideal de maturação. Cada fruta é cuidadosamente selecionada para garantir a máxima doçura e sabor intenso. Perfeitas para sucos, saladas de frutas ou como um lanche saudável e refrescante.', 'plano.png', '15', 'Wutai', 4),
 (5, 'Pão Artesanal de Azeitonas Pretas', 'food', 13, 'Nosso Pão Artesanal de Azeitonas Pretas é feito com uma receita tradicional e ingredientes selecionados. Cada pão é recheado com azeitonas pretas de alta qualidade, cultivadas sob o sol mediterrâneo, que conferem um sabor único e uma textura irresistível. Ideal para acompanhar refeições ou como um delicioso lanche.', 'wolfSilhueta2.png', '8,50', 'empresaBucha', 3),
-(6, 'Elegância Aromática - Difusor de Ambiente Lavanda', 'perfumery', 3, 'O Elegância Aromática é um difusor de ambiente com essência de lavanda que promete transformar sua casa em um santuário de tranquilidade. Com notas calmantes e um design elegante, ele é perfeito para criar um ambiente relaxante após um longo dia de trabalho.', '144@2x.png', '35,00', 'Wutai', 4);
+(6, 'Elegância Aromática - Difusor de Ambiente Lavanda', 'perfumery', 3, 'O Elegância Aromática é um difusor de ambiente com essência de lavanda que promete transformar sua casa em um santuário de tranquilidade. Com notas calmantes e um design elegante, ele é perfeito para criar um ambiente relaxante após um longo dia de trabalho.', '144@2x.png', '35,00', 'Wutai', 4),
+(7, 'Kit Jardinagem Urbana - Sementes de Temperos', 'food', 30, 'O Kit Jardinagem Urbana é ideal para quem deseja cultivar seus próprios temperos em casa. Com uma seleção de sementes de manjericão, salsinha, cebolinha e alecrim, este kit oferece tudo que você precisa para começar seu pequeno jardim de ervas. Além das sementes, o kit inclui vasos biodegradáveis, terra orgânica e marcadores de plantio.', 'productImages/65f8ada0133b4513c1446e42b78c9be2jpg', '27,90', 'Wutai', 3),
+(8, 'Café Especial da Montanha', 'drink', 25, 'O Café Especial da Montanha é uma seleção exclusiva de grãos de café arábica, cultivados nas altitudes elevadas das montanhas brasileiras. Com notas de chocolate e caramelo, este café oferece uma experiência de sabor rica e encorpada. Perfeito para os apreciadores de um bom café, seja para começar o dia ou para uma pausa revigorante.', 'productImages/dd3504bcddf17ec49aab4f391fd441a9jpg', '42,00', 'Wutai', 3),
+(9, 'Chá de Ervas Relaxante Serenitea', 'drink', 20, 'O Chá de Ervas Relaxante Serenitea é uma combinação harmoniosa de camomila, erva-cidreira, lavanda e menta. Cada ingrediente foi escolhido por suas propriedades calmantes e relaxantes, criando uma infusão perfeita para desfrutar antes de dormir ou em momentos de pausa durante o dia.', 'productImages/6df949d9ecbe83c80c9c5126c10aed6cjpg', '19,90', 'Wutai', 3),
+(10, 'Óleo Essencial de Eucalipto Puro', 'health', 10, 'Nosso Óleo Essencial de Eucalipto Puro é extraído diretamente das folhas de eucalipto mais frescas, garantindo um produto de alta qualidade com propriedades revigorantes e purificantes. Ideal para uso em difusores, como parte de sua rotina de bem-estar ou para massagens relaxantes.', 'productImages/42966d33f4549641846900578c425571.jpg', '24,00', 'Wutai', 4),
+(11, 'Mochila Outdoor Explorer', 'apparel', 20, 'A Mochila Outdoor Explorer é o companheiro perfeito para suas aventuras ao ar livre. Com capacidade para 40 litros, possui compartimentos versáteis para armazenar seus pertences de forma organizada. Feita de material resistente à água, esta mochila é ideal para trilhas, acampamentos e viagens. Possui alças acolchoadas e ajustáveis para garantir conforto durante o uso prolongado. Além disso, conta com um sistema de ventilação nas costas para mantê-lo fresco mesmo nos dias mais quentes. Leve, durável e prática, a Mochila Outdoor Explorer é essencial para qualquer amante da natureza.', 'productImages/ba4160b2e52158745e5c967e1b1ffd40.jpg', '199,99', 'Wutai', 4),
+(12, 'Fone de Ouvido Bluetooth FlexTune', 'electronic', 30, 'Experimente a liberdade sem fios com o Fone de Ouvido Bluetooth FlexTune. Este fone de ouvido sem fio oferece uma experiência auditiva excepcional, com áudio nítido e graves profundos. Compatível com dispositivos Bluetooth, como smartphones, tablets e laptops, este fone de ouvido é perfeito para ouvir música, assistir a filmes ou fazer chamadas com as mãos livres. Seu design ergonômico e leve proporciona conforto durante horas de uso, enquanto os controles integrados permitem ajustar o volume, pular faixas e atender chamadas com facilidade. Com a tecnologia de cancelamento de ruído, você pode desfrutar de sua música favorita sem distrações externas. O Fone de Ouvido Bluetooth FlexTune é o parceiro ideal para o seu estilo de vida ativo e conectado.', 'productImages/0a59e867f403c4507fc8869f5564a247.jpg', '149,90', 'empresaBucha', 3);
 
 -- --------------------------------------------------------
 
@@ -240,19 +247,19 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT de tabela `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `idCart` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idCart` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `idCartItem` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `idCartItem` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT de tabela `product`
 --
 ALTER TABLE `product`
-  MODIFY `idProduct` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idProduct` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `seller`

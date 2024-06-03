@@ -2,6 +2,7 @@
 require('../../../website/connect.php');
 
 extract($_POST);
+extract($_GET);
 session_start();
 
 if(isset($_POST['email']) || isset($_POST['password'])) {
@@ -29,7 +30,6 @@ if(isset($_POST['email']) || isset($_POST['password'])) {
             $_SESSION['birthdate'] = $user['birthdate'];;
 
             header('Location:../../index.php');
-
         } else {
             echo "FALHOU. EMAIL OU SENHA";
         }

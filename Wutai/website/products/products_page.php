@@ -1,3 +1,9 @@
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -41,7 +47,7 @@
                     <li></li>
                     <li></li>
                 </ul>
-                <div class="product__image"><img src="https://static.javatpoint.com/tutorial/software-testing/images/beta-testing-logo.png" alt=""></div>
+                <div class="product__image"><img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/<?php echo $usuario['productImage'] ?>" alt=""></div>
             </div>
             <div class="product__title">
                 <span id="titleProduct"><?php echo $usuario['productName']; ?></span>
