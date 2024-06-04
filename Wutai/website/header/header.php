@@ -82,8 +82,6 @@ if(isset($_SESSION['idCart'])) {
                 }
                 echo "</div>";
             }
-
-
             ?>
         </div>
 

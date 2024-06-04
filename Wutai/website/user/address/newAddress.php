@@ -8,17 +8,20 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../styles/header.css">
+    <link rel="stylesheet" href="../../../styles/user/address/newAddress.css">
 
 </head>
 
 <body>
 
     <?php include('../../header/header.php'); ?>
-    <section id="createAccount">
+    <section id="newAddress">
 
-        <form action="newAddress.act.php" method="POST" class="row g-3">
+        <form action="newAddress.act.php" method="POST" class="row g-3 form-inline">
+        <div class="col-12">
 
-            <select name="country" id="country">
+            <label for="country" class="form-label">País</label>
+            <select class="form-select" aria-label="Default select example" name="country" id="country">
                 <option value="brasil">Brasil</option>
                 <option value="argentina">Argentina</option>
                 <option value="chile">Chile</option>
@@ -35,29 +38,31 @@
                 <option value="panama">Panamá</option>
                 <option value="guatemala">Guatemala</option>
             </select>
+</div>
 
 
+            <!-- 
             <label for="completeName"></label>
-            <input type="text" name="completeName" id="completeName" placeholder="Nome completo">
+            <input type="text" name="completeName" id="completeName" placeholder="Nome completo"> -->
 
-            <label for="phoneNumber"></label>
+            <!-- <label for="phoneNumber"></label>
             <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Telefone">
+ -->
 
 
+            <!-- <div class="seller__address"> -->
+                <!-- <label for="zipcode"></label>
+                <input type="text" name="zipcode" id="zipcode" placeholder="CEP/Código postal"> -->
 
-            <div class="seller__address">
-                <label for="zipcode"></label>
-                <input type="text" name="zipcode" id="zipcode" placeholder="CEP/Código postal">
-
-                <label for="address"></label>
-                <input type="text" name="address" id="address" placeholder="Linha de endereço">
-
+                <!-- <label for="address"></label>
+                <input type="text" name="address" id="address" placeholder="Linha de endereço"> -->
+<!-- 
                 <label for="number"></label>
-                <input type="text" name="number" id="number" placeholder="Número">
-
+                <input type="text" name="number" id="number" placeholder="Número"> -->
+<!-- 
                 <label for="complement"></label>
-                <input type="text" name="complement" id="complement" placeholder="Complemento">
-
+                <input type="text" name="complement" id="complement" placeholder="Complemento"> -->
+                <!-- 
                 <label for="neighborhood"></label>
                 <input type="text" name="neighborhood" id="neighborhood" placeholder="Bairro">
 
@@ -65,37 +70,82 @@
                 <input type="text" name="state" id="state" placeholder="Estado">
 
                 <label for="city"></label>
-                <input type="text" name="city" id="city" placeholder="Cidade">
-            </div>
-
+                <input type="text" name="city" id="city" placeholder="Cidade"> -->
 
             <div class="col-12">
-                <label for="address" class="form-label">Linha de endereço</label>
-                <input type="text" class="form-control" name="address" id="address" placeholder="Linha de endereço">
+                <label for="completeName" class="form-label">Nome completo</label>
+                <input type="text" class="form-control" name="completeName" id="completeName">
             </div>
+
+            <div class="col-12">
+                <label for="phoneNumber" class="form-label">Telefone</label>
+                <input type="text" class="form-control" name="phoneNumber" id="phoneNumber">
+            </div>
+
+                <div class="col-md-6">
+                    <label for="address" class="form-label">Linha de endereço</label>
+                    <input type="text" class="form-control" name="address" id="address">
+                </div>
+                <div class="col-md-4">
+                    <label for="zipcode" class="form-label">Complemento</label>
+                    <input type="text" class="form-control" name="complement" id="complement">
+                </div>
+                <div class="col-md-2">
+                    <label for="zipcode" class="form-label">Número</label>
+                    <input type="text" class="form-control" name="number" id="number">
+                </div>
             <div class="col-12">
                 <label for="neighborhood" class="form-label">Bairro</label>
-                <input type="text" class="form-control" name="neighborhood" id="neighborhood" placeholder="Bairro">
+                <input type="text" class="form-control" name="neighborhood" id="neighborhood">
             </div>
 
 
             <div class="col-md-6">
                 <label for="city" class="form-label">Cidade</label>
-                <input type="text" class="form-control" name="city" id="city" placeholder="Cidade">
+                <input type="text" class="form-control" name="city" id="city">
             </div>
             <div class="col-md-4">
-                <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                <label for="state" class="form-label">Estado</label>
+                <select class="form-select" name="state" id="state">
+                    <option value="acre">Acre</option>
+                    <option value="alagoas">Alagoas</option>
+                    <option value="amapa">Amapá</option>
+                    <option value="amazonas">Amazonas</option>
+                    <option value="bahia">Bahia</option>
+                    <option value="ceara">Ceará</option>
+                    <option value="distrito_federal">Distrito Federal</option>
+                    <option value="espirito_santo">Espírito Santo</option>
+                    <option value="goias">Goiás</option>
+                    <option value="maranhao">Maranhão</option>
+                    <option value="mato_grosso">Mato Grosso</option>
+                    <option value="mato_grosso_do_sul">Mato Grosso do Sul</option>
+                    <option value="minas_gerais">Minas Gerais</option>
+                    <option value="para">Pará</option>
+                    <option value="paraiba">Paraíba</option>
+                    <option value="parana">Paraná</option>
+                    <option value="pernambuco">Pernambuco</option>
+                    <option value="piaui">Piauí</option>
+                    <option value="rio_de_janeiro">Rio de Janeiro</option>
+                    <option value="rio_grande_do_norte">Rio Grande do Norte</option>
+                    <option value="rio_grande_do_sul">Rio Grande do Sul</option>
+                    <option value="rondonia">Rondônia</option>
+                    <option value="roraima">Roraima</option>
+                    <option value="santa_catarina">Santa Catarina</option>
+                    <option value="sao_paulo">São Paulo</option>
+                    <option value="sergipe">Sergipe</option>
+                    <option value="tocantins">Tocantins</option>
+
+                    
                 </select>
             </div>
             <div class="col-md-2">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+                <label for="zipcode" class="form-label">CEP</label>
+                <input type="text" class="form-control" name="zipcode" id="zipcode">
             </div>
 
-            <input type="submit" value="Adicionar endereço" class="btn btn-primary" style="background-color: #000;">
+            <div class="button__class__submit">
+                <input type="submit" value="Adicionar endereço" class="btn btn-primary" style="background-color: #000; padding: 15px; border-radius: 8px;">
+            </div>
 
         </form>
     </section>

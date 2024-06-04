@@ -1,0 +1,32 @@
+@import '../../global';
+
+header {
+    position: absolute;
+}
+
+#newAddress {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100vh;
+    form {
+        width: 45%;
+        height: 100%;
+        display: flex;
+        align-content: center;
+    }
+}
+
+.container__address_zip {
+    display: flex;
+
+}
+
+.button__class__submit {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    input {
+        border: none;
+    }
+}

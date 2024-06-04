@@ -1,10 +1,25 @@
 <?php
 require('../../connect.php');
-$idAddress = $_GET['idAddress'];
+session_start();
+$idAddress = $_SESSION['idAddress'];
 
+echo $idAddress;
 
-if (isset($_GET['idAddress'])) {
-    echo $_GET['idAddress'];
-} else {
-    echo "idAddress is not set";
+//usuario tentou burlar
+if($idAddress != $_GET['address']) {
+    header('Location: /php_programs/Wutai/Wutai/website/user/address/editAddress.php?address='.$idAddress);
 }
+
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar endereço | Wutai</title>
+</head>
+<body>
+    
+</body>
+</html>

@@ -53,6 +53,8 @@ if($_GET['user'] != $id) {
         $user = mysqli_query($conn, "SELECT * FROM `address` WHERE `idUser` = '$id'");
 
         while($usuario = mysqli_fetch_assoc($user)) {
+
+            $_SESSION['idAddress'] = $usuario['idAddress'];
         echo '<div class="user__address">';
             
                 echo "<h3>{$usuario['completeName']}</h3>";

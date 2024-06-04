@@ -57,7 +57,7 @@
             <div class="product__price">
                 <span class="price__span">R$<?php echo $usuario['price']; ?></span>
                 <span>Entrega GRÁTIS: Segunda-feira, 3 de Junho no seu primeiro pedido</span>
-                <form method="POST" action="addProductCart.act.php">
+                <form method="POST" action="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php">
                     <select class="form-select" aria-label="Default select example" style="margin-top: 10px;" name="quantity">
                         <?php
                             $quantity = $usuario['quantity'];

@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  position: absolute;
+}
+
+#newAddress {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+}
+#newAddress form {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-content: center;
+}
+
+.container__address_zip {
+  display: flex;
+}
+
+.button__class__submit {
+  width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.button__class__submit input {
+  border: none;
+}/*# sourceMappingURL=newAddress.css.map */

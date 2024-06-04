@@ -118,18 +118,17 @@ if (isset($_SESSION['idCart'])) {
 
             $sqlProduct = "SELECT * FROM `cart_items` WHERE `idCart` = '$idCart'"; // para o while
             $sqlQueryProduct = mysqli_query($conn, $sqlProduct); // para o while
-            $product = mysqli_fetch_assoc($sqlQueryProduct); // para o while
 
             if ($count[0] == 0) {
 
                 echo "<div class='empty__cart' id='emptyCart'>
                 <p>Seu carrinho de compras está vazio</p>
-                <p>Continue suas compras na <a href='/php_programs/Wutai/Wutai/website/user/index/index.php'>página inicial da Wutai.com</a></p>
+                <p>Continue suas compras na <a href='/php_programs/Wutai/Wutai/website/index.php'>página inicial da Wutai.com</a></p>
                 </div>";
 
             } else {
 
-                while ($product) {
+                while ($product = mysqli_fetch_assoc($sqlQueryProduct)) {
 
                     $sqlProduct = "SELECT * FROM `product` WHERE `idProduct` = '$product[idProduct]'";
                     $sqlQueryIdProduct = mysqli_query($conn, $sqlProduct);
@@ -165,7 +164,7 @@ if (isset($_SESSION['idCart'])) {
                                     <div class="title">
                                         <span><?php echo $sqlArray['productName'] ?></span>
 
-                                        <a href="../../products/deleteProduct.act.php?idProduct=<?php echo $idCartItem; ?>">Excluir</a>
+                                        <a href="deleteProduct.act.php?idProduct=<?php echo $idCartItem; ?>">Excluir</a>
                                     </div>
                                     <span class="title price">R$<?php echo $sqlArray['price'] ?></span>
                                 </div>
@@ -194,16 +193,25 @@ if (isset($_SESSION['idCart'])) {
                     <?php
                     $total = 0;
 
-                    $sqlProduct = "SELECT * FROM `cart_items` WHERE `idCart` = '$idCart'";
 
+
+                    $sqlProduct = "SELECT * FROM `cart_items` WHERE `idCart` = '$idCart'";
                     $sqlQueryProduct = mysqli_query($conn, $sqlProduct);
 
-                    while ($product = mysqli_fetch_assoc($sqlQueryProduct)) {
 
-                        $sqlTotal = "SELECT SUM(price) FROM `product` WHERE `idProduct` = '$product[idProduct]'";
-                        $sqlQueryTotal = mysqli_query($conn, $sqlTotal);
-                        $sqlArrayTotal = mysqli_fetch_array($sqlQueryTotal);
-                        $total += $sqlArrayTotal[0];
+
+                    while ($product = mysqli_fetch_assoc($sqlQueryProduct)) {
+                        
+                        $sqlProductidProduct = "SELECT * FROM `product` WHERE `idProduct` = '{$product['idProduct']}'";
+                        $sqlQueryIdProduct = mysqli_query($conn, $sqlProductidProduct);
+                        $sqlArrayidProduct = mysqli_fetch_assoc($sqlQueryIdProduct);
+
+                        $price = $sqlArrayidProduct['price'];
+                        $quantity = $product['quantity'];
+
+                        $totalProduct = $price * $quantity;
+
+                        $total += $totalProduct;
                     }
 
                     echo $total;
