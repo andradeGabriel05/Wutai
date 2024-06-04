@@ -1,18 +1,16 @@
 # Wutai
 
+
 arrumar = fazer o SCSS
+
 
 * = prioridade/demorado
 
+
 !* = não é prioridade
 
-// Arrumar página de cadastro e login
-
-// Adicionar produto ao carrinho
 
 // Barra de pesquisa
-
-// Arrumar página de novo endereço
 
 // Arrumar página de programa de afiliado *
 
@@ -21,8 +19,6 @@ arrumar = fazer o SCSS
 // Trabalhar com API dos correios em novo endereço (CEP) * 
 
 // "Landing page" na página principal
-
-// Adicionar foto ao produto
 
 // Página do vendedor
 
@@ -49,6 +45,7 @@ arrumar = fazer o SCSS
   // Método de pagamento -> !* (integrado com central de ajuda do cliente)
 
   // 
+  
 }
 
 // Responsividade
