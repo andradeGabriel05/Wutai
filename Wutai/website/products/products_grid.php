@@ -8,7 +8,7 @@
             echo '<div class="card-deck">';
             echo '<div class="card">';
             echo '<a href="products/products_page.php?productId=' . $usuario['idProduct'] .'">';
-            echo '<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="..." class="img-thumbnail rounded-0" class="card-img-top" alt="...">';
+            echo '<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" alt="...">';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $usuario['productName'] . '</h5>';
             echo '</a>';

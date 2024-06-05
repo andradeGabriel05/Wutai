@@ -6,9 +6,6 @@ require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
 
 $id = $_SESSION['idUser'];
 
-$userQueryPanel = mysqli_query($conn, "SELECT * FROM `user` WHERE `idUser` = '$id'");
-
-
 if (isset($_SESSION['idUser'])) {
     $id = $_SESSION['idUser'];
 } else {
@@ -54,7 +51,7 @@ if($_GET['user'] != $id) {
 
         while($usuario = mysqli_fetch_assoc($user)) {
 
-            $_SESSION['idAddress'] = $usuario['idAddress'];
+            
         echo '<div class="user__address">';
             
                 echo "<h3>{$usuario['completeName']}</h3>";

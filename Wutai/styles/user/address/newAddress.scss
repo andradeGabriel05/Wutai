@@ -10,7 +10,7 @@ header {
     align-items: flex-end;
     height: 100vh;
     form {
-        width: 45%;
+        width: 50%;
         height: 100%;
         display: flex;
         align-content: center;
@@ -28,5 +28,12 @@ header {
     padding-right: 8px;
     input {
         border: none;
+    }
+}
+.col__last__input {
+    display: flex;
+    justify-content: space-between;
+    .col-md-6, .col-md-4, .col-md-2 {
+        width: auto !important;
     }
 }

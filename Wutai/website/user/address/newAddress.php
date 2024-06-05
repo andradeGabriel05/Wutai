@@ -1,5 +1,18 @@
+<?php
+session_start();
+
+$idUser = $_SESSION['idUser'];
+
+$idPage = $_GET['user'];
+
+if($idPage != $idUser) {
+    header('Location:/php_programs/Wutai/Wutai/website/user/address/newAddress.php?user='.$idUser);
+}
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -18,27 +31,37 @@
     <section id="newAddress">
 
         <form action="newAddress.act.php" method="POST" class="row g-3 form-inline">
-        <div class="col-12">
+            <div class="col-12">
 
-            <label for="country" class="form-label">País</label>
-            <select class="form-select" aria-label="Default select example" name="country" id="country">
-                <option value="brasil">Brasil</option>
-                <option value="argentina">Argentina</option>
-                <option value="chile">Chile</option>
-                <option value="colombia">Colômbia</option>
-                <option value="mexico">México</option>
-                <option value="peru">Peru</option>
-                <option value="uruguay">Uruguai</option>
-                <option value="venezuela">Venezuela</option>
-                <option value="ecuador">Ecuador</option>
-                <option value="bolivia">Bolívia</option>
-                <option value="paraguay">Paraguai</option>
-                <option value="guyana">Guiana</option>
-                <option value="suriname">Suriname</option>
-                <option value="panama">Panamá</option>
-                <option value="guatemala">Guatemala</option>
-            </select>
-</div>
+                <label for="country" class="form-label">País</label>
+                <select class="form-select" aria-label="Default select example" name="country" id="country">
+                    <?php
+
+                    $arrayCountry = array(
+                        'Brasil',
+                        'Argentina',
+                        'Chile',
+                        'Colômbia',
+                        'México',
+                        'Peru',
+                        'Uruguai',
+                        'Venezuela',
+                        'Ecuador',
+                        'Bolívia',
+                        'Paraguai',
+                        'Guiana',
+                        'Suriname',
+                        'Panamá',
+                        'Guatemala'
+                    );
+
+                    foreach ($arrayCountry as $arrayCountry) {
+                        echo "<option value='$arrayCountry'>$arrayCountry</option>";
+                    }
+
+                    ?>
+                </select>
+            </div>
 
 
             <!-- 
@@ -51,18 +74,18 @@
 
 
             <!-- <div class="seller__address"> -->
-                <!-- <label for="zipcode"></label>
+            <!-- <label for="zipcode"></label>
                 <input type="text" name="zipcode" id="zipcode" placeholder="CEP/Código postal"> -->
 
-                <!-- <label for="address"></label>
+            <!-- <label for="address"></label>
                 <input type="text" name="address" id="address" placeholder="Linha de endereço"> -->
-<!-- 
+            <!-- 
                 <label for="number"></label>
                 <input type="text" name="number" id="number" placeholder="Número"> -->
-<!-- 
+            <!-- 
                 <label for="complement"></label>
                 <input type="text" name="complement" id="complement" placeholder="Complemento"> -->
-                <!-- 
+            <!-- 
                 <label for="neighborhood"></label>
                 <input type="text" name="neighborhood" id="neighborhood" placeholder="Bairro">
 
@@ -82,65 +105,76 @@
                 <input type="text" class="form-control" name="phoneNumber" id="phoneNumber">
             </div>
 
-                <div class="col-md-6">
-                    <label for="address" class="form-label">Linha de endereço</label>
-                    <input type="text" class="form-control" name="address" id="address">
-                </div>
-                <div class="col-md-4">
-                    <label for="zipcode" class="form-label">Complemento</label>
-                    <input type="text" class="form-control" name="complement" id="complement">
-                </div>
-                <div class="col-md-2">
-                    <label for="zipcode" class="form-label">Número</label>
-                    <input type="text" class="form-control" name="number" id="number">
-                </div>
+            <div class="col-md-6">
+                <label for="address" class="form-label">Linha de endereço</label>
+                <input type="text" class="form-control" name="address" id="address">
+            </div>
+            <div class="col-md-4">
+                <label for="zipcode" class="form-label">Complemento</label>
+                <input type="text" class="form-control" name="complement" id="complement">
+            </div>
+            <div class="col-md-2">
+                <label for="zipcode" class="form-label">Número</label>
+                <input type="text" class="form-control" name="number" id="number">
+            </div>
             <div class="col-12">
                 <label for="neighborhood" class="form-label">Bairro</label>
                 <input type="text" class="form-control" name="neighborhood" id="neighborhood">
             </div>
 
+            <div class="col__last__input">
 
-            <div class="col-md-6">
-                <label for="city" class="form-label">Cidade</label>
-                <input type="text" class="form-control" name="city" id="city">
-            </div>
-            <div class="col-md-4">
-                <label for="state" class="form-label">Estado</label>
-                <select class="form-select" name="state" id="state">
-                    <option value="acre">Acre</option>
-                    <option value="alagoas">Alagoas</option>
-                    <option value="amapa">Amapá</option>
-                    <option value="amazonas">Amazonas</option>
-                    <option value="bahia">Bahia</option>
-                    <option value="ceara">Ceará</option>
-                    <option value="distrito_federal">Distrito Federal</option>
-                    <option value="espirito_santo">Espírito Santo</option>
-                    <option value="goias">Goiás</option>
-                    <option value="maranhao">Maranhão</option>
-                    <option value="mato_grosso">Mato Grosso</option>
-                    <option value="mato_grosso_do_sul">Mato Grosso do Sul</option>
-                    <option value="minas_gerais">Minas Gerais</option>
-                    <option value="para">Pará</option>
-                    <option value="paraiba">Paraíba</option>
-                    <option value="parana">Paraná</option>
-                    <option value="pernambuco">Pernambuco</option>
-                    <option value="piaui">Piauí</option>
-                    <option value="rio_de_janeiro">Rio de Janeiro</option>
-                    <option value="rio_grande_do_norte">Rio Grande do Norte</option>
-                    <option value="rio_grande_do_sul">Rio Grande do Sul</option>
-                    <option value="rondonia">Rondônia</option>
-                    <option value="roraima">Roraima</option>
-                    <option value="santa_catarina">Santa Catarina</option>
-                    <option value="sao_paulo">São Paulo</option>
-                    <option value="sergipe">Sergipe</option>
-                    <option value="tocantins">Tocantins</option>
+                <div class="col-md-6">
+                    <label for="city" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" name="city" id="city">
+                </div>
+                <div class="col-md-4">
+                    <label for="state" class="form-label">Estado</label>
+                    <select class="form-select" name="state" id="state">
+                        <?php
 
-                    
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label for="zipcode" class="form-label">CEP</label>
-                <input type="text" class="form-control" name="zipcode" id="zipcode">
+                        $statesSql = array(
+                            'acre' => "Acre",
+                            'alagoas' => "Alagoas",
+                            'amapa' => "Amapá",
+                            'amazonas' => "Amazonas",
+                            'bahia' => "Bahia",
+                            'ceara' => "Ceará",
+                            'distrito_federal' => "Distrito Federal",
+                            'espirito_santo' => "Espírito Santo",
+                            'goias' => "Goiás",
+                            'maranhao' => "Maranhão",
+                            'mato_grosso' => "Mato Grosso",
+                            'mato_grosso_do_sul' => "Mato Grosso do Sul",
+                            'minas_gerais' => "Minas Gerais",
+                            'para' => "Pará",
+                            'paraiba' => "Paraíba",
+                            'parana' => "Paraná",
+                            'pernambuco' => "Pernambuco",
+                            'piaui' => "Piauí",
+                            'rio_de_janeiro' => "Rio de Janeiro",
+                            'rio_grande_do_norte' => "Rio Grande do Norte",
+                            'rio_grande_do_sul' => "Rio Grande do Sul",
+                            'rondonia' => "Rondônia",
+                            'roraima' => "Roraima",
+                            'santa_catarina' => "Santa Catarina",
+                            'sao_paulo' => "São Paulo",
+                            'sergipe' => "Sergipe",
+                            'tocantins' => "Tocantins"
+                        );
+
+                        foreach ($statesSql as $statesSql) {
+                            if ($statesSql != $address['state']) {
+                                echo "<option value='$statesSql'>$statesSql</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="zipcode" class="form-label">CEP</label>
+                    <input type="text" class="form-control" name="zipcode" id="zipcode">
+                </div>
             </div>
 
             <div class="button__class__submit">

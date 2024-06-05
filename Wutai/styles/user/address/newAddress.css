@@ -17,7 +17,7 @@ header {
   height: 100vh;
 }
 #newAddress form {
-  width: 45%;
+  width: 50%;
   height: 100%;
   display: flex;
   align-content: center;
@@ -34,4 +34,12 @@ header {
 }
 .button__class__submit input {
   border: none;
+}
+
+.col__last__input {
+  display: flex;
+  justify-content: space-between;
+}
+.col__last__input .col-md-6, .col__last__input .col-md-4, .col__last__input .col-md-2 {
+  width: auto !important;
 }/*# sourceMappingURL=newAddress.css.map */

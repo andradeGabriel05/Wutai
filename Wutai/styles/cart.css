@@ -15,7 +15,6 @@
   font-size: clamp(1rem, 10vw, 2rem);
 }
 .spanPadText p {
-  margin-left: 20px;
   font-size: clamp(1rem, 10vw, 1.3rem);
   margin-bottom: 0;
 }
@@ -93,7 +92,7 @@
   padding: 20px;
 }
 #cart .product__information .product__card .product__left__wrapper .product__image img {
-  width: 100%;
+  width: 200px;
   height: 100%;
   border-radius: 10px;
 }
