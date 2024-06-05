@@ -28,7 +28,7 @@ if ($cart) {
     $_SESSION['idCart'] = $idCart;
 }
 
-if(isset($_SESSION['idCart'])) {
+if (isset($_SESSION['idCart'])) {
     $idCart = $_SESSION['idCart'];
 }
 ?>
@@ -87,20 +87,28 @@ if(isset($_SESSION['idCart'])) {
 
         <div class="cart__shopping">
             <?php
-        if(isset($_SESSION['idCart'])) {
-            @$sqlCount = "SELECT COUNT(idCart) FROM `cart_items` WHERE `idCart` = $idCart";
-            @$sqlQueryCount = mysqli_query($conn, $sqlCount);
-            @$count = mysqli_fetch_array($sqlQueryCount);
+            if (isset($_SESSION['idCart'])) {
+                @$sqlCount = "SELECT COUNT(idCart) FROM `cart_items` WHERE `idCart` = $idCart";
+                @$sqlQueryCount = mysqli_query($conn, $sqlCount);
+                @$count = mysqli_fetch_array($sqlQueryCount);
 
-            echo "<i class='fa-solid fa-cart-shopping'><span> $count[0]</span></i>
-            <a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'>Carrinho</a>";
-        } else {
+                echo "<i class='fa-solid fa-cart-shopping'><span> $count[0]</span></i>";
+                if (isset($_SESSION['idUser'])) {
+                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'>Carrinho</a>";
+                } else {
+                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php'>Carrinho</a>";
+                }
+            } else {
 
 
-        echo "<i class='fa-solid fa-cart-shopping'><span></span></i>
-            <a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'>Carrinho</a>";
-        }
-?>
+                echo "<i class='fa-solid fa-cart-shopping'><span></span></i>";
+                if (isset($_SESSION['idUser'])) {
+                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'>Carrinho</a>";
+                } else {
+                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php'>Carrinho</a>";
+                }
+            }
+            ?>
         </div>
     </div>
 </header>
