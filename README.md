@@ -14,8 +14,6 @@ arrumar = fazer o SCSS
 
 // Arrumar página de programa de afiliado *
 
-// Arrumar página de novo produto
-
 // Trabalhar com API dos correios em novo endereço (CEP) * 
 
 // "Landing page" na página principal
