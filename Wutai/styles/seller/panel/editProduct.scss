@@ -1,0 +1,91 @@
+@import "../../global";
+
+body {
+    background-color: $bg-aff;
+}
+
+.affiliate__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.wrapper__products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.products{
+    
+    padding: 50px;
+
+    span {
+        font-size: clamp(1rem, 10vw, 1.2rem);
+        margin: 10px 0;
+    }
+    .container {
+        background-color: #e1e1e1;
+        padding: 20px;
+
+        a {
+            text-decoration: none;
+            color: $text-color;
+            display: flex;
+            flex-direction: column;
+            &:hover {
+                color: #000;
+
+            }
+        }
+        &__products {
+            display: flex;
+            transition: all 0.3s;
+            background-color: #fff;
+            margin: 20px;
+            width: 32vw;
+            img {
+                width: 14vw;
+                height: 33vh;
+            }
+            &__details {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 20px;
+            }
+
+            &:hover {
+                transition: all 0.3s;
+                background-color: #cecece;
+                cursor: pointer;
+
+
+            }
+
+            &__alter {
+                width: 15vw;
+                padding: 20px;
+                background-color: $text-color;
+                transition: all 0.3s;
+                border-radius: 5px;
+                a {
+                    color: #fff !important;
+                    text-decoration: none;
+
+
+
+                }
+                &:hover {
+                transition: all 0.3s;
+                background-color: #000 !important;
+                    color: #e3e3e3 !important;
+                }
+            }
+        }
+
+    }
+}
+
+

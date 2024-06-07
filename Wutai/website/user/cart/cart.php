@@ -41,7 +41,7 @@ if (isset($id)) {
                     $sqlInsertIdCart = "INSERT INTO `cart` (`idCart`, `idUser`, `createdDate`) VALUES (NULL, '$id', current_timestamp());";
                     mysqli_query($conn, $sqlInsertIdCart);
                 }
-                $idCart = $sql__array['idCart'];
+                @$idCart = $sql__array['idCart'];
 
                 $_SESSION['idCart'] = $idCart;
             }
@@ -184,32 +184,34 @@ if (isset($id)) {
                     <form action="" method="post">
                         <div class="product__information">
 
-                            
-                                <div class="product__card">
-                                    <div class="product__left__wrapper">
-                                        <a href="../../products/products_page.php?productId=<?php echo $idProduct ?>"><div class="product__image"><img src="../../seller/productCRUD/<?php echo $productImage ?>" alt=""></div></a>
-                                        <div class="product__add">
-                                            <div class="minus">
-                                                <input type="button" value="-" id="minus">
-                                            </div>
-                                            <div class="quantity">
-                                                <input type="text" name="quantity" id="quantity" value="<?php echo $quantity ?>">
-                                            </div>
-                                            <div class="add">
-                                                <input type="button" value="+" id="add" class="inputAdd">
-                                            </div>
-                                        </div>
 
-                                    </div>
-                                    <div class="product__description">
-                                        <div class="title">
-                                        <a href="../../products/products_page.php?productId=<?php echo $idProduct ?>"<span><?php echo $sqlArray['productName'] ?></span></a>
-
-                                            <a href="deleteProduct.act.php?idProduct=<?php echo $idCartItem; ?>">Excluir</a>
+                            <div class="product__card">
+                                <div class="product__left__wrapper">
+                                    <a href="../../products/products_page.php?productId=<?php echo $idProduct ?>">
+                                        <div class="product__image"><img src="../../seller/productCRUD/<?php echo $productImage ?>" alt=""></div>
+                                    </a>
+                                    <div class="product__add">
+                                        <div class="minus">
+                                            <input type="button" value="-" id="minus">
                                         </div>
-                                        <span class="title price">R$<?php echo $sqlArray['price'] ?></span>
+                                        <div class="quantity">
+                                            <input type="text" name="quantity" id="quantity" value="<?php echo $quantity ?>">
+                                        </div>
+                                        <div class="add">
+                                            <input type="button" value="+" id="add" class="inputAdd">
+                                        </div>
                                     </div>
+
                                 </div>
+                                <div class="product__description">
+                                    <div class="title">
+                                        <a href="../../products/products_page.php?productId=<?php echo $idProduct ?>"> <span><?php echo $sqlArray['productName'] ?></span></a>
+
+                                        <a href="deleteProduct.act.php?idProduct=<?php echo $idCartItem; ?>">Excluir</a>
+                                    </div>
+                                    <span class="title price">R$<?php echo $sqlArray['price'] ?></span>
+                                </div>
+                            </div>
                         </div>
                     </form>
         <?php
