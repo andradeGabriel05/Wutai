@@ -1,3 +1,7 @@
+
+
+<script src="../../js/header/search.js" defer></script>
+
 <?php
 
 @session_start();
@@ -46,7 +50,7 @@ if (isset($_SESSION['idCart'])) {
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul> -->
         <!-- </div> -->
-        <input type="text" name="" id="searchInput" placeholder="Pesquisar">
+        <input type="text" name="searchInput" id="searchInput" placeholder="Pesquisar" onkeyup="pesquisar(this.value)">
         <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
     <div class="header__wrapper">

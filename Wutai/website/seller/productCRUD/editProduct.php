@@ -16,7 +16,6 @@ $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = '$id
 $product = mysqli_fetch_array($product);
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -36,21 +35,20 @@ $product = mysqli_fetch_array($product);
 </head>
 
 <body>
-    <?php //include('../header/header.php'); 
-    ?>
+    <?php //include('../header/header.php'); ?>
     <div class="affiliate__wrapper">
 
         <?php include('../productCRUD/aside/aside.php'); ?>
 
 
-        <div class="products">
-            <h1>Seus produtos</h1>
-
-            <div class="container">
                 <?php
                 if (!isset($_GET['productId'])) {
 
 
+                    echo "<div class='products'>
+                    <h1>Seus produtos</h1>
+        
+                    <div class='container'>";
                     echo "<div class='wrapper__products'>";
 
                     $sqlProducts = "SELECT * FROM `product` WHERE `idSeller` = '$_SESSION[idSeller]'";
@@ -167,11 +165,11 @@ $product = mysqli_fetch_array($product);
         <section id="productImage">
             <img src='https://img.freepik.com/free-vector/think-outside-box-concept-illustration_114360-15734.jpg' alt='' id="previewImg">
         </section>
-
+        
         <?php
             }
         ?>
-
     </div>
+
 
         <?php include('../../footer/footer.php'); ?>

@@ -7,7 +7,7 @@
             <a href="">Suas vendas</a>
             <a href="/php_programs/Wutai/Wutai/website/seller/productCRUD/addProduct.php">Adicionar produtos</a>
             <a href="/php_programs/Wutai/Wutai/website/seller/productCRUD/editProduct.php">Editar produtos</a>
-            <a href="">Deletar produtos</a>
+            <a href="/php_programs/Wutai/Wutai/website/seller/productCRUD/deleteProduct.php">Deletar produtos</a>
             <a href="">Métricas</a>
             <a href="">Sua receita</a>
         </div>

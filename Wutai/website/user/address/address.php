@@ -72,5 +72,6 @@ if($_GET['user'] != $id) {
         }
     ?>
     </section>
-    
+
+
     <?php include('../../footer/footer.php'); ?>

@@ -231,7 +231,7 @@ if (isset($id)) {
         </div>
 
 
-        <?php if (isset($idCart)) { ?>
+        <?php if (isset($idCart) && isset($idProduct)) { ?>
             <div class="buy__box" id="buyBox">
                 <span>Total</span>
                 <div class="final__price">

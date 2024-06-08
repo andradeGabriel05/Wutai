@@ -13,7 +13,7 @@ if(isset($_POST['email']) || isset($_POST['password'])) {
         $password = $conn -> real_escape_string($_POST['password']);
 
         $sql__code = "SELECT * FROM  `user` WHERE `email` = '$email'";
-        $sql__query = $conn -> query($sql__code) or die("Falhou". $conN -> error);
+        $sql__query = $conn -> query($sql__code) or die("Falhou". $conn -> error);
 
 
         $user = $sql__query->fetch_assoc();
