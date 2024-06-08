@@ -11,7 +11,7 @@ if (@$_GET['seller'] == "true") {
     }
 } else {
     if (isset($_SESSION['idSeller'])) {
-        header('Location:/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?seller=true');
+        header('Location:/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?seller=true&panel=panel');
     }
 }
 

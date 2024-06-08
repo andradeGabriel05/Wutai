@@ -2,11 +2,12 @@
 require('../../connect.php');
 session_start();
 $idAddress = $_GET['address'];
+$_SESSION['idAddress'] = $idAddress;
 
-$idVerification = $_SESSION['selectedAddress'];
+// @$idVerification = $_SESSION['selectedAddress'];
 
 //usuario tentou burlar
-if (!isset($_SESSION['idUser']) || !isset($_SESSION['idAddress'])) {
+if (!isset($_SESSION['idUser'])) {
     echo "Você não tem permissão para acessar essa página";
     exit;
 }
@@ -17,18 +18,28 @@ $addressUser = mysqli_num_rows($userAddresses) > 0;
 
 //usuario tentou burlar
 if (!$addressUser) {
-    header("Location: editAddress.php?address={$_SESSION['selectedAddress']}");
+    echo "Você não tem permissão para acessar essa página 20";
+
+    // header("Location: editAddress.php?address=$idAddress}");
     exit;
 }
 
 //usuario tentou burlar
-if (!isset($_SESSION['selectedAddress']) || $_SESSION['selectedAddress'] !== $_GET['address']) {
-    header("Location: editAddress.php?address={$_SESSION['selectedAddress']}");
-    exit;
-}
+// if (!isset($_SESSION['selectedAddress']) || $_SESSION['selectedAddress'] !== $_GET['address']) {
+//     // header("Location: editAddress.php?address={$_SESSION['selectedAddress']}");
+//     exit;
+// }
 
 
-$_SESSION['selectedAddress'] = $_GET['address'];
+// $_SESSION['selectedAddress'] = $_GET['address'];
+
+
+
+$sql = "SELECT * FROM address WHERE idAddress = $idAddress";
+
+$result = mysqli_query($conn, $sql);
+
+$address = mysqli_fetch_assoc($result);
 
 ?>
 
@@ -52,17 +63,23 @@ $_SESSION['selectedAddress'] = $_GET['address'];
     <section id="newAddress">
 
         <form action="editAddress.act.php" method="POST" class="row g-3 form-inline">
+
+            <div class="col-12">
+                <label for="completeName" class="form-label">Nome completo</label>
+                <input type="text" class="form-control" name="completeName" id="completeName" value="<?php echo $address['completeName'] ?>">
+            </div>
+            <div class="col-12">
+                <label for="phoneNumber" class="form-label">Telefone</label>
+                <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="<?php echo $address['phoneNumber'] ?>">
+            </div>
+
+
             <div class="col-12">
 
                 <label for="country" class="form-label">País</label>
                 <select class="form-select" aria-label="Default select example" name="country" id="country">
                     <?php
 
-                    $sql = "SELECT * FROM address WHERE idAddress = $idAddress";
-
-                    $result = mysqli_query($conn, $sql);
-
-                    $address = mysqli_fetch_assoc($result);
 
                     $arrayCountry = array(
                         'Brasil',
@@ -94,19 +111,11 @@ $_SESSION['selectedAddress'] = $_GET['address'];
                 </select>
             </div>
 
-            <div class="col-12">
-                <label for="completeName" class="form-label">Nome completo</label>
-                <input type="text" class="form-control" name="completeName" id="completeName" value="<?php echo $address['completeName'] ?>">
-            </div>
 
-            <div class="col-12">
-                <label for="phoneNumber" class="form-label">Telefone</label>
-                <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="<?php echo $address['phoneNumber'] ?>">
-            </div>
 
             <div class="col-md-6">
-                <label for="address" class="form-label">Linha de endereço</label>
-                <input type="text" class="form-control" name="address" id="address" value="<?php echo $address['address'] ?>">
+                <label for="zipcode" class="form-label">CEP</label>
+                <input type="text" class="form-control" name="zipcode" id="zipcode" value="<?php echo $address['zipcode'] ?>">
             </div>
             <div class="col-md-4">
                 <label for="zipcode" class="form-label">Complemento</label>
@@ -116,67 +125,31 @@ $_SESSION['selectedAddress'] = $_GET['address'];
                 <label for="zipcode" class="form-label">Número</label>
                 <input type="text" class="form-control" name="number" id="number" value="<?php echo $address['houseNumber'] ?>">
             </div>
-            <div class="col-12">
-                <label for="neighborhood" class="form-label">Bairro</label>
-                <input type="text" class="form-control" name="neighborhood" id="neighborhood" value="<?php echo $address['neighborhood'] ?>">
-            </div>
 
-            <div class="col__last__input">
+
+            
 
                 <div class="col-md-6">
-                    <label for="city" class="form-label">Cidade</label>
-                    <input type="text" class="form-control" name="city" id="city" value="<?php echo $address['city'] ?>">
+                    <label for="address" class="form-label">Linha de endereço</label>
+                    <input type="text" class="form-control" name="address" id="address" value="<?php echo $address['address'] ?>" readonly>
                 </div>
+
                 <div class="col-md-4">
-                    <label for="state" class="form-label">Estado</label>
-                    <select class="form-select" name="state" id="state" value="<?php echo $address['state'] ?>">
-                        <?php
-
-                        $statesSql = array(
-                            'acre' => "Acre",
-                            'alagoas' => "Alagoas",
-                            'amapa' => "Amapá",
-                            'amazonas' => "Amazonas",
-                            'bahia' => "Bahia",
-                            'ceara' => "Ceará",
-                            'distrito_federal' => "Distrito Federal",
-                            'espirito_santo' => "Espírito Santo",
-                            'goias' => "Goiás",
-                            'maranhao' => "Maranhão",
-                            'mato_grosso' => "Mato Grosso",
-                            'mato_grosso_do_sul' => "Mato Grosso do Sul",
-                            'minas_gerais' => "Minas Gerais",
-                            'para' => "Pará",
-                            'paraiba' => "Paraíba",
-                            'parana' => "Paraná",
-                            'pernambuco' => "Pernambuco",
-                            'piaui' => "Piauí",
-                            'rio_de_janeiro' => "Rio de Janeiro",
-                            'rio_grande_do_norte' => "Rio Grande do Norte",
-                            'rio_grande_do_sul' => "Rio Grande do Sul",
-                            'rondonia' => "Rondônia",
-                            'roraima' => "Roraima",
-                            'santa_catarina' => "Santa Catarina",
-                            'sao_paulo' => "São Paulo",
-                            'sergipe' => "Sergipe",
-                            'tocantins' => "Tocantins"
-                        );
-
-                        echo "<option value= {$address['state']}> {$address['state']}</option>";
-
-                        foreach ($statesSql as $statesSql) {
-                            if ($statesSql != $address['state']) {
-                                echo "<option value='$statesSql'>$statesSql</option>";
-                            }
-                        }
-                        ?>
-                    </select>
+                    <label for="city" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" name="city" id="city" value="<?php echo $address['city'] ?>" readonly>
                 </div>
+
+
+
                 <div class="col-md-2">
-                    <label for="zipcode" class="form-label">CEP</label>
-                    <input type="text" class="form-control" name="zipcode" id="zipcode" value="<?php echo $address['zipcode'] ?>">
+                    <label for="state" class="form-label">Estado</label>
+                    <input type="text" name="state" id="state" class="form-control" value="<?php echo $address['state'] ?>" readonly>
                 </div>
-            </div>
+
+                <div class="col-12">
+                    <label for="neighborhood" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" name="neighborhood" id="neighborhood" value="<?php echo $address['neighborhood'] ?>" readonly>
+                </div>
 
             <div class="button__class__submit">
                 <input type="submit" value="Editar endereço" class="btn btn-primary" style="background-color: #000; padding: 15px; border-radius: 8px;">

@@ -11,8 +11,10 @@ if (@$_GET['seller'] == "true") {
     }
 } else {
     if (isset($_SESSION['idSeller'])) {
-        header('Location:/php_programs/Wutai/Wutai/website/seller/productCRUD/addProduct.php?seller=true');
+        header('Location:/php_programs/Wutai/Wutai/website/seller/productCRUD/addProduct.php?seller=true&panel=add');
+
     }
+
 }
 
     $sellerNameResult = mysqli_query($conn, "SELECT * FROM `seller` WHERE `idSeller` = '$_SESSION[idSeller]'");

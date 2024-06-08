@@ -224,7 +224,7 @@ if (isset($id)) {
                 <div class='empty__cart__auth' id='emptyCartAuth'>
 
             <p style='margin-bottom: 1rem;'>Faça login</p>
-            <p style='margin-bottom: 1rem;'>Continue suas compras na <a href='/php_programs/Wutai/Wutai/website/user/index/index.php'>página inicial da Wutai.com</a></p>
+            <p style='margin-bottom: 1rem;'>Continue suas compras na <a href='/php_programs/Wutai/Wutai/website/index.php'>página inicial da Wutai.com</a></p>
             </div>";
             }
         ?>

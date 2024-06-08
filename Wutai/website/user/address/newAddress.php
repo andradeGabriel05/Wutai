@@ -177,7 +177,7 @@ if ($idPage != $idUser) {
                 <div class="col-md-2">
                     <label for="state" class="form-label">Estado</label>
                     <input type="text" name="state" id="state" class="form-control" readonly>
-                    </div>
+                </div>
 
             <div class="col-12">
                 <label for="neighborhood" class="form-label">Bairro</label>
