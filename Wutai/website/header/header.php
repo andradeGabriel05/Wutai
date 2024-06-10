@@ -1,5 +1,3 @@
-
-
 <script src="../../js/header/search.js" defer></script>
 
 <?php
@@ -50,8 +48,10 @@ if (isset($_SESSION['idCart'])) {
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul> -->
         <!-- </div> -->
-        <input type="text" name="searchInput" id="searchInput" placeholder="Pesquisar" onkeyup="pesquisar(this.value)">
-        <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <form action="" method="POST">
+            <input type="text" name="searchInput" id="searchInput" placeholder="Pesquisar">
+            <button type="submit" id="searchButton" aria-label="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
     </div>
     <div class="header__wrapper">
         <div class="language">

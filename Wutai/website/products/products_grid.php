@@ -1,5 +1,6 @@
+
 <section class="container text-center">
-    <div class="row gx-0">
+    <div class="row gx-0 container__grid">
         <?php
         $product = mysqli_query($conn, "SELECT * FROM `product`");
 
@@ -8,15 +9,16 @@
             echo '<div class="card-deck">';
             echo '<div class="card">';
             echo '<a href="products/products_page.php?productId=' . $usuario['idProduct'] .'">';
-            echo '<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" alt="...">';
+            echo '<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">';
+            echo '<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] .'"><i class="fa-solid fa-cart-shopping"></i></a>';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $usuario['productName'] . '</h5>';
-            echo '</a>';
             echo '<div class="price">';
             echo '<span style="font-size: 20px;">R$</span>';
             echo '<span style="font-size: 30px;">' . $usuario['price'] . '</span>';
             echo '<span style="font-size: 20px;"></span>';
             echo '<span style="font-size: 20px;"></span>';
+            echo '</a>';
             echo '</div>';
             echo '</div>';
             echo '</div>';
@@ -25,6 +27,7 @@
         }
         ?>
     </div>
+
 
     <div class="container text-center">
         <div class="row">
@@ -37,6 +40,8 @@
                                     <div class="card">
                                         <a href="user/register/register.php">
                                             <img src="https://www.shutterstock.com/image-vector/beta-red-stamp-text-on-260nw-219686944.jpg" alt="..." class="img-thumbnail rounded-0" class="card-img-top" alt="...">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                            
                                             <div class="card-body">
                                                 <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, veniam!</h5>
 

@@ -76,6 +76,8 @@ if (isset($id)) {
 
 
 
+
+
 ?>
 
 
@@ -138,9 +140,9 @@ if (isset($id)) {
                 if ($sum[0] == 0) {
                     echo "";
                 } elseif ($sum[0] == 1) {
-                    echo "<p style='margin-left: 10px;'>(<p id='productsSpanId' style='margin-right: 5px;'>" . $sum[0] . " produto) </p></p>";
+                    echo "<p style='margin-left: 10px;'>(<p id='productsSpanId' style='margin-right: 5px;' class='quantityInputSpan'>" . $sum[0] . "  </p> <p id='productsSpanTextId'> produto)</p>";
                 } else {
-                    echo "<p style='margin-left: 10px;'>(<p id='productsSpanId' style='margin-right: 5px;'>" . $sum[0] . " </p> <p> produtos)</p></p> ";
+                    echo "<p style='margin-left: 10px;'>(<p id='productsSpanId' style='margin-right: 5px;' class='quantityInputSpan'>" . $sum[0] . " </p> <p id='productsSpanTextId'> produtos)</p></p> ";
                 }
             ?></p>
     </div>
@@ -180,6 +182,7 @@ if (isset($id)) {
                         $_SESSION['idCartItem'] = $product['idCartItem'];
 
 
+
             ?>
                     <form action="" method="post">
                         <div class="product__information">
@@ -192,13 +195,13 @@ if (isset($id)) {
                                     </a>
                                     <div class="product__add">
                                         <div class="minus">
-                                            <input type="button" value="-" id="minus">
+                                            <input type="button" value="-" name="minus" id="minus">
                                         </div>
                                         <div class="quantity">
-                                            <input type="text" name="quantity" id="quantity" value="<?php echo $quantity ?>">
+                                            <input type="text" name="quantity" id="quantity" class="quantityInputSpan" value="<?php echo $quantity ?>">
                                         </div>
                                         <div class="add">
-                                            <input type="button" value="+" id="add" class="inputAdd">
+                                            <input type="button" value="+" name="add" id="add" class="inputAdd">
                                         </div>
                                     </div>
 
@@ -254,6 +257,7 @@ if (isset($id)) {
                             $sqlArrayidProduct = mysqli_fetch_assoc($sqlQueryIdProduct);
 
                             $price = $sqlArrayidProduct['price'];
+
                             $quantity = $product['quantity'];
 
                             $totalProduct = $price * $quantity;
@@ -278,6 +282,7 @@ if (isset($id)) {
         }
         ?>
     </section>
+
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
