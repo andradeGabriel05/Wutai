@@ -28,23 +28,31 @@ header {
   flex-direction: row;
   margin: 20px;
 
-  #searchInput {
-    padding: 10px;
-    width: 100%;
-    border-radius: 10px;
-  }
+  form {
+width: 100%;
+position: relative;
 
-  #searchButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-    margin-left: -55px;
-    height: 40px;
-    padding: 15px;
-    border-radius: 10px;
-
-    color: $text-color-white;
+#searchInput {
+      padding: 10px;
+      width: 100%;
+      border-radius: 10px;
+    }
+  
+    #searchButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      margin-left: -55px;
+      height: 40px;
+      padding: 15px;
+      border-radius: 10px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 4px 4px;
+      color: $text-color-white;
+    }
   }
 }
 
@@ -92,16 +100,16 @@ header {
     font-size: clamp(1rem, 5vw, 2rem);
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: flex-end;
 
     span {
       position: absolute;
       font-size: 15px;
       color: black;
-      margin: 0;
-      left: 16.5px;
-      bottom: 14.5px;
+      left: 7px;
+      bottom: 0;
+      margin-bottom: 13px;
     }
   }
 

@@ -32,12 +32,16 @@ header a {
   flex-direction: row;
   margin: 20px;
 }
-.search__box #searchInput {
+.search__box form {
+  width: 100%;
+  position: relative;
+}
+.search__box form #searchInput {
   padding: 10px;
   width: 100%;
   border-radius: 10px;
 }
-.search__box #searchButton {
+.search__box form #searchButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,6 +50,10 @@ header a {
   height: 40px;
   padding: 15px;
   border-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 4px 4px;
   color: #FFFFFF;
 }
 
@@ -90,8 +98,8 @@ header a {
   font-size: clamp(1rem, 5vw, 2rem);
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 .user i span,
 .cart__shopping i span,
@@ -99,9 +107,9 @@ header a {
   position: absolute;
   font-size: 15px;
   color: black;
-  margin: 0;
-  left: 16.5px;
-  bottom: 14.5px;
+  left: 7px;
+  bottom: 0;
+  margin-bottom: 13px;
 }
 .user a,
 .user span,
