@@ -45,5 +45,3 @@ arrumar = fazer o SCSS
 // Responsividade
 
 // Cookies para manter login
-
-// Aumentar valor do #productsSpanId se eu clicar no add no carrinho
