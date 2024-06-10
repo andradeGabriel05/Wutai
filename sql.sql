@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/06/2024 às 18:02
+-- Tempo de geração: 10/06/2024 às 17:24
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -54,7 +54,8 @@ INSERT INTO `address` (`idAddress`, `completeName`, `zipcode`, `state`, `city`, 
 (27, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 10),
 (28, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 11),
 (33, 'teste usuario', '08257-080', 'Rondonia', 'Rio Grande do Norte', 'Argentina', 'casas', 123, 'casa', 'regiao nordeste', '11945376714', 8),
-(34, 'ga an', '31231', 'São Paulo', 'São Paulo', 'Brasil', 'casas', 0, 'casa', 'RODEIOOOO', '40028922', 8);
+(34, 'ga an', '31231', 'São Paulo', 'São Paulo', 'Brasil', 'casas', 0, 'casa', 'RODEIOOOO', '40028922', 8),
+(38, 'Gabriel Lima Andrade', '08253000', 'SP', 'São Paulo', 'Brasil', 'Rua Virgínia Ferni', 400, 'escola', 'Conjunto Residencial José Bonifácio', '1140028922', 13);
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,8 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`idCart`, `idUser`, `createdDate`) VALUES
 (1, 11, '2024-06-02 18:51:48'),
 (2, 8, '2024-06-03 12:01:18'),
-(3, 12, '2024-06-07 11:58:13');
+(3, 12, '2024-06-07 11:58:13'),
+(4, 13, '2024-06-09 01:39:34');
 
 -- --------------------------------------------------------
 
@@ -90,6 +92,15 @@ CREATE TABLE `cart_items` (
   `quantity` int(11) NOT NULL,
   `addedDate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Despejando dados para a tabela `cart_items`
+--
+
+INSERT INTO `cart_items` (`idCartItem`, `idCart`, `idProduct`, `quantity`, `addedDate`) VALUES
+(90, 1, 17, 1, '2024-06-09 00:31:24'),
+(91, 1, 17, 1, '2024-06-09 01:36:19'),
+(138, 4, 18, 2, '2024-06-09 20:06:44');
 
 -- --------------------------------------------------------
 
@@ -116,7 +127,6 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`idProduct`, `productName`, `category`, `quantity`, `productDescription`, `productImage`, `price`, `deliver`, `idSeller`) VALUES
 (17, 'Caderno de caligrafia chinesa', 'book', 70, 'Caderno de papel especial para praticar caligrafia chinesa, com linhas guia e espaço para aperfeiçoar sua escrita em caracteres chineses.\r\n', 'productImages/34954677ff441979f97800d1c5ec5257.jpg', 24.90, 'Gabriel Empresa', 6),
 (18, 'Fone de ouvido Bluetooth', 'electronic', 50, 'Fone de ouvido sem fio com conexão Bluetooth, design confortável e bateria de longa duração. Ideal para música e chamadas.', 'productImages/7692b4fb142541988271da6abd19a030.jpg', 149.90, 'Gabriel Empresa', 6),
-(19, 'Fone de ouvido Bluetooth', 'electronic', 50, 'Fone de ouvido sem fio com conexão Bluetooth, design confortável e bateria de longa duração. Ideal para música e chamadas.', 'productImages/7692b4fb142541988271da6abd19a030.jpg', 149.90, 'Gabriel Empresa', 6),
 (20, 'Camiseta básica de algodão', 'apparel', 100, 'Camiseta básica de algodão de alta qualidade, perfeita para o dia a dia. Disponível em diversas cores e tamanhos.', 'productImages/dd306dd85885ccb8a07d33fbf61a221d.jpg', 24.90, 'Gabriel Empresa', 6),
 (21, 'Ventilador de Mesa Mondial Super Power', 'house', 30, 'O Ventilador de Mesa Mondial Super Power é um aparelho de ventilação eficiente e compacto projetado para uso em mesas e bancadas.', 'productImages/7adda9ac7f0471a48f07db5cc223a08c.jpg', 153.00, 'Wutai', 7);
 
@@ -170,7 +180,8 @@ INSERT INTO `user` (`idUser`, `name`, `surname`, `email`, `password`, `birthdate
 (9, 'teste', 'usuario', 'teste@usuario.com', '$2y$10$NJvWVc..ZZ0NAHuH06IMG.ckgU7p5rJPeSgomWaCesOOOlRwm1Aca', '0000-00-00', '2024-05-28 00:00:00'),
 (10, 'Gabriel2', 'Lima2', 'gabriel@lima.com', '$2y$10$zFuOMEVaqjCGjXyzurTDcudYv02egwzJHFus5eTxdF8yr0wSyN0Ui', '0000-00-00', '2024-05-31 21:13:08'),
 (11, 'Wutai', 'Company', 'wutai@company.com', '$2y$10$GBY4uj6NmA9/QGN/VSH1AOS1zbBKQ1oJbplAWeHgDRlj4oPY.GG5y', '2024-06-01', '2024-06-01 22:57:44'),
-(12, 'Gabriel', 'Empresa', 'gabriel@empresa.com', '$2y$10$l7wg7rp1/LiHv0s8.RSiX.sXmALAmkK5YcLPRV3h3/WOVNuKpDmXm', '2024-06-01', '2024-06-07 08:48:24');
+(12, 'Gabriel', 'Empresa', 'gabriel@empresa.com', '$2y$10$l7wg7rp1/LiHv0s8.RSiX.sXmALAmkK5YcLPRV3h3/WOVNuKpDmXm', '2024-06-01', '2024-06-07 08:48:24'),
+(13, 'Gabriel', 'Wutai', 'gabriel@wutai.com', '$2y$10$FfyM1xe5oqXDELnTCb4j5eAfFcrhvGjFcLYiG6/NWoPt4r.rPJeZW', '2024-06-09', '2024-06-09 01:39:14');
 
 --
 -- Índices para tabelas despejadas
@@ -228,19 +239,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de tabela `address`
 --
 ALTER TABLE `address`
-  MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de tabela `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `idCart` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idCart` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `idCartItem` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `idCartItem` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT de tabela `product`
@@ -258,7 +269,7 @@ ALTER TABLE `seller`
 -- AUTO_INCREMENT de tabela `user`
 --
 ALTER TABLE `user`
-  MODIFY `idUser` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idUser` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restrições para tabelas despejadas
