@@ -10,8 +10,6 @@ arrumar = fazer o SCSS
 !* = não é prioridade
 
 
-// Barra de pesquisa
-
 // "Landing page" na página principal
 
 // Página do vendedor
