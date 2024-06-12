@@ -35,23 +35,20 @@
   width: 66%;
 }
 .row i {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 20px;
-  background-color: #000;
+  width: 100%;
+  background-color: #660708;
   color: #fff;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 15px;
   transition: all 0.3s;
 }
 .row i:hover {
-  background-color: #fff;
-  color: #660708;
+  background-color: #4f0001;
+  color: #ffffff;
   transition: all 0.3s;
 }
 .row a {
   position: relative;
+  text-decoration: none;
 }
 
 .cards__wrapper {
@@ -59,7 +56,7 @@
 }
 
 .card-title {
-  width: 200px;
+  width: 240px;
   color: #0B090A;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -94,4 +91,11 @@
   align-items: center;
   background-color: #000;
   border-radius: 10px;
+}
+
+.add__to__cart {
+  margin: 0.5em;
+}
+.add__to__cart i {
+  border-radius: 0.25rem;
 }/*# sourceMappingURL=products.css.map */

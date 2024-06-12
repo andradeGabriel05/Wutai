@@ -58,7 +58,7 @@ body {
       font-size: clamp(1rem, 10vw, 2rem);
     }
     form {
-
+      width: 100%;
       input {
         background-color: $text-color;
         color: $text-color-white;
@@ -138,4 +138,11 @@ a {
     border: solid 1px $text-color;
     color: #000;
 }
+}
+
+.alert {
+  p {
+    margin: 0 0 20px 0;
+    color: $text-color;
+  }
 }

@@ -67,6 +67,10 @@ body {
   padding: 10px 0;
   font-size: clamp(1rem, 10vw, 2rem);
 }
+#createAccount .form__wrapper form,
+#join .form__wrapper form {
+  width: 100%;
+}
 #createAccount .form__wrapper form input,
 #join .form__wrapper form input {
   background-color: #660708;
@@ -147,4 +151,9 @@ body {
   text-decoration: none;
   border: solid 1px #660708;
   color: #000;
+}
+
+.alert p {
+  margin: 0 0 20px 0;
+  color: #660708;
 }/*# sourceMappingURL=user.css.map */

@@ -33,18 +33,14 @@
   }
 
   i {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 20px;
-    background-color: #000;
+    width: 100%;
+    background-color: $text-color;
     color: #fff;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
     transition: all 0.3s;
     &:hover {
-      background-color: #fff;
-      color: $text-color;
+      background-color: #4f0001;
+      color: #ffffff;
     transition: all 0.3s;
 
     }
@@ -52,6 +48,7 @@
 
   a {
     position: relative;
+    text-decoration: none;
   }
 
 }
@@ -62,7 +59,7 @@
 }
 
 .card-title {
-  width: 200px;
+  width: 240px;
   color: $text-color-black;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -129,3 +126,12 @@
 //     border: solid 1px #cccccc94;
 //   }
 // }
+
+.add__to__cart {
+  margin: 0.5em;
+
+  i {
+    border-radius: .25rem;
+
+  }
+}
