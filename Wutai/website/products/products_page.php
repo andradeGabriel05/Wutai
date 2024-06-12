@@ -1,7 +1,12 @@
 <?php
+session_start();
+define('BASE_PATH', realpath(dirname(__FILE__) . '/..'));
+require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
 
-
-
+extract($_POST);
+$productNameQuery = mysqli_query($conn, "SELECT `productName` FROM `product` WHERE `idProduct` = '$_GET[productId]'");
+$productNameArr = mysqli_fetch_array($productNameQuery);
+$productName = $productNameArr['productName'];
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto Teste | Wutai</title>
+    <title><?php echo $productName ?> | Wutai</title>
 
 
     <link rel="stylesheet" href="../../styles/header.css">
@@ -69,7 +74,9 @@
                     </select>
                     <input type="submit" value="Adicionar ao carrinho" style="width: 100%;">
                 </form>
-                <input type="submit" value="Comprar agora">
+                <form action="buyNow.act.php" method="POST">
+                    <input type="submit" value="Comprar agora" style="width: 100%;">
+                </form>
                 <div class="product__price__details__seller">
                     <span class="span__seller">Enviado por: <?php echo $usuario['deliver']; ?></span></span>
                     <span class="span__seller">Vendido por: <?php echo $seller['enterpriseName']; ?></span></span>

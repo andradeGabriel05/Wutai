@@ -28,8 +28,6 @@ if (isset($id)) {
 
             $sql = "SELECT * FROM `cart_items` WHERE `idCart` = $idCart";
 
-
-
             $sqlQuery = mysqli_query($conn, $sql);
             $sqlArray = mysqli_fetch_array($sqlQuery);
         } else {

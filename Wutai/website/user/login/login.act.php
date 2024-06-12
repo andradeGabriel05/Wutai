@@ -7,7 +7,7 @@ session_start();
 
 if(isset($_POST['email']) || isset($_POST['password'])) {
     if(strlen($_POST['email']) < 1 || strlen($_POST['password']) < 1) {
-        echo "Insira seu email ou senha";
+
     } else {
         $email = $conn -> real_escape_string($_POST['email']);
         $password = $conn -> real_escape_string($_POST['password']);

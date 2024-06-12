@@ -48,7 +48,7 @@ if (isset($_SESSION['idCart'])) {
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul> -->
         <!-- </div> -->
-        <form action="" method="POST">
+        <form action="/php_programs/Wutai/Wutai/website/products/searchBar.php" method="POST">
             <input type="text" name="searchInput" id="searchInput" placeholder="Pesquisar">
             <button type="submit" id="searchButton" aria-label="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>

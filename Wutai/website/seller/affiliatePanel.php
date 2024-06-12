@@ -55,7 +55,7 @@ $seller = mysqli_fetch_array($sellerNameResult);
                     $productName = $product['productName'];
                     $productImage = $product['productImage'];
                     $productPrice = $product['price'];
-                    ?>
+                ?>
 
                     <div class="container__products">
                         <a href="/php_programs/Wutai/Wutai/website/products/products_page.php?productId=<?php echo $idProduct; ?>">
@@ -74,11 +74,11 @@ $seller = mysqli_fetch_array($sellerNameResult);
             </div>
 
 
-        <?php
+            <?php
                 }
-        ?>
+            ?>
 
+            </div>
         </div>
-    </div>
     </div>
     <?php include('../footer/footer.php'); ?>
