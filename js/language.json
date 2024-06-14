@@ -1,0 +1,23 @@
+{
+    "header": {
+        "pt_BR": {
+            "cart": "Carrinho",
+            "login": "Entrar",
+            "register": "Registrar",
+            "logout": "Sair",
+            "search": "Pesquisar"
+        },
+
+        "en_US": {
+            "cart": "Cart",
+            "login": "Login",
+            "register": "Register",
+            "logout": "Logout",
+            "search": "Search"
+        },
+
+        "fr_FR": {
+        
+        }
+    }
+}
