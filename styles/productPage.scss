@@ -1,0 +1,115 @@
+@import 'global';
+
+.product__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+
+    span {
+        margin-top: 13px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    .product__image__container {
+        height: auto !important;
+        width: 100% !important;
+
+        display: flex;
+        flex-direction: row;
+
+            ul {
+                height: 100%;
+                li {
+                    width: 5% !important;
+                    padding: 30px;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    margin: 15px;
+                    background-color: red;
+                }
+            }
+        }
+
+
+    .product__image {
+        height: 100% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 15px;
+        img {
+            width: 500px !important;
+            height: 500px !important;
+        }
+    }
+    .product__title {
+        width: 100%;
+        margin: 0 10px;
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        #titleProduct {
+            width: 100%;
+            font-size: clamp(1rem, 10vw, 1.3rem);
+            color: black;
+        }
+
+        #priceProduct {
+            margin: 10px 0;
+            font-size: clamp(1rem, 10vw, 1.3rem);
+            font-weight: 600;
+        }
+    }
+
+    .product__price {
+        border: #c3c3c370 2px solid;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        width: 52%;
+        height: 100%;
+        input {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: $text-color;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .price__span {
+
+            font-size: clamp(1rem, 10vw, 1.3rem);
+            margin: 0;
+        }
+    }
+    .product__price__details__seller{
+        margin-top: 13px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: clamp(.3rem, 2.5vw, .95rem);
+        .span__seller {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .quantity__input {
+        display: flex;
+        justify-content: space-between;
+        #quantity {
+            width: 50%;
+            text-align: center;
+        }
+    
+        #minus, #add {
+            width: auto;
+        }
+    }
+}

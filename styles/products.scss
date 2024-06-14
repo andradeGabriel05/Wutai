@@ -1,0 +1,137 @@
+@import "global.scss";
+
+.row {
+  padding: 30px;
+  background-color: $bg2;
+  color: $text-color-white;
+  grid-gap: 20px;
+  --bs-gutter-x: 0;
+  .w-50 {
+    width: 49.19% !important;
+  }
+  .col {
+    background-color: #303030;
+  }
+
+  .col-8 {
+    background-color: #303030;
+    width: 65%;
+  }
+
+  .col-6 {
+    background-color: #303030;
+    width: 32%;
+  }
+
+  .col-4 {
+    background-color: #303030;
+  }
+
+  .col-md-8 {
+    background-color: #303030;
+    width: 66%;
+  }
+
+  i {
+    width: 100%;
+    background-color: $text-color;
+    color: #fff;
+    padding: 15px;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #4f0001;
+      color: #ffffff;
+    transition: all 0.3s;
+
+    }
+  }
+
+  a {
+    position: relative;
+    text-decoration: none;
+  }
+
+}
+
+// cards
+.cards__wrapper {
+  display: flex;
+}
+
+.card-title {
+  width: 240px;
+  color: $text-color-black;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  color: $text-color-black;
+}
+
+.card {
+  margin: 0.5em;
+  border: solid 1px #cccccc94;
+
+
+
+  a {
+    text-decoration: none; 
+
+}
+
+    
+  &:hover {
+    h5 {
+        color: $text-color;
+    
+      }
+    border: solid 1px $text-color;
+    color: $text-color;
+  }
+
+}
+
+.text__field__offer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  border-radius: 10px;
+}
+
+// .buy__cart {
+//   width: 100%;
+//   display: flex;
+//   flex-direction: row;
+//   #cart {
+//     width: 20%;
+//   }
+
+//   #buy {
+//     width: 80%;
+//   }
+
+//   #cart,
+//   #buy {
+//     padding: 10px;
+//     margin: 10px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border: solid 1px #cccccc94;
+//   }
+// }
+
+.add__to__cart {
+  margin: 0.5em;
+
+  i {
+    border-radius: .25rem;
+
+  }
+}

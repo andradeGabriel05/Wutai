@@ -1,0 +1,69 @@
+@import '../global';
+body {
+    color: #000;
+  }
+  
+  
+header {
+    background-color: #fff;
+    padding: 10px 50px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    .logo {
+      display: flex;
+      align-items: center;
+  
+      span {
+          font-size: clamp(1rem, 10vw, 1.3rem);
+          text-transform: uppercase;
+          padding: 10px;
+          color: #000;
+      }
+    }
+  
+    .header__right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+  
+      .language {
+          border-right: solid 1px black;
+          padding: 15px;
+
+          i {
+              color: #000;
+
+          }
+  
+      }
+      a {
+          text-decoration: none;
+          font-size: clamp(.5rem, 10vw, 1rem);
+          text-transform: uppercase;
+          color: #000;
+          border: solid 1px black;
+          margin-left: 15px;
+          padding: 15px;
+  
+      }
+    }
+  
+    span {
+    border-left: 1px solid black;
+  
+    }
+  }
+
+  
+#logoImg {
+    background-image: url(#{$imgLogoRed});
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 170px;
+    height: 80px;
+    margin-left: 20px;
+  }
+  
