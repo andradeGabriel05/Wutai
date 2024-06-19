@@ -13,7 +13,7 @@ const apiCep = async() => {
 const apiResult = (address) => {
    document.getElementById("city").value = address.localidade
    document.getElementById("neighborhood").value = address.bairro
-   document.getElementById("address").value = address.logradouro
+   document.getElementById("addressInput").value = address.logradouro
    document.getElementById("state").value = address.uf
 
 }

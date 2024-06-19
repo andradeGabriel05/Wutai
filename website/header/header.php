@@ -1,5 +1,3 @@
-<script src="../../js/header/search.js" defer></script>
-
 <?php
 
 @session_start();
@@ -49,14 +47,14 @@ if (isset($_SESSION['idCart'])) {
             </ul> -->
         <!-- </div> -->
         <form action="/php_programs/Wutai/Wutai/website/products/searchBar.php" method="POST">
-            <input type="text" name="searchInput" id="searchInput" placeholder="Pesquisar">
+            <input type="text" name="searchInput" id="searchInput" placeholder="">
             <button type="submit" id="searchButton" aria-label="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </div>
     <div class="header__wrapper">
         <div class="language">
             <i class="fa-solid fa-globe"></i>
-            <a href="/php_programs/Wutai/Wutai/website/language.php">Português</a>
+            <a href="/php_programs/Wutai/Wutai/website/language.php" id="languagePage"></a>
         </div>
 
         <div class="user">
@@ -64,25 +62,25 @@ if (isset($_SESSION['idCart'])) {
 
             <?php
             if ($name != "Entrar/Registar") {
-                echo "<a href='/php_programs/Wutai/Wutai/website/user/homepage/homepage.php' id='menu'>Olá, $name!</a>
+                echo "<a href='/php_programs/Wutai/Wutai/website/user/homepage/homepage.php' id='menu'><p class='menu__hello' style='margin: 0'></p>, $name!</a>
                     <div class='user__panel'>
-                        <a href='/php_programs/Wutai/Wutai/website/user/homepage/homepage.php?user=$id'>Perfil</a>
-                        <a href='/php_programs/Wutai/Wutai/website/user/orders/orders.php?user=$id'>Pedidos</a>
-                        <a href='/php_programs/Wutai/Wutai/website/user/address/address.php?user=$id'>Endereços</a>
-                        <a href='/php_programs/Wutai/Wutai/website/user/settings/settings.php?user=$id'>Definições</a>";
+                        <a href='/php_programs/Wutai/Wutai/website/user/homepage/homepage.php?user=$id' id='profile'></a>
+                        <a href='/php_programs/Wutai/Wutai/website/user/orders/orders.php?user=$id' id='ordered'></a>
+                        <a href='/php_programs/Wutai/Wutai/website/user/address/address.php?user=$id' id='address'></a>
+                        <a href='/php_programs/Wutai/Wutai/website/user/settings/settings.php?user=$id' id='config'></a>";
                 if (isset($idSeller)) {
-                    echo "<a href='/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?user=$idSeller'>Afiliado</a>";
+                    echo "<a href='/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?user=$idSeller' id='affiliate'></a>";
                 }
-                echo "<a href='/php_programs/Wutai/Wutai/website/user/login/logout.php' id='logout'>Sair</a>
+                echo "<a href='/php_programs/Wutai/Wutai/website/user/login/logout.php' id='logout'></a>
                     </div>
                 ";
             } else {
-                echo "<a href='/php_programs/Wutai/Wutai/website/user/login/login.php' id='login'>Entrar</a>
+                echo "<a href='/php_programs/Wutai/Wutai/website/user/login/login.php' class='login'></a>
                 <div class='user__panel'>
-                <a href='/php_programs/Wutai/Wutai/website/user/register/register.php' id='register'>Registrar</a>
-                <a href='/php_programs/Wutai/Wutai/website/user/login/login.php' id='login'>Entrar</a>";
+                <a href='/php_programs/Wutai/Wutai/website/user/register/register.php' id='register'></a>
+                <a href='/php_programs/Wutai/Wutai/website/user/login/login.php' class='login'></a>";
                 if (isset($idSeller)) {
-                    echo "<a href='/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?user=$idSeller'>Afiliado</a>";
+                    echo "<a href='/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?user=$idSeller'></a>";
                 }
                 echo "</div>";
             }
@@ -98,18 +96,18 @@ if (isset($_SESSION['idCart'])) {
 
                 echo "<i class='fa-solid fa-cart-shopping'><span> $count[0]</span></i>";
                 if (isset($_SESSION['idUser'])) {
-                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'  id='cartHeader'>Carrinho</a>";
+                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'  id='cartHeader'></a>";
                 } else {
-                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php'  id='cartHeader'>Carrinho</a>";
+                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php'  id='cartHeader'></a>";
                 }
             } else {
 
 
                 echo "<i class='fa-solid fa-cart-shopping'><span></span></i>";
                 if (isset($_SESSION['idUser'])) {
-                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'  id='cartHeader'>Carrinho</a>";
+                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php?user=$id'  id='cartHeader'></a>";
                 } else {
-                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php'  id='cartHeader'>Carrinho</a>";
+                    echo "<a href='/php_programs/Wutai/Wutai/website/user/cart/cart.php'  id='cartHeader'></a>";
                 }
             }
             ?>

@@ -56,30 +56,45 @@ $productName = $productNameArr['productName'];
             </div>
             <div class="product__title">
                 <span id="titleProduct"><?php echo $usuario['productName']; ?></span>
-                <span id="priceProduct">R$ <span><?php echo $usuario['price']; ?></span></span>
+
+                <div class="priceProduct">
+                    <p class="currency">R$</p>
+                    <p class="price__product"><?php echo $usuario['price']; ?></p>
+                </div>
+
                 <span class="product__details"><?php echo $usuario['productDescription']; ?></span>
             </div>
             <div class="product__price">
-                <span class="price__span">R$<?php echo $usuario['price']; ?></span>
+                <div class="priceProduct price__span" style="display: flex;">
+                    <p class="currency">R$</p>
+                    <p class="price__product"><?php echo $usuario['price']; ?></p>
+                </div>
                 <span>Entrega GRÁTIS: Segunda-feira, 3 de Junho no seu primeiro pedido</span>
                 <form method="POST" action="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php">
                     <select class="form-select" aria-label="Default select example" style="margin-top: 10px;" name="quantity">
                         <?php
-                            $quantity = $usuario['quantity'];
+                        $quantity = $usuario['quantity'];
 
-                            for ($i = 1; $i <= $quantity; $i++) {
-                                echo "<option value='$i'>$i</option>";
-                            }
+                        for ($i = 1; $i <= $quantity; $i++) {
+                            echo "<option value='$i'>$i</option>";
+                        }
                         ?>
                     </select>
-                    <input type="submit" value="Adicionar ao carrinho" style="width: 100%;">
+                    <input type="submit" value="Adicionar ao carrinho" style="width: 100%;" class="product__price__add__product">
                 </form>
                 <form action="buyNow.act.php" method="POST">
-                    <input type="submit" value="Comprar agora" style="width: 100%;">
+                    <input type="submit" value="Comprar agora" style="width: 100%;" class="product__price__buy__now">
                 </form>
                 <div class="product__price__details__seller">
-                    <span class="span__seller">Enviado por: <?php echo $usuario['deliver']; ?></span></span>
-                    <span class="span__seller">Vendido por: <?php echo $seller['enterpriseName']; ?></span></span>
+
+                    <div class="product__price__div__send" style="display: flex;">
+                        <p class="span__seller product__price__send"></p>
+                        <p>&nbsp;<?php echo $usuario['deliver']; ?></p>
+                    </div>
+                    <div class="product__price__div__seller" style="display: flex;">
+                        <p class="span__seller product__price__seller">Vendido por:</p>
+                        <p>&nbsp;<?php echo $seller['enterpriseName']; ?></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -88,8 +103,3 @@ $productName = $productNameArr['productName'];
 
     include('../footer/footer.php')
     ?>
-</body>
-<script src="https://kit.fontawesome.com/8aca4bf827.js" crossorigin="anonymous"></script>
-<script src="/php_programs/Wutai/Wutai/js/inputAddProduct.js"></script>
-
-</html>

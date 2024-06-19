@@ -4,20 +4,118 @@
             "cart": "Carrinho",
             "login": "Entrar",
             "register": "Registrar",
-            "logout": "Sair",
-            "search": "Pesquisar"
+            "search": "Pesquisar",
+            "language": "Português",
+
+            "hello": "Olá",
+            "profile": "Perfil",
+            "ordered": "Pedidos",
+            "address": "Endereço",
+            "config": "Configurações",
+            "affiliate": "Afiliado",
+            "logout": "Sair"
         },
 
         "en_US": {
             "cart": "Cart",
             "login": "Login",
             "register": "Register",
-            "logout": "Logout",
-            "search": "Search"
+            "search": "Search",
+            "language": "English",
+
+            "hello": "Hello",
+            "profile": "Profile",
+            "ordered": "Orders",
+            "address": "Address",
+            "config": "Settings",
+            "affiliate": "Affiliate",
+            "logout": "Logout"
         },
 
         "fr_FR": {
+            "cart": "Panier",
+            "login": "Connexion",
+            "register": "Inscription",
+            "search": "Recherche",
+            "language": "Français",
+
+            "hello": "Salut",
+            "profile": "Profil",
+            "ordered": "Commandes",
+            "address": "Adresse",
+            "config": "Paramétres",
+            "affiliate": "Afillié",
+            "logout": "Déconnexion"
+        }
+    },
+
+    "language_page": {
+        "pt_BR": {
+            "title": "Configuração de idioma",
+            "description": "Selecione o idioma de sua preferência para navegação, compras e comunicação.",
+            "submit": "Salvar alterações"
+        },
+
+        "en_US": {
+            "title": "Language settings",
+            "description": "Select your preferred language for navigation, shopping and communication.",
+            "submit": "Save changes"
+        },
+
+        "fr_FR": {
+            "title": "Paramétres de langue",
+            "description": "Sélectionnez votre langue préférée pour la navigation, les achats et la communication.",
+            "submit": "Enregistrer les modifications"
+
+        }
+    },
+
+    "product_page": {
+        "pt_BR": {
+            "currency": "R$",
+            "add": "Adicionar ao carrinho",
+            "buy": "Comprar agora",
+            "send": "Enviado por: ",
+            "seller": "Vendido por: "
+        },
+
+        "en_US": {
+            "currency": "$",
+            "add": "Add to cart",
+            "buy": "Buy now",
+            "send": "Sent by: ",
+            "seller": "Sold by: "
+        },
+
+        "fr_FR": {
+            "currency": "€",
+            "add": "Ajouter au panier",
+            "buy": "Acheter maintenant",
+            "send": "Envoyé par: ",
+            "seller": "Vendu par: "
+        }
+    },
+
+    "cart": {
+        "pt_BR": {
+            "title": "Carrinho de compras",
+            "empty": "Seu carrinho de compras está vazio",
+            "continue": "Continuar comprando",
+            "checkout": "Finalizar compra"
+        },
         
+        "en_US": {
+            "title": "Shopping cart",
+            "empty": "Your shopping cart is empty",
+            "continue": "Continue shopping",
+            "checkout": "Checkout"
+        },
+        
+        "fr_FR": {
+            "title": "Panier d'achat",
+            "empty": "Votre panier d'achat est vide",
+            "continue": "Continuer vos achats",
+            "checkout": "Commander"
         }
     }
 }

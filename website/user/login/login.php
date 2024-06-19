@@ -6,8 +6,11 @@ extract($_GET);
 session_start();
 $login = true;
 
+
+
 if (isset($_POST['email']) || isset($_POST['password'])) {
     if (strlen($_POST['email']) < 1 || strlen($_POST['password']) < 1) {
+        $login = false;
     } else {
         $email = $conn->real_escape_string($_POST['email']);
         $password = $conn->real_escape_string($_POST['password']);
@@ -17,7 +20,8 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 
         $user = $sql__query->fetch_assoc();
 
-        if ($_SESSION['contadorLogin'] != null) {
+
+        if ($user && $_SESSION['contadorLogin'] != null) {
             if (password_verify(@$password, @$user['password']) && @$user['email'] == @$email) {
                 if (!isset($_SESSION)) {
                     session_start();
@@ -29,17 +33,21 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
                 $_SESSION['birthdate'] = $user['birthdate'];;
 
 
-                if($_GET['ref'] == 'buyNow') {
-                    header('Location:../../products/buyNow.act.php?ref=buyNow&productId='.$_GET['productId']);
+                if ($_GET['ref'] == 'buyNow') {
+                    header('Location:../../products/buyNow.act.php?ref=buyNow&productId=' . $_GET['productId']);
                 } else {
                     header('Location:../../index.php');
                 }
+                exit();
             } else {
                 $login = false;
             }
+        } else {
+            $login = false;
         }
     }
 }
+
 
 
 ?>
@@ -68,15 +76,26 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
                 <h1>Fazer login</h1>
                 <form method="post">
 
-                    <?php 
+                    <?php
                     if (isset($login)) {
                         if ($login == false) {
-                            echo
-                            "<div class='alert'>
+                            if (mysqli_num_rows($sql__query) == 0) {
+                                echo 
+                                "<div class='alert'>
+                                    <p>Usuário não encontrado!</p>
+                                </div>";
+                            } else {
+
+                                echo
+                                "<div class='alert'>
                                     <p>Email ou senha incorretos</p>
                                 </div>";
+                            }
                         }
                     }
+
+
+
 
                     $_SESSION['contadorLogin'] = 1;
 

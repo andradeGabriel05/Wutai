@@ -8,3 +8,7 @@ joinBtn.addEventListener('click', () => {
 createAccountBtn.addEventListener('click', () => {
     window.location.href = "../register/register.php";
 })
+
+array.forEach(element => {
+    
+});

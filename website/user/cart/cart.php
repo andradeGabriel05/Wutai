@@ -124,7 +124,7 @@ if (isset($id)) {
             } else {
                 echo "class='spanPadText'>";
             }
-            ?> <span>Carrinho de compras</span>
+            ?> <span class="cart__title">Carrinho de compras</span>
         <p><?php
             if (isset($idCart)) {
                 $sqlProduct = "SELECT * FROM `cart_items` WHERE `idCart` = '$idCart'";
@@ -160,7 +160,7 @@ if (isset($id)) {
                 if ($count[0] == 0) {
 
                     echo "<div class='empty__cart' id='emptyCart'>
-                <p>Seu carrinho de compras está vazio</p>
+                <p class='cart__empty'></p>
                 <p>Continue suas compras na <a href='/php_programs/Wutai/Wutai/website/index.php'>página inicial da Wutai.com</a></p>
                 </div>";
                 } else {
@@ -210,7 +210,10 @@ if (isset($id)) {
 
                                         <a href="deleteProduct.act.php?idProduct=<?php echo $idCartItem; ?>">Excluir</a>
                                     </div>
-                                    <span class="title price">R$<?php echo $sqlArray['price'] ?></span>
+                                    <div class="priceProduct" style="display: flex;">
+                                        <p class="currency" style="font-size: 20px;">R$</p>
+                                        <span class="title price" style="padding-left: 0;"><?php echo $sqlArray['price'] ?></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -224,47 +227,51 @@ if (isset($id)) {
                 <div class='product__wrapper' style='padding: 34px 0;'>
                 <div class='empty__cart__auth' id='emptyCartAuth'>
 
-            <p style='margin-bottom: 1rem;'>Faça login</p>
-            <p style='margin-bottom: 1rem;'>Continue suas compras na <a href='/php_programs/Wutai/Wutai/website/index.php'>página inicial da Wutai.com</a></p>
+            <p style='margin-bottom: 1rem;'>Parece que você ainda não entrou em sua conta...</p>
+            <p style='margin-bottom: 1rem;'><a href='/php_programs/Wutai/Wutai/website/user/login/login.php'>Faça login</a> para continuar suas compras na página inicial da <a href='/php_programs/Wutai/Wutai/website/index.php'>Wutai.com</a></p>
             </div>";
             }
         ?>
+
         </div>
 
 
         <?php if (isset($idCart) && isset($idProduct)) { ?>
             <div class="buy__box" id="buyBox">
-                <span>Total</span>
+                <span class="buy__box__total">Total</span>
                 <div class="final__price">
                     <span>Subtotal: </span>
-                    <span class="final__price__span">R$
-                        <?php
-                        $total = 0;
+                    <div class="priceProduct" style="display: flex;">
+                        <p class="currency" style="margin-bottom: 0; display: flex; align-items: center; justify-content: center; font-size: 20px;">R$</p>
+                        <span class="final__price__span">
+                            <?php
+                            $total = 0;
 
 
 
-                        @$sqlProduct = "SELECT * FROM `cart_items` WHERE `idCart` = '$idCart'";
-                        $sqlQueryProduct = mysqli_query($conn, $sqlProduct);
+                            @$sqlProduct = "SELECT * FROM `cart_items` WHERE `idCart` = '$idCart'";
+                            $sqlQueryProduct = mysqli_query($conn, $sqlProduct);
 
 
 
-                        while ($product = mysqli_fetch_assoc($sqlQueryProduct)) {
+                            while ($product = mysqli_fetch_assoc($sqlQueryProduct)) {
 
-                            $sqlProductidProduct = "SELECT * FROM `product` WHERE `idProduct` = '{$product['idProduct']}'";
-                            $sqlQueryIdProduct = mysqli_query($conn, $sqlProductidProduct);
-                            $sqlArrayidProduct = mysqli_fetch_assoc($sqlQueryIdProduct);
+                                $sqlProductidProduct = "SELECT * FROM `product` WHERE `idProduct` = '{$product['idProduct']}'";
+                                $sqlQueryIdProduct = mysqli_query($conn, $sqlProductidProduct);
+                                $sqlArrayidProduct = mysqli_fetch_assoc($sqlQueryIdProduct);
 
-                            $price = $sqlArrayidProduct['price'];
+                                $price = $sqlArrayidProduct['price'];
 
-                            $quantity = $product['quantity'];
+                                $quantity = $product['quantity'];
 
-                            $totalProduct = $price * $quantity;
+                                $totalProduct = $price * $quantity;
 
-                            $total += $totalProduct;
-                        }
+                                $total += $totalProduct;
+                            }
 
-                        echo $total;
-                        ?></span>
+                            echo $total;
+                            ?></span>
+                    </div>
                 </div>
 
                 <!-- 
@@ -272,7 +279,7 @@ if (isset($id)) {
             <span>Calcular frete:</span>
             <input type="text" name="frete" id="freteId">
         </div> -->
-                <input type="button" value="Comprar produto" id="buyButton">
+                <input type="submit" value="" class="cart__checkout" id="buyButton">
             </div>
 
         <?php
@@ -282,6 +289,8 @@ if (isset($id)) {
     </section>
 
 </body>
+
+<script src="../../../js/language.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
