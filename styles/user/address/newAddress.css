@@ -36,6 +36,8 @@
   display: flex;
   justify-content: space-between;
 }
-.col__last__input .col-md-6, .col__last__input .col-md-4, .col__last__input .col-md-2 {
+.col__last__input .col-md-6,
+.col__last__input .col-md-4,
+.col__last__input .col-md-2 {
   width: auto !important;
 }/*# sourceMappingURL=newAddress.css.map */

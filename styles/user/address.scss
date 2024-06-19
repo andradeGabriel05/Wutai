@@ -1,9 +1,57 @@
 @import "../global";
+.settings__wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.column__address {
+  h1 {
+    width: 360px;
+    padding: 0;
+    padding-bottom: 15px;
+  }
+  
+}
+
+.grid__container__address {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.new__address {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+  outline: dashed;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  width: 20vw;
+
+  i {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  a {
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $text-color;
+
+    
+  }
+}
 .addresses {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
-  padding: 20px 50px;
+  // display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  // grid-gap: 30px;
+  padding: 20px 0;
   height: 100%;
 
   & * {
@@ -11,25 +59,9 @@
     text-decoration: none;
   }
 
-  .new__address {
-    text-decoration: none;
-    color: #000;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 50vh;
-    outline: dashed;
 
-    i {
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
 
-    a {
-      text-decoration: none;
-    }
-  }
+
 }
 
 h1 {
@@ -37,26 +69,27 @@ h1 {
 }
 
 .user__address {
-    outline: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    height: 50vh;
-    & * {
-        margin: 0 10px;
-    }
+  border: solid 1px $border;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 20px;
+  height: 50vh;
+  margin-right: 30px;
+  width: 20vw;
+  & * {
+    margin: 0 10px;
+  }
 
-    .update__address {
-        display: flex;
-        a {
-            text-decoration: dashed;
-            color: $text-color;
-            margin: 0 10px 0 0;
-        }
+  .update__address {
+    display: flex;
+    a {
+      text-decoration: dashed;
+      color: $text-color;
+      margin: 0 10px 0 0;
     }
-    p {
-        margin:0 10px;
-        
-    }
+  }
+  p {
+    margin: 0 10px;
+  }
 }

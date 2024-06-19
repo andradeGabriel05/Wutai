@@ -1,0 +1,32 @@
+@import "../../global";
+
+aside {
+    width: 32%;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 300px;
+    li {
+        font-size: clamp(.7rem, 8vw, 1.1rem);
+      a {
+
+        display: flex;
+        align-items: center;
+          width: 100%;
+          padding: 40px 30px;
+        border: solid 1px $text-color;
+        text-decoration: none;
+        color: $text-color;
+        font-weight: 600;
+        &:hover {
+          color: #000;
+        }
+      }
+
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}

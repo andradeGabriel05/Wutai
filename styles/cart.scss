@@ -38,6 +38,7 @@
     height: 100%;
     border: solid 2px #b1b1b1a2;
     margin-left: 50px;
+    padding: 40px;
 
     .final__price {
       display: flex;
@@ -46,10 +47,11 @@
       }
     }
     span {
-      margin: 30px 50px;
       font-size: clamp(0.5rem, 10vw, 1.3rem);
-    }
-
+      }
+      .buy__box__total {
+        font-weight: 800;
+      }
     input {
       padding: 10px;
       margin: 5px 50px;
@@ -183,7 +185,6 @@
 
         .price {
           font-size: clamp(0.5rem, 10vw, 1.2rem);
-          font-weight: bold;
         }
       }
     }

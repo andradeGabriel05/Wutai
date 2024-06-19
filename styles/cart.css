@@ -43,14 +43,17 @@
   height: 100%;
   border: solid 2px rgba(177, 177, 177, 0.6352941176);
   margin-left: 50px;
+  padding: 40px;
 }
 #cart .buy__box .final__price {
   display: flex;
   justify-content: space-between;
 }
 #cart .buy__box span {
-  margin: 30px 50px;
   font-size: clamp(0.5rem, 10vw, 1.3rem);
+}
+#cart .buy__box .buy__box__total {
+  font-weight: 800;
 }
 #cart .buy__box input {
   padding: 10px;
@@ -175,7 +178,6 @@
 }
 #cart .product__information .product__card .product__description .price {
   font-size: clamp(0.5rem, 10vw, 1.2rem);
-  font-weight: bold;
 }
 #cart .product__wrapper {
   width: 100%;

@@ -20,7 +20,7 @@
 
   .col-6 {
     background-color: #303030;
-    width: 32%;
+    width: 25%;
   }
 
   .col-4 {
@@ -29,22 +29,9 @@
 
   .col-md-8 {
     background-color: #303030;
-    width: 66%;
+    width: 72.5%;
   }
 
-  i {
-    width: 100%;
-    background-color: $text-color;
-    color: #fff;
-    padding: 15px;
-    transition: all 0.3s;
-    &:hover {
-      background-color: #4f0001;
-      color: #ffffff;
-    transition: all 0.3s;
-
-    }
-  }
 
   a {
     position: relative;
@@ -76,8 +63,7 @@
 .card {
   margin: 0.5em;
   border: solid 1px #cccccc94;
-
-
+  align-items: center;
 
   a {
     text-decoration: none; 
@@ -130,8 +116,19 @@
 .add__to__cart {
   margin: 0.5em;
 
+  
   i {
+    width: 100%;
+    background-color: $text-color;
+    color: #fff;
+    padding: 15px;
+    transition: all 0.3s;
     border-radius: .25rem;
+    &:hover {
+      background-color: #4f0001;
+      color: #ffffff;
+    transition: all 0.3s;
 
+    }
   }
 }

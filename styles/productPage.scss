@@ -57,10 +57,13 @@
             color: black;
         }
 
-        #priceProduct {
+        .priceProduct {
+            display: flex;
+            flex-direction: row;
             margin: 10px 0;
             font-size: clamp(1rem, 10vw, 1.3rem);
             font-weight: 600;
+            
         }
     }
 

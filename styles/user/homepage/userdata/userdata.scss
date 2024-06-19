@@ -1,0 +1,135 @@
+@import "../../../global";
+
+.settings__wrapper {
+  display: flex;
+  .vertical__box {
+    width: 50%;
+    margin-top: 50px;
+  }
+  .vertical__box__row {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    padding: 30px;
+    border: solid 1px $border;
+  }
+
+  .vertical__box__row__button__edit {
+    display: flex;
+    align-items: center;
+    input {
+      color: $text-color;
+      background-color: transparent;
+      font-size: clamp(0.5rem, 10vw, 1rem);
+      text-decoration: none;
+      border: solid 1px $text-color;
+      padding: 10px 15px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.delete__account__div {
+  margin-top: 20px;
+  border: solid 1px $text-color !important;
+}
+
+.delete__account__div__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+//edit name
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 40px;
+  .form-control:focus {
+    border-color: $text-color;
+    box-shadow: none;
+  }
+  h1 {
+    font-size: clamp(0.5rem, 10vw, 2rem);
+    margin-bottom: 20px;
+  }
+  &__text__form {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px $border;
+    padding: 30px 20px;
+    border-radius: 5px;
+
+    label {
+      margin: 10px 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+  }
+
+  .button__submit {
+    margin-top: 20px;
+    background-color: $text-color;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #460002;
+      transition: all 0.2s;
+    }
+  }
+}
+
+// ppopup
+
+.modal {
+  .close {
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+
+  button {
+    background-color: $text-color-light;
+    box-shadow: none;
+    border-color: $text-color !important;
+
+    color: white;
+
+    &:hover {
+      background-color: $text-color;
+      color: white;
+    }
+  }
+
+  .btn-check:active + .btn-primary,
+  .btn-check:checked + .btn-primary,
+  .btn-primary.active,
+  .btn-primary:active,
+  .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: $text-color !important;
+    border-color: $text-color !important;
+    box-shadow: none;
+  }
+
+  .btn-check:focus + .btn-primary,
+  .btn-primary:focus {
+    color: #fff;
+    background-color: $text-color !important;
+    border-color: $text-color !important;
+    box-shadow: none;
+  }
+}
