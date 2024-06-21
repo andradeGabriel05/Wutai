@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 19/06/2024 às 18:27
+-- Tempo de geração: 21/06/2024 às 15:31
 -- Versão do servidor: 8.3.0
 -- Versão do PHP: 8.2.18
 
@@ -52,8 +52,6 @@ CREATE TABLE IF NOT EXISTS `address` (
 --
 
 INSERT INTO `address` (`idAddress`, `completeName`, `zipcode`, `state`, `city`, `country`, `address`, `houseNumber`, `complement`, `neighborhood`, `phoneNumber`, `idUser`) VALUES
-(24, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 10),
-(26, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 10),
 (27, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 10),
 (28, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 11),
 (33, 'teste usuario', '08257-080', 'Rondonia', 'Rio Grande do Norte', 'Argentina', 'casas', 123, 'casa', 'regiao nordeste', '11945376714', 8),
@@ -76,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `createdDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idCart`),
   KEY `fkUserCart` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Despejando dados para a tabela `cart`
@@ -104,7 +102,8 @@ INSERT INTO `cart` (`idCart`, `idUser`, `createdDate`) VALUES
 (23, 27, '2024-06-11 23:58:50'),
 (24, 28, '2024-06-12 00:03:54'),
 (25, 29, '2024-06-12 00:07:07'),
-(26, 30, '2024-06-12 00:12:06');
+(26, 30, '2024-06-12 00:12:06'),
+(27, 10, '2024-06-19 20:03:52');
 
 -- --------------------------------------------------------
 
@@ -122,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `cart_items` (
   PRIMARY KEY (`idCartItem`),
   KEY `fkCartItemsCart` (`idCart`),
   KEY `fkCartItemsProduct` (`idProduct`)
-) ENGINE=InnoDB AUTO_INCREMENT=232 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Despejando dados para a tabela `cart_items`
@@ -133,7 +132,8 @@ INSERT INTO `cart_items` (`idCartItem`, `idCart`, `idProduct`, `quantity`, `adde
 (211, 9, 20, 1, '2024-06-11 23:34:43'),
 (215, 12, 21, 1, '2024-06-11 23:41:59'),
 (224, 26, 18, 1, '2024-06-12 00:12:06'),
-(231, 4, 28, 1, '2024-06-18 19:57:51');
+(231, 4, 28, 1, '2024-06-18 19:57:51'),
+(234, 27, 28, 1, '2024-06-20 23:50:14');
 
 -- --------------------------------------------------------
 
@@ -151,10 +151,10 @@ CREATE TABLE IF NOT EXISTS `product` (
   `productImage` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `deliver` varchar(60) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `idSeller` bigint DEFAULT NULL,
+  `idSeller` bigint NOT NULL,
   PRIMARY KEY (`idProduct`),
   KEY `fkIdSeller` (`idSeller`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Despejando dados para a tabela `product`
@@ -172,7 +172,57 @@ INSERT INTO `product` (`idProduct`, `productName`, `category`, `quantity`, `prod
 (36, 'Fone de Ouvido Bluetooth Noise Cancelling', 'electronic', 75, 'Desfrute de uma experiência de áudio incomparável com o Fone de Ouvido Bluetooth Noise Cancelling. Equipado com tecnologia de cancelamento de ruído ativo, este fone permite que você se concentre apenas na sua música, sem distrações externas. Com drivers de alta fidelidade, proporciona som cristalino e graves profundos. Possui design confortável, bateria com até 30 horas de reprodução e conectividade Bluetooth 5.0 para uma conexão estável e rápida. Ideal para uso diário, viagens e trabalho.', 'productImages/562e7daa6b0b3c2e86f44b0f36203d1f.jpg', 499.90, 'Wutai', 7),
 (37, 'Livro de Receitas Veganas', 'book', 120, 'Descubra o mundo da culinária vegana com o Livro de Receitas Veganas. Este livro contém mais de 100 receitas deliciosas e nutritivas, que vão desde pratos principais até sobremesas e lanches. Cada receita é acompanhada por fotos de alta qualidade e instruções detalhadas, tornando o preparo fácil e prazeroso. Ideal para veganos, vegetarianos ou qualquer pessoa interessada em uma alimentação saudável e sustentável. Além disso, inclui dicas nutricionais e sugestões de substituições para ingredientes comuns.', 'productImages/6856e494eca49bb595533a7ed0feae89.jpg', 79.90, 'Wutai', 8),
 (38, 'Lâmpada Inteligente Wi-Fi RGB', 'electronic', 200, 'Transforme a atmosfera de qualquer ambiente com a Lâmpada Inteligente Wi-Fi RGB. Controlada via aplicativo no smartphone, esta lâmpada permite que você ajuste a cor e a intensidade da luz conforme sua preferência, criando uma iluminação personalizada para cada ocasião. Compatível com assistentes de voz como Alexa e Google Assistant, ela facilita o controle por comandos de voz. Economize energia com sua tecnologia LED e programe horários para acender e apagar automaticamente. Ideal para salas de estar, quartos e escritórios.', 'productImages/b99bdb056b055ecce6388a2c828d0ece.jpg', 79.90, 'Wutai', 8),
-(39, 'Drone de Fotografia Profissional SkyVision', 'electronic', 50, 'Explore novos horizontes com o Drone de Fotografia Profissional SkyVision. Equipado com uma câmera de alta resolução 4K e estabilização de imagem de última geração, este drone captura imagens e vídeos aéreos incríveis com qualidade cinematográfica. Com uma autonomia de voo de até 30 minutos e um alcance de transmissão de até 5 km, permite explorar e registrar paisagens de maneira única. Possui modos inteligentes de voo, como seguimento de objeto e trajetória programada, além de ser dobrável e fácil de transportar. Ideal para fotógrafos, videomakers e entusiastas de tecnologia.', 'productImages/e8276a43a61c5aacf9e0026393696962.jpg', 3499.00, 'Wutai', 8);
+(39, 'Drone de Fotografia Profissional SkyVision', 'electronic', 50, 'Explore novos horizontes com o Drone de Fotografia Profissional SkyVision. Equipado com uma câmera de alta resolução 4K e estabilização de imagem de última geração, este drone captura imagens e vídeos aéreos incríveis com qualidade cinematográfica. Com uma autonomia de voo de até 30 minutos e um alcance de transmissão de até 5 km, permite explorar e registrar paisagens de maneira única. Possui modos inteligentes de voo, como seguimento de objeto e trajetória programada, além de ser dobrável e fácil de transportar. Ideal para fotógrafos, videomakers e entusiastas de tecnologia.', 'productImages/e8276a43a61c5aacf9e0026393696962.jpg', 3499.00, 'Wutai', 8),
+(40, 'Smartphone XTech Pro 5G', 'electronic', 100, 'O Smartphone XTech Pro 5G oferece uma experiência móvel de última geração com sua conectividade 5G ultra-rápida, tela AMOLED de 6,7 polegadas com resolução Full HD+ e taxa de atualização de 120Hz. Equipado com um poderoso processador octa-core, 8GB de RAM e 256GB de armazenamento interno, este smartphone garante desempenho excepcional em todas as suas tarefas. A câmera traseira tripla de 64MP captura fotos e vídeos de alta qualidade, enquanto a câmera frontal de 32MP é perfeita para selfies detalhadas. Possui bateria de 5000mAh com carregamento rápido e sistema operacional Android mais recente.', 'productImages/1dbcf731cac4a011cef0938e19c2d819.jpg', 2499.00, 'Wutai', 9),
+(41, 'Xiaomi Mi Band 7', 'electronic', 200, 'A Xiaomi Mi Band 7 é a mais recente pulseira inteligente da Xiaomi, projetada para monitorar sua saúde e atividades físicas com precisão. Equipado com uma tela AMOLED de 1,56 polegadas, oferece visibilidade clara e fácil navegação. Inclui recursos como monitoramento de frequência cardíaca, SpO2, sono, passos, calorias queimadas e suporte para mais de 30 modos de exercício. A resistência à água de 5 ATM permite uso durante natação, e a bateria de longa duração oferece até 14 dias de uso com uma única carga. Compatível com Android e iOS, a Mi Band 7 é a escolha perfeita para um estilo de vida ativo e saudável.', 'productImages/d79b4ba56679ed4afa2d001403d02393.jpg', 349.00, 'Wutai', 9),
+(42, 'Huawei MateBook D 14', 'electronic', 50, ' O Huawei MateBook D 14 é um laptop elegante e poderoso, ideal para estudantes e profissionais que precisam de desempenho e portabilidade. Equipado com um processador Intel Core i5 de 11ª geração, 8GB de RAM e um SSD de 512GB, este laptop oferece desempenho rápido e eficiente para todas as suas tarefas. A tela Full HD de 14 polegadas com bordas finas proporciona uma experiência visual imersiva. Possui teclado retroiluminado, leitor de impressões digitais integrado para segurança adicional e uma bateria de longa duração que garante produtividade durante todo o dia. Leve e fino, o MateBook D 14 é fácil de transportar e perfeito para o uso diário.', 'productImages/4b2415b127fb045f24c4cba982b41ef5.jpg', 4999.00, 'Wutai', 9);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `product_rating`
+--
+
+DROP TABLE IF EXISTS `product_rating`;
+CREATE TABLE IF NOT EXISTS `product_rating` (
+  `idRating` int NOT NULL AUTO_INCREMENT,
+  `userRating` tinyint NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ratingImage` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `userName` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `userMessage` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ratingDate` date NOT NULL,
+  `ratingLikes` int DEFAULT NULL,
+  `idUser` int NOT NULL,
+  `idProduct` int NOT NULL,
+  PRIMARY KEY (`idRating`),
+  KEY `fkIdUser` (`idUser`),
+  KEY `fkIdProduct` (`idProduct`)
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `product_rating`
+--
+
+INSERT INTO `product_rating` (`idRating`, `userRating`, `title`, `ratingImage`, `userName`, `userMessage`, `ratingDate`, `ratingLikes`, `idUser`, `idProduct`) VALUES
+(1, 1, '', NULL, '', '', '0000-00-00', 1, 1, 1),
+(2, 0, 'asd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', NULL, 10, 30),
+(3, 0, 'asd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', NULL, 10, 30),
+(4, 0, 'asd', NULL, 'Gabriel2', 'asd', '2024-06-20', NULL, 10, 30),
+(5, 0, 'asd', NULL, 'Gabriel2', 'asd', '2024-06-20', NULL, 10, 30),
+(6, 0, 'asd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', NULL, 10, 30),
+(7, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
+(8, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
+(9, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
+(10, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
+(11, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
+(12, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
+(13, 0, 'asdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', NULL, 10, 30),
+(14, 0, 'asdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', NULL, 10, 30),
+(15, 3, 'asdasd', NULL, 'Gabriel2', 'asdasdas', '2024-06-20', NULL, 10, 30),
+(16, 3, 'asdasd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', 3, 10, 28),
+(17, 4, 'asdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', 1, 10, 28),
+(18, 5, 'asdasdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', 2, 10, 28);
 
 -- --------------------------------------------------------
 
