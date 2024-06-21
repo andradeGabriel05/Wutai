@@ -114,3 +114,15 @@ if (isset($_SESSION['idCart'])) {
         </div>
     </div>
 </header>
+
+<nav>
+
+    <ul>
+        <li><a href="/php_programs/Wutai/Wutai/website/index.php">Início</a></li>
+        <li><a href="/php_programs/Wutai/Wutai/website/seller/sellerRegister/sellerRegister.php?auth=<?php echo isset($_SESSION['idUser']) ? 'true' : 'false'; ?>&seller=<?php echo isset($_SESSION['idSeller']) ? 'true' : 'false'; ?> " class="text-white">Venda na Wutai</a></li>
+        <li><a href="/php_programs/Wutai/Wutai/website/support/contact.php">Atendimento ao cliente</a></li>
+        <li><a href="/php_programs/Wutai/Wutai/website/products/searchBar.php?ref=book">Livros</a></li>
+        <li><a href="/php_programs/Wutai/Wutai/website/products/searchBar.php?ref=electronic">Eletrônicos</a></li>
+
+    </ul>
+</nav>

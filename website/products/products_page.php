@@ -100,6 +100,88 @@ $productName = $productNameArr['productName'];
         </div>
     <?php
     }
-
-    include('../footer/footer.php')
     ?>
+
+    <div class="container__rating">
+        <aside class="rating__product">
+            <h3>Avaliação dos clientes</h3>
+            <div class="rating__star__container">
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+            </div>
+            <div class="rating__users">
+                <?php
+                $productRatingQuery = mysqli_query($conn, "SELECT AVG(`userRating`) AS averageRating FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'");
+                if (mysqli_num_rows($productRatingQuery) != 0) {
+
+                    $productRatingArr = mysqli_fetch_array($productRatingQuery);
+                    $averageRating = $productRatingArr['averageRating'];
+
+
+                    $userRatingQuery = mysqli_query($conn, "SELECT * FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'");
+                    $numRatings = mysqli_num_rows($userRatingQuery);
+
+                    echo "<p>Total de avaliações: " . $numRatings . "</p>";
+                } else {
+                    echo "<p>Avaliação média: 0</p>";
+                    echo "<p>Total de avaliações: 0</p>";
+                }
+
+                ?>
+            </div>
+            <div class="rating__page">
+                <h4>Avalie este produto</h4>
+                <p>Compartilhe sua opinião com outros clientes</p>
+                <div class="rating__page__route">
+                    <?php echo "<a href='ratePage.php?productId=$_GET[productId]'>Escreva uma avialiação</a>"; ?>
+                </div>
+            </div>
+        </aside>
+
+        <div class="comments__wrapper">
+            <div class="comments">
+                <ul>
+                    <?php
+
+                    $commentsQuery = mysqli_query($conn, "SELECT * FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'");
+
+                    while ($comment = mysqli_fetch_assoc($commentsQuery)) {
+                        // $commentsUser = mysqli_query($conn, "SELECT * FROM `user` WHERE `idUser` = '$comment[idUser]'");
+                        // $commentsUserArr = mysqli_fetch_array($commentsUser);
+                        echo "<li>";
+                        echo "<div class='comments__user'>";
+                        echo "<img src='/php_programs/Wutai/Wutai/assets/user-icon.png' alt='user-icon'>";
+                        echo "<p> $comment[userName] </p>";
+                        echo "</div>";
+                        echo "<div class='comments__user__rating'>";
+                        for ($i = 0; $i < $comment['userRating']; $i++) {
+                            echo "<i class='fa fa-star star__user__rate'></i>";
+                        }
+                        echo "<span>$comment[title]</span>";
+                        echo "<p class='date__message__p'>Avaliado em $comment[ratingDate]</p>";
+                        echo "<p class='user__message__p'>" . $comment['userMessage'] . "</p>";
+                        echo "</div>";
+
+                        echo "<div class='comments__user__likes'>";
+                        echo "<a href='ratePage.act.php?ref=likeButton&like=$comment[ratingLikes]&rate=$comment[idRating]&productId=$_GET[productId]' class='comments__user__likes__a__tag'>Útil</a>";
+                        if ($comment['ratingLikes'] != 0 && $comment['ratingLikes'] != 1) {
+                            echo "<p>$comment[ratingLikes] pessoas acharam esse comentário útil</p>";
+                        } 
+                        if($comment['ratingLikes'] == 1) {
+                            echo "<p>$comment[ratingLikes] pessoa achou esse comentário útil</p>";
+
+                        }
+                        echo "</div>";
+
+                        echo "</li>";
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <?php include('../footer/footer.php') ?>

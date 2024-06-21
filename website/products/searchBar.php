@@ -1,10 +1,26 @@
 <?php
 session_start();
 extract($_POST);
+extract($_GET);
 
 @define('BASE_PATH', realpath(dirname(__FILE__) . '/..'));
 
 require_once (BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
+
+if(isset($_GET['ref'])) {
+    $ref = $_GET['ref'];
+    $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `category` LIKE '%$ref%'");
+    if($ref == 'book') {
+        $title = "Livros";
+    }
+    if($ref == 'electronic') {
+        $title = "Eletrônicos";
+    }
+} else {
+    $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `productName` LIKE '%$searchInput%'");
+    $title = $searchInput;
+
+}
 
 ?>
 
@@ -14,7 +30,7 @@ require_once (BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $searchInput ?> | Wutai</title>
+    <title><?php echo $title ?> | Wutai</title>
     <link rel="stylesheet" href="/php_programs/Wutai/Wutai/styles/header.css">
     <link rel="stylesheet" href="/php_programs/Wutai/Wutai/styles/products.css">
     <link rel="stylesheet" href="/php_programs/Wutai/Wutai/styles/footer.css">
@@ -32,7 +48,6 @@ require_once (BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
     <section class="container text-center">
         <div class="row gx-0 container__grid">
             <?php
-            $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `productName` LIKE '%$searchInput%'");
 
             while ($usuario = mysqli_fetch_assoc($product)) {
                 echo
@@ -57,6 +72,11 @@ require_once (BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
                 </div>
                 </div>
                 ';
+            }
+            if($product->num_rows == 0) {
+                echo "<span class='d-flex'>Nenhum resultado para $searchInput.</span d-flex>";
+                echo "<span class='d-flex'>Tente pesquisar por outra coisa ou volte para <a href='/php_programs/Wutai/Wutai/website/index.php' style='color: #660708'>&nbspWutai.com</a></span d-flex>";
+                
             }
             ?>
         </div>

@@ -31,8 +31,6 @@ if (isset($yesOptionDeleteAccount)) {
     if ($sqlQueryDelete) {
         header('Location: /php_programs/Wutai/Wutai/website/user/login/logout.php?ref=deleteAccount');
     }
-} else {
-    echo "Erro ao deletar a conta";
 }
 
 ?>
