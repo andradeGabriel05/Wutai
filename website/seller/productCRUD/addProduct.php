@@ -12,13 +12,11 @@ if (@$_GET['seller'] == "true") {
 } else {
     if (isset($_SESSION['idSeller'])) {
         header('Location:/php_programs/Wutai/Wutai/website/seller/productCRUD/addProduct.php?seller=true&panel=add');
-
     }
-
 }
 
-    $sellerNameResult = mysqli_query($conn, "SELECT * FROM `seller` WHERE `idSeller` = '$_SESSION[idSeller]'");
-    $seller = mysqli_fetch_array($sellerNameResult);
+$sellerNameResult = mysqli_query($conn, "SELECT * FROM `seller` WHERE `idSeller` = '$_SESSION[idSeller]'");
+$seller = mysqli_fetch_array($sellerNameResult);
 
 ?>
 
@@ -38,10 +36,11 @@ if (@$_GET['seller'] == "true") {
 </head>
 
 <body>
-    <?php //include('../header/header.php'); ?>
+    <?php //include('../header/header.php'); 
+    ?>
     <div class="affiliate__wrapper">
 
-    <?php include('../productCRUD/aside/aside.php'); ?>
+        <?php include('../productCRUD/aside/aside.php'); ?>
 
 
         <!-- <section id="productsSelled">
@@ -54,7 +53,7 @@ if (@$_GET['seller'] == "true") {
         </section> -->
 
 
-<section id="addProduct">
+        <section id="addProduct">
             <form action="/php_programs/Wutai/Wutai/website/seller/productCRUD/addProduct.act.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group" id="productName">
                     <label for="productName">Nome do produto</label>
@@ -98,22 +97,23 @@ if (@$_GET['seller'] == "true") {
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="deliver" id="deliverSeller" value="<?php echo $seller['enterpriseName'] ?>" checked>
-                    <label class="form-check-label" for="deliverSeller">
-                    Eu mesmo entregarei este produto
+                    <label class="form-check-label" for="deliverWutai">
+                        <input class="form-check-input" type="radio" name="deliver" id="deliverWutai" value="Wutai" checked>
+                        A Wutai entregará o produto
                     </label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="deliver" id="deliverWutai" value="Wutai">
-                    <label class="form-check-label" for="deliverWutai">
-                    A Wutai entregará o produto
+                    <label class="form-check-label" for="deliverSeller">
+                        <input class="form-check-input" type="radio" name="deliver" id="deliverSeller" value="<?php echo $seller['enterpriseName'] ?>">
+                        Eu mesmo entregarei este produto
                     </label>
                 </div>
 
+
                 <div class="form-group">
-                    <label for="productImage">Imagem do produto</label>
-                    <input type="file" class="form-control" id="productImageInput" name="productImage">
+                    <label for="productImageInput" class="custom-file-upload">Imagem do produto</label>
+                    <input type="file" class="form-control" id="productImageInput" name="productImage" onchange="imagePreview(this)">
                 </div>
 
                 <div class="form-group">
@@ -124,9 +124,28 @@ if (@$_GET['seller'] == "true") {
         </section>
 
         <section id="productImage">
-            <img src='https://img.freepik.com/free-vector/think-outside-box-concept-illustration_114360-15734.jpg' alt='' id="previewImg">
+            <label for="productImageInput">
+                <img src='/php_programs/Wutai/Wutai/public/img/waiting-for-image.png' style="cursor: pointer;" alt='' id="previewImg">
+            </label>
         </section>
 
     </div>
+
+    <script>
+        function imagePreview(input) {
+            let file = input.files[0];
+
+            if (file) {
+                let reader = new FileReader();
+
+                reader.onload = () => {
+                    $('#previewImg').attr("src", reader.result)
+                }
+
+                reader.readAsDataURL(file);
+            }
+            console.log(reader.result)
+        }
+    </script>
 
     <?php include('../../footer/footer.php'); ?>

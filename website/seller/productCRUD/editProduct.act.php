@@ -13,6 +13,14 @@ move_uploaded_file($productImage['tmp_name'], $path);
 
 $idProduct = $_SESSION['idProduct'];
 
+$sqlQuery = "SELECT * FROM `product` WHERE `idProduct` = '$idProduct'";
+
+$sqlQueryProduct = mysqli_query($conn, $sqlQuery);
+
+$sqlArray = mysqli_fetch_array($sqlQueryProduct);
+
+unlink($sqlArray['productImage']);
+
 $sqlUpdate = "UPDATE `product` SET 
     `productName` = '$productName',
     `category` = '$category',
@@ -25,6 +33,6 @@ $sqlUpdate = "UPDATE `product` SET
 
 $sqlUpdateQuery = mysqli_query($conn, $sqlUpdate);
 
-header('Location:../affiliatePanel.php');
+    header('Location:../affiliatePanel.php');
 
 ?>

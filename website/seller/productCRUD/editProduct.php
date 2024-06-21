@@ -136,40 +136,57 @@ $product = mysqli_fetch_array($product);
                     <textarea class="form-control" id="productDescription" name="productDescription" rows="5" placeholder="Descrição do produto"><?php echo $product['productDescription'] ?></textarea>
                 </div>
 
+                
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="deliver" id="deliverSeller" value="<?php echo $seller['enterpriseName'] ?>" checked>
-                    <label class="form-check-label" for="deliverSeller">
-                        Eu mesmo entregarei este produto
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="deliver" id="deliverWutai" value="Wutai">
                     <label class="form-check-label" for="deliverWutai">
+                    <input class="form-check-input" type="radio" name="deliver" id="deliverWutai" value="Wutai" checked>
                         A Wutai entregará o produto
                     </label>
                 </div>
-
+                
+                <div class="form-check">
+                    <label class="form-check-label" for="deliverSeller">
+                    <input class="form-check-input" type="radio" name="deliver" id="deliverSeller" value="<?php echo $seller['enterpriseName'] ?>">
+                        Eu mesmo entregarei este produto
+                    </label>
+                </div>
                 <div class="form-group">
-                    <label for="productImage">Imagem do produto</label>
-                    <input type="file" class="form-control" id="productImageInput" name="productImage" required">
+                    <label for="productImageInput" class="custom-file-upload">Imagem do produto</label>
+                    <input type="file" class="form-control" id="productImageInput" name="productImage" value="<?php echo $product['productImage'] ?>" onchange="imagePreview(this)" required>
                 </div>
 
                 <div class="form-group">
                     <label for="submit"></label>
-                    <input type="submit" class="form-control" id="submit" name="submit" value="Editar informações do produto">
+                    <input type="submit" class="form-control" id="submit" name="submit">
                 </div>
             </form>
         </section>
 
         <section id="productImage">
-            <img src='https://img.freepik.com/free-vector/think-outside-box-concept-illustration_114360-15734.jpg' alt='' id="previewImg">
+            <img src='<?php echo $product['productImage'] ?>' alt='' id="previewImg">
         </section>
         
         <?php
             }
         ?>
     </div>
+
+    <script>
+        function imagePreview(input) {
+            let file = input.files[0];
+
+            if(file) {
+                let reader = new FileReader();
+
+                reader.onload = () => {
+                    $('#previewImg').attr("src", reader.result)
+                }
+
+                reader.readAsDataURL(file);
+            }
+            console.log(reader.result)
+        }
+    </script>
 
 
         <?php include('../../footer/footer.php'); ?>
