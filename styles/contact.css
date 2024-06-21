@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.contact__container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.contact__container .contact__form,
+.contact__container .contact__info {
+  flex: 1 1 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.contact__container .contact__form {
+  background-color: #f1f1f1;
+}
+.contact__container .contact__form h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+.contact__container .contact__form .form-group {
+  margin-bottom: 15px;
+}
+.contact__container .contact__form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.contact__container .contact__form .form-group .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+.contact__container .contact__form .form-group .form-control:focus {
+  border-color: #660708;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(164, 22, 27, 0.6156862745);
+}
+.contact__container .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #660708;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+.contact__container .btn.btn-primary {
+  background-color: #660708;
+}
+.contact__container .btn.btn-primary:hover {
+  background-color: #a4161a;
+}
+
+.contact__info h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+.contact__info p {
+  margin-bottom: 10px;
+  color: #555;
+}
+.contact__info p a {
+  color: #660708;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.contact__info p a:hover {
+  color: #a4161a;
+  -webkit-text-decoration: dashed;
+          text-decoration: dashed;
+}
+
+#message {
+  resize: none;
+}
+
+@media (max-width: 768px) {
+  .contact__form,
+  .contact__info {
+    flex: 1 1 100%;
+  }
+}/*# sourceMappingURL=contact.css.map */

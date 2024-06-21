@@ -139,3 +139,33 @@ position: relative;
 .header__wrapper {
   display: flex;
 }
+
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  ul {
+    display: flex;
+    
+    li {
+      list-style: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 0px 10px;
+      cursor: pointer;
+      a {
+        color: $text-color-white;
+        text-decoration: none;
+        padding: 10px;
+
+        &:hover {
+          border: solid 1px $text-color-white;
+          color: $text-color-white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

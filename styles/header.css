@@ -141,4 +141,31 @@ header a {
 
 .header__wrapper {
   display: flex;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+}
+nav ul {
+  display: flex;
+}
+nav ul li {
+  list-style: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 10px;
+}
+nav ul li a:hover {
+  border: solid 1px #FFFFFF;
+  color: #FFFFFF;
+  cursor: pointer;
 }/*# sourceMappingURL=header.css.map */

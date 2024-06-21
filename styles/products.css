@@ -13,27 +13,6 @@
   grid-gap: 20px;
   --bs-gutter-x: 0;
 }
-.row .w-50 {
-  width: 49.19% !important;
-}
-.row .col {
-  background-color: #303030;
-}
-.row .col-8 {
-  background-color: #303030;
-  width: 65%;
-}
-.row .col-6 {
-  background-color: #303030;
-  width: 25%;
-}
-.row .col-4 {
-  background-color: #303030;
-}
-.row .col-md-8 {
-  background-color: #303030;
-  width: 72.5%;
-}
 .row a {
   position: relative;
   text-decoration: none;
@@ -97,4 +76,11 @@
   background-color: #4f0001;
   color: #ffffff;
   transition: all 0.3s;
+}
+
+@media (min-width: 768px) {
+  .col-md-8 {
+    flex: 0 0 auto !important;
+    width: 74.6666667% !important;
+  }
 }/*# sourceMappingURL=products.css.map */
