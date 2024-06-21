@@ -16,6 +16,11 @@ body {
   width: 100%;
   justify-content: space-between;
 }
+@media (max-width: 768px) {
+  .affiliate__wrapper {
+    flex-direction: column;
+  }
+}
 
 #productsSelled {
   display: flex;
@@ -31,6 +36,11 @@ body {
   display: flex;
   justify-content: center;
   outline: auto #660708;
+}
+@media (max-width: 768px) {
+  #productsSelled .product__information {
+    grid-template-columns: 1fr;
+  }
 }
 
 #addProduct {
@@ -64,6 +74,12 @@ body {
 #addProduct form #productName {
   margin-top: 0;
 }
+@media (max-width: 768px) {
+  #addProduct {
+    width: 100%;
+    padding: 20px 0;
+  }
+}
 
 #productImage {
   height: inherit;
@@ -71,7 +87,34 @@ body {
   padding-left: 0;
 }
 #productImage img {
-  width: 500px;
+  width: 400px;
   height: 500px;
   outline: auto #660708;
+}
+@media (max-width: 768px) {
+  #productImage {
+    padding: 20px 0;
+  }
+  #productImage img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 50px;
+  border: none;
+  outline: dashed 2px rgba(153, 153, 153, 0.6);
+  border-radius: 5px;
+  cursor: pointer;
+  background-image: url("../assets/plus.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+input[type=file] {
+  display: none;
 }/*# sourceMappingURL=addProduct.css.map */

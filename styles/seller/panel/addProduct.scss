@@ -1,3 +1,5 @@
+@import '../../global';
+
 body {
   background-color: #f3f3f3 !important;
 }
@@ -7,7 +9,7 @@ body {
   align-items: stretch;
   width: 100%;
   justify-content: space-between;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -16,7 +18,7 @@ body {
 #productsSelled {
   display: flex;
   flex-direction: column;
-  
+
   .product__information {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -42,16 +44,16 @@ body {
   padding: 50px 0;
   width: 33%;
   height: 100%;
-  
+
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    
+
     .form-group {
       margin: 15px 0;
-      
+
       input {
         width: 100%;
       }
@@ -62,7 +64,7 @@ body {
       padding-bottom: 15px;
       margin: 20px 0;
       border: solid 1px #e2e2e2c3;
-      
+
       input {
         margin-left: 0;
         margin-right: 12px;
@@ -84,19 +86,37 @@ body {
   height: inherit;
   padding: 50px;
   padding-left: 0;
-  
+
   img {
-    width: 500px;
+    width: 400px;
     height: 500px;
     outline: auto $text-color;
   }
 
   @media (max-width: 768px) {
     padding: 20px 0;
-    
+
     img {
       width: 100%;
       height: auto;
     }
   }
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 50px;
+  border: none;
+  outline: dashed 2px $border;
+  border-radius: 5px;
+  cursor: pointer;
+  background-image: url("../assets/plus.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+input[type="file"] {
+  display: none;
 }
