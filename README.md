@@ -1,14 +1,20 @@
 # Wutai
 
-
-arrumar = fazer o SCSS
-
-
 * = prioridade/demorado
 
 
 !* = não é prioridade
 
+
+# www||htdocs
+
+php_programs/Wutai/Wutai/files
+
+arrumar = fazer o SCSS
+
+import sql in phpmyadmin
+
+# O que falta
 
 // "Landing page" na página principal
 
