@@ -17,7 +17,7 @@ var_dump($sqlDelete);
 
 if($sqlDelete) {
     echo "APAGOU";
-    header('Location: /php_programs/Wutai/Wutai/website/seller/affiliatePanel.php');
+    header('Location: /php_programs/Wutai/Wutai/website/seller/sellerPanel.php');
 } else {
     echo "NAO APAGOU! SEU BUCHA!";
 }

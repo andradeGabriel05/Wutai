@@ -69,7 +69,7 @@ if (isset($_SESSION['idCart'])) {
                         <a href='/php_programs/Wutai/Wutai/website/user/address/address.php?user=$id' id='address'></a>
                         <a href='/php_programs/Wutai/Wutai/website/user/settings/settings.php?user=$id' id='config'></a>";
                 if (isset($idSeller)) {
-                    echo "<a href='/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?user=$idSeller' id='affiliate'></a>";
+                    echo "<a href='/php_programs/Wutai/Wutai/website/seller/sellerPanel.php?user=$idSeller' id='affiliate'></a>";
                 }
                 echo "<a href='/php_programs/Wutai/Wutai/website/user/login/logout.php' id='logout'></a>
                     </div>
@@ -80,7 +80,7 @@ if (isset($_SESSION['idCart'])) {
                 <a href='/php_programs/Wutai/Wutai/website/user/register/register.php' id='register'></a>
                 <a href='/php_programs/Wutai/Wutai/website/user/login/login.php' class='login'></a>";
                 if (isset($idSeller)) {
-                    echo "<a href='/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?user=$idSeller'></a>";
+                    echo "<a href='/php_programs/Wutai/Wutai/website/seller/sellerPanel.php?user=$idSeller'></a>";
                 }
                 echo "</div>";
             }

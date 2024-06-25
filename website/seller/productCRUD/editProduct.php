@@ -163,7 +163,7 @@ $product = mysqli_fetch_array($product);
         </section>
 
         <section id="productImage">
-            <img src='<?php echo $product['productImage'] ?>' alt='' id="previewImg">
+            <img src='<?php echo $product['productImage'] ?>' alt='ProductImage' id="previewImg">
         </section>
         
         <?php

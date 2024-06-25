@@ -56,14 +56,60 @@ $productName = $productNameArr['productName'];
             </div>
             <div class="product__title">
                 <span id="titleProduct"><?php echo $usuario['productName']; ?></span>
+                <div class="rating__star__container">
+                    <?php
+
+                    $averageRating = "SELECT FLOOR(AVG(userRating)) FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'";
+                    $averageRatingQuery = mysqli_query($conn, $averageRating);
+                    $averageRatingValue = mysqli_fetch_array($averageRatingQuery)[0];
+
+                    $averageRatingAvg = "SELECT AVG(userRating) FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'";
+                    $averageRatingAvgQuery = mysqli_query($conn, $averageRatingAvg);
+                    $averageRatingValueAvg = mysqli_fetch_array($averageRatingAvgQuery)[0];
+
+                    $userRatingQuery = mysqli_query($conn, "SELECT * FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'");
+                    $numRatings = mysqli_num_rows($userRatingQuery);
+
+                    if ($numRatings != 0) {
+                        echo "<span class='average__rating__value'>" . round($averageRatingValueAvg, 2) . "</span>";
+                    }
+
+                    if ($numRatings != 0) {
+                        for ($i = 0; $i < $averageRatingValue; $i++) {
+                            echo "<i class='fa fa-star'></i>";
+                        }
+                        if ($averageRatingValue % 1 != 0.5) {
+                            echo "<i class='fa fa-star-half-o'></i>";
+                        }
+                        if ($averageRatingValue != 5) {
+                            for ($i = 1; $i < 5 - $averageRatingValue; $i++) {
+                                echo "<i class='fa fa-star-o'></i>";
+                            }
+                        }
+                        echo "<span class='total__rating__value'><a href='#ratingSection'>$numRatings avaliações de clientes</a></span>";
+                    }
+                    ?>
+
+                </div>
 
                 <div class="priceProduct">
-                    <p class="currency">R$</p>
-                    <p class="price__product"><?php echo $usuario['price']; ?></p>
+                    <div class="priceProductText">
+                        <div class="currency__price">
+                            <p class="currency">R$</p>
+                            <p class="price__product"><?php echo $usuario['price']; ?></p>
+                        </div>
+                        <div class="options__price">
+                            <span>à vista no Pix e boleto (5% off)</span>
+                            <span class="option__2">ou R$ XXX em até XXX de R$ XXX sem juros</span>
+                        </div>
+                    </div>
                 </div>
+
+
 
                 <span class="product__details"><?php echo $usuario['productDescription']; ?></span>
             </div>
+
             <div class="product__price">
                 <div class="priceProduct price__span" style="display: flex;">
                     <p class="currency">R$</p>
@@ -102,27 +148,55 @@ $productName = $productNameArr['productName'];
     }
     ?>
 
-    <div class="container__rating">
+    <section class="container__rating" id="ratingSection">
         <aside class="rating__product">
             <h3>Avaliação dos clientes</h3>
             <div class="rating__star__container">
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
-                <i class="fa fa-star-o"></i>
+                <?php
+
+                $averageRating = "SELECT FLOOR(AVG(userRating)) FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'";
+                $averageRatingQuery = mysqli_query($conn, $averageRating);
+                $averageRatingValue = mysqli_fetch_array($averageRatingQuery)[0];
+
+                $averageRatingAvg = "SELECT AVG(userRating) FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'";
+                $averageRatingAvgQuery = mysqli_query($conn, $averageRatingAvg);
+                $averageRatingValueAvg = mysqli_fetch_array($averageRatingAvgQuery)[0];
+
+
+                echo "<span class='average__rating__value'>" . @round($averageRatingValueAvg, 2) . "</span>";
+
+                if ($averageRatingValueAvg == 0) {
+                    for ($i = 1; $i <= 5 - $averageRatingValue; $i++) {
+                        echo "<i class='fa fa-star-o'></i>";
+                    }
+                } else {
+
+
+                    for ($i = 0; $i < $averageRatingValue; $i++) {
+                        echo "<i class='fa fa-star'></i>";
+                    }
+                    if ($averageRatingValue % 1 != 0.5) {
+                        echo "<i class='fa fa-star-half-o'></i>";
+                    }
+                    if ($averageRatingValue != 5) {
+                        for ($i = 1; $i < 5 - $averageRatingValue; $i++) {
+                            echo "<i class='fa fa-star-o'></i>";
+                        }
+                    }
+                }
+
+                ?>
+
             </div>
             <div class="rating__users">
                 <?php
+
                 $productRatingQuery = mysqli_query($conn, "SELECT AVG(`userRating`) AS averageRating FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'");
                 if (mysqli_num_rows($productRatingQuery) != 0) {
 
                     $productRatingArr = mysqli_fetch_array($productRatingQuery);
                     $averageRating = $productRatingArr['averageRating'];
 
-
-                    $userRatingQuery = mysqli_query($conn, "SELECT * FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'");
-                    $numRatings = mysqli_num_rows($userRatingQuery);
 
                     echo "<p>Total de avaliações: " . $numRatings . "</p>";
                 } else {
@@ -148,40 +222,52 @@ $productName = $productNameArr['productName'];
 
                     $commentsQuery = mysqli_query($conn, "SELECT * FROM `product_rating` WHERE `idProduct` = '$_GET[productId]'");
 
-                    while ($comment = mysqli_fetch_assoc($commentsQuery)) {
-                        // $commentsUser = mysqli_query($conn, "SELECT * FROM `user` WHERE `idUser` = '$comment[idUser]'");
-                        // $commentsUserArr = mysqli_fetch_array($commentsUser);
-                        echo "<li>";
-                        echo "<div class='comments__user'>";
-                        echo "<img src='/php_programs/Wutai/Wutai/assets/user-icon.png' alt='user-icon'>";
-                        echo "<p> $comment[userName] </p>";
-                        echo "</div>";
-                        echo "<div class='comments__user__rating'>";
-                        for ($i = 0; $i < $comment['userRating']; $i++) {
-                            echo "<i class='fa fa-star star__user__rate'></i>";
+                    if ($averageRatingValueAvg == 0) {
+                        echo "<span class='total__rating__value'>Nenhuma avaliação de cliente.</span>";
+                        echo "<span class='total__rating__value'><a href='ratePage.php?productId=$_GET[productId]'>Seja o primeiro a avaliar</a></span>";
+                    } else {
+
+                        while ($comment = mysqli_fetch_assoc($commentsQuery)) {
+
+
+                            // $commentsUser = mysqli_query($conn, "SELECT * FROM `user` WHERE `idUser` = '$comment[idUser]'");
+                            // $commentsUserArr = mysqli_fetch_array($commentsUser);
+                            echo "<li>";
+                            echo "<div class='comments__user'>";
+                            echo "<img src='/php_programs/Wutai/Wutai/assets/user-icon.png' alt='user-icon'>";
+                            echo "<p> $comment[userName] </p>";
+                            echo "</div>";
+                            echo "<div class='comments__user__rating'>";
+
+
+                            for ($i = 0; $i < $comment['userRating']; $i++) {
+                                echo "<i class='fa fa-star star__user__rate'></i>";
+                            }
+                            echo "<span>$comment[title]</span>";
+                            echo "<p class='date__message__p'>Avaliado em $comment[ratingDate]</p>";
+                            echo "<p class='user__message__p'>" . $comment['userMessage'] . "</p>";
+                            echo "</div>";
+
+                            echo "<div class='comments__user__likes'>";
+                            echo @"<a href='ratePage.act.php?ref=likeButton&like=$comment[ratingLikes]&rate=$comment[idRating]&productId=$_GET[productId]&user=$_SESSION[idUser]' class='comments__user__likes__a__tag'>Útil</a>";
+
+                            
+                            if ($comment['ratingLikes'] != 0 && $comment['ratingLikes'] != 1) {
+                                echo "<p>$comment[ratingLikes] pessoas acharam esse comentário útil</p>";
+                                }
+                                if ($comment['ratingLikes'] == 1) {
+                                    echo "<p>$comment[ratingLikes] pessoa achou esse comentário útil</p>";
+                                }
+                            echo "</div>";
+
+                            echo "</li>";
                         }
-                        echo "<span>$comment[title]</span>";
-                        echo "<p class='date__message__p'>Avaliado em $comment[ratingDate]</p>";
-                        echo "<p class='user__message__p'>" . $comment['userMessage'] . "</p>";
-                        echo "</div>";
-
-                        echo "<div class='comments__user__likes'>";
-                        echo "<a href='ratePage.act.php?ref=likeButton&like=$comment[ratingLikes]&rate=$comment[idRating]&productId=$_GET[productId]' class='comments__user__likes__a__tag'>Útil</a>";
-                        if ($comment['ratingLikes'] != 0 && $comment['ratingLikes'] != 1) {
-                            echo "<p>$comment[ratingLikes] pessoas acharam esse comentário útil</p>";
-                        } 
-                        if($comment['ratingLikes'] == 1) {
-                            echo "<p>$comment[ratingLikes] pessoa achou esse comentário útil</p>";
-
-                        }
-                        echo "</div>";
-
-                        echo "</li>";
                     }
+
                     ?>
                 </ul>
             </div>
         </div>
-    </div>
+    </section>
 
     <?php include('../footer/footer.php') ?>

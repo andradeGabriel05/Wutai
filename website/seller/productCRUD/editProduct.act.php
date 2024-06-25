@@ -7,47 +7,35 @@ session_start();
 
 $productImage = $_FILES['productImage'];
 
-$path = "productImages/" . md5(time()) . ".jpg";
-
-move_uploaded_file($productImage['tmp_name'], $path);
-
 $idProduct = $_SESSION['idProduct'];
 
-$sqlQuery = "SELECT * FROM `product` WHERE `idProduct` = '$idProduct'";
+$sqlQuery = "SELECT * FROM product WHERE idProduct = '$idProduct'";
 
 $sqlQueryProduct = mysqli_query($conn, $sqlQuery);
 
 $sqlArray = mysqli_fetch_array($sqlQueryProduct);
 
-if (file_exists($sqlArray['productImage'])) {
-    unlink($sqlArray['productImage']);
-    
-    $sqlUpdate = "UPDATE `product` SET 
-        `productName` = '$productName',
-        `category` = '$category',
-        `quantity` = '$quantity',
-        `productDescription` = '$productDescription',
-        `productImage` = '$path',
-        `price` = '$price',
-        `deliver` = '$deliver'
-        WHERE `idProduct` = '$idProduct'";
-    
-    $sqlUpdateQuery = mysqli_query($conn, $sqlUpdate);
-    
-        header('Location:../affiliatePanel.php');
+if ($productImage['tmp_name']) {
+    $path = "productImages/" . md5(time()) . ".jpg";
+    move_uploaded_file($productImage['tmp_name'], $path);
+
+    if (file_exists($sqlArray['productImage'])) {
+        unlink($sqlArray['productImage']);
+    }
+
 } else {
-    $sqlUpdate = "UPDATE `product` SET 
-    `productName` = '$productName',
-    `category` = '$category',
-    `quantity` = '$quantity',
-    `productDescription` = '$productDescription',
-    `price` = '$price',
-    `deliver` = '$deliver'
-    WHERE `idProduct` = '$idProduct'";
+    $path = $sqlArray['productImage'];
+}
+$sqlUpdate = "UPDATE product SET 
+        productName = '$productName',
+        category = '$category',
+        quantity = '$quantity',
+        productDescription = '$productDescription',
+        productImage = '$path',
+        price = '$price',
+        deliver = '$deliver'
+        WHERE idProduct = '$idProduct'";
 
 $sqlUpdateQuery = mysqli_query($conn, $sqlUpdate);
 
-    header('Location:../affiliatePanel.php');
-}
-
-?>
+header('Location:../sellerPanel.php');

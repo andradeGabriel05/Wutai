@@ -35,7 +35,7 @@ if (isset($_SESSION['idUser'])) {
 
                     echo "
                     <div class='product__name__img'>
-                        <a href='products/products_page.php?productId=$_GET[productId]'>
+                        <a href='/php_programs/Wutai/Wutai/website/products/products_page.php?productId=$_GET[productId]'>
                             <img src='../seller/productCRUD/$product[productImage]' class='product__rate__image'>
                             <p>$product[productName]</p>
                         </a>

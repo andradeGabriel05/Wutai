@@ -3,7 +3,7 @@
         <a href="/php_programs/Wutai/Wutai/website/index.php"><img src="/php_programs/Wutai/Wutai/public/img/logo2.png" alt=""></a>
     </div>
     <div class="affiliate__pages__aside">
-        <a href="/php_programs/Wutai/Wutai/website/seller/affiliatePanel.php?seller=true&panel=panel" id="panelAside"><i class="fas fa-home"></i> Início</a>
+        <a href="/php_programs/Wutai/Wutai/website/seller/sellerPanel.php?seller=true&panel=panel" id="panelAside"><i class="fas fa-home"></i> Início</a>
         <a href=""><i class="fas fa-chart-line"></i> Suas vendas</a>
         <a href="/php_programs/Wutai/Wutai/website/seller/productCRUD/addProduct.php?panel=add" id="addProductAside"><i class="fas fa-plus"></i> Adicionar produtos</a>
         <a href="/php_programs/Wutai/Wutai/website/seller/productCRUD/editProduct.php?panel=edit" id="editProductAside"><i class="fas fa-edit"></i> Editar produtos</a>

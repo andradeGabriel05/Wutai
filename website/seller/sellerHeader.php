@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
     <header>
         <div class="logo">
             <div id="logoImg"></div>

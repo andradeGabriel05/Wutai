@@ -35,6 +35,13 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
 
                 if ($_GET['ref'] == 'buyNow') {
                     header('Location:../../products/buyNow.act.php?ref=buyNow&productId=' . $_GET['productId']);
+                    
+                } elseif ($_GET['ref'] == 'likeButton') {
+
+                    $sqlUpdate = "UPDATE `product_rating` SET `ratingLikes` = '$_GET[like]' + 1 WHERE `idRating` = '$_GET[rate]'";
+                    $sqlUpdateQuery = mysqli_query($conn, $sqlUpdate);
+
+                    header('Location: /php_programs/Wutai/Wutai/website/products/products_page.php?productId=' . $_GET['productId']);
                 } else {
                     header('Location:../../index.php');
                 }
@@ -80,7 +87,7 @@ if (isset($_POST['email']) || isset($_POST['password'])) {
                     if (isset($login)) {
                         if ($login == false) {
                             if (mysqli_num_rows($sql__query) == 0) {
-                                echo 
+                                echo
                                 "<div class='alert'>
                                     <p>Usuário não encontrado!</p>
                                 </div>";

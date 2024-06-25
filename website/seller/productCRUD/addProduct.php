@@ -7,7 +7,7 @@ require_once(BASE_PATH . DIRECTORY_SEPARATOR . 'connect.php');
 if (@$_GET['seller'] == "true") {
     // logado como vendedor
     if (!isset($_SESSION['idSeller'])) {
-        header('Location:/php_programs/Wutai/Wutai/website/seller/affiliatePage.php?auth=true&seller=false');
+        header('Location:/php_programs/Wutai/Wutai/website/seller/sellerPage.php?auth=true&seller=false');
     }
 } else {
     if (isset($_SESSION['idSeller'])) {

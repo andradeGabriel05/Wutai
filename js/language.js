@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const language = await data.json();
 
   if(!localStorage.getItem("language")) {
-    const savedLanguage = "fr_FR"
+    const savedLanguage = "pt_BR"
     if (savedLanguage) {
       portuguese(language, savedLanguage);
     }

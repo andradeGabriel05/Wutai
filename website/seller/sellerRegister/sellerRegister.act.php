@@ -7,7 +7,7 @@ extract($_POST);
 $id = $_SESSION['idUser'];
 $idSeller = $_SESSION['idSeller'];
 
-$sql = "INSERT INTO `seller` (`idSeller`, `enterpriseName`, `creationDate`, `idUser`) VALUES (null, '$enterpriseName', current_timestamp(), '$id');";
+$sql = "INSERT INTO `seller` (`idSeller`, `enterpriseName`, `website`, `email`, `creationDate`, `idUser`) VALUES (null, '$enterpriseName', '$email', '$website', current_timestamp(), '$id');";
 
 $result = mysqli_query($conn, $sql);
 
