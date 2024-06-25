@@ -152,7 +152,7 @@ $product = mysqli_fetch_array($product);
                 </div>
                 <div class="form-group">
                     <label for="productImageInput" class="custom-file-upload">Imagem do produto</label>
-                    <input type="file" class="form-control" id="productImageInput" name="productImage" value="<?php echo $product['productImage'] ?>" onchange="imagePreview(this)" required>
+                    <input type="file" class="form-control" id="productImageInput" name="productImage" value="<?php echo $product['productImage'] ?>" onchange="imagePreview(this)">
                 </div>
 
                 <div class="form-group">

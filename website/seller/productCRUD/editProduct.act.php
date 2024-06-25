@@ -19,14 +19,28 @@ $sqlQueryProduct = mysqli_query($conn, $sqlQuery);
 
 $sqlArray = mysqli_fetch_array($sqlQueryProduct);
 
-unlink($sqlArray['productImage']);
-
-$sqlUpdate = "UPDATE `product` SET 
+if (file_exists($sqlArray['productImage'])) {
+    unlink($sqlArray['productImage']);
+    
+    $sqlUpdate = "UPDATE `product` SET 
+        `productName` = '$productName',
+        `category` = '$category',
+        `quantity` = '$quantity',
+        `productDescription` = '$productDescription',
+        `productImage` = '$path',
+        `price` = '$price',
+        `deliver` = '$deliver'
+        WHERE `idProduct` = '$idProduct'";
+    
+    $sqlUpdateQuery = mysqli_query($conn, $sqlUpdate);
+    
+        header('Location:../affiliatePanel.php');
+} else {
+    $sqlUpdate = "UPDATE `product` SET 
     `productName` = '$productName',
     `category` = '$category',
     `quantity` = '$quantity',
     `productDescription` = '$productDescription',
-    `productImage` = '$path',
     `price` = '$price',
     `deliver` = '$deliver'
     WHERE `idProduct` = '$idProduct'";
@@ -34,5 +48,6 @@ $sqlUpdate = "UPDATE `product` SET
 $sqlUpdateQuery = mysqli_query($conn, $sqlUpdate);
 
     header('Location:../affiliatePanel.php');
+}
 
 ?>

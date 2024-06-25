@@ -3,18 +3,18 @@
         <?php
         $product = mysqli_query($conn, "SELECT * FROM `product`");
 
-        while ($usuario = mysqli_fetch_assoc($product)) {
+        while ($product = mysqli_fetch_assoc($product)) {
             echo
             '
             <div class="col">
-            <a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+            <a href="products/products_page.php?productId=' . $product['idProduct'] . '">
             <div class="card">
-            <img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+            <img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
             <div class="card-body">
-            <h5 class="card-title">' . $usuario['productName'] . '</h5>
+            <h5 class="card-title">' . $product['productName'] . '</h5>
             <div class="price">
             <span class="currency" style="font-size: 20px;">R$</span>
-            <span style="font-size: 30px;">' . $usuario['price'] . '</span>
+            <span style="font-size: 30px;">' . $product['price'] . '</span>
             <span style="font-size: 20px;"></span>
             <span style="font-size: 20px;"></span>
             </div>
@@ -22,7 +22,7 @@
             </div>
             </a>
             <div class="add__to__cart">
-            <a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
             </div>';
         }
@@ -42,26 +42,19 @@
                             <div class="cards__wrapper d-flex ">
                                 <div class="card-deck">
                                     <?php
-
-                                    $min = 28;
-                                    $max = 39;
-
                                     $randomInt = random_int($min, $max);
                                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
-
-                                    $usuario = mysqli_fetch_assoc($product);
-
                                     echo
                                     '
-                                            <a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+                                            <a href="products/products_page.php?productId=' . $product['idProduct'] . '">
                                             <div class="card">
-                                            <img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+                                            <img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
                                             <div class="card-body">
-                                            <h5 class="card-title">' . $usuario['productName'] . '</h5>
+                                            <h5 class="card-title">' . $product['productName'] . '</h5>
                                             <div class="price">
                                             <span class="currency" style="font-size: 20px;">R$</span>
-                                            <span style="font-size: 30px;">' . $usuario['price'] . '</span>
+                                            <span style="font-size: 30px;">' . $product['price'] . '</span>
                                             <span style="font-size: 20px;"></span>
                                             <span style="font-size: 20px;"></span>
                                             </div>
@@ -69,30 +62,23 @@
                                             </div>
                                             </a>
                                             <div class="add__to__cart">
-                                            <a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+                                            <a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
                                             </div>';
                                     ?>
                                 </div>
                                 <div class="card-deck">
                                     <?php
-
-                                    $randomInt = random_int($min, $max);
-                                    $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
-
-
-                                    $usuario = mysqli_fetch_assoc($product);
-
                                     echo
                                     '
                                     
-                                            <a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+                                            <a href="products/products_page.php?productId=' . $product['idProduct'] . '">
                                             <div class="card">
-                                            <img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+                                            <img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
                                             <div class="card-body">
-                                            <h5 class="card-title">' . $usuario['productName'] . '</h5>
+                                            <h5 class="card-title">' . $product['productName'] . '</h5>
                                             <div class="price">
                                             <span class="currency" style="font-size: 20px;">R$</span>
-                                            <span style="font-size: 30px;">' . $usuario['price'] . '</span>
+                                            <span style="font-size: 30px;">' . $product['price'] . '</span>
                                             <span style="font-size: 20px;"></span>
                                             <span style="font-size: 20px;"></span>
                                             </div>
@@ -100,7 +86,7 @@
                                             </div>
                                             </a>
                                             <div class="add__to__cart">
-                                            <a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+                                            <a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
                                             </div>';
                                     ?>
                                 </div>
@@ -111,18 +97,18 @@
                                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
 
-                                    $usuario = mysqli_fetch_assoc($product);
+                                    $product = mysqli_fetch_assoc($product);
 
                                     echo
                                     '
-    <a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+    <a href="products/products_page.php?productId=' . $product['idProduct'] . '">
     <div class="card">
-    <img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+    <img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
     <div class="card-body">
-    <h5 class="card-title">' . $usuario['productName'] . '</h5>
+    <h5 class="card-title">' . $product['productName'] . '</h5>
     <div class="price">
     <span class="currency" style="font-size: 20px;">R$</span>
-    <span style="font-size: 30px;">' . $usuario['price'] . '</span>
+    <span style="font-size: 30px;">' . $product['price'] . '</span>
     <span style="font-size: 20px;"></span>
     <span style="font-size: 20px;"></span>
     </div>
@@ -130,7 +116,7 @@
     </div>
     </a>
     <div class="add__to__cart">
-    <a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+    <a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>';
                                     ?>
                                 </div>
@@ -145,19 +131,19 @@
                                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
 
-                                    $usuario = mysqli_fetch_assoc($product);
+                                    $product = mysqli_fetch_assoc($product);
 
                                     echo
                                     '
-<a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+<a href="products/products_page.php?productId=' . $product['idProduct'] . '">
                                 <div class="card">
 
-<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
 <div class="card-body">
-<h5 class="card-title">' . $usuario['productName'] . '</h5>
+<h5 class="card-title">' . $product['productName'] . '</h5>
 <div class="price">
 <span class="currency" style="font-size: 20px;">R$</span>
-<span style="font-size: 30px;">' . $usuario['price'] . '</span>
+<span style="font-size: 30px;">' . $product['price'] . '</span>
 <span style="font-size: 20px;"></span>
 <span style="font-size: 20px;"></span>
 </div>
@@ -165,7 +151,7 @@
 </div>
 </a>
 <div class="add__to__cart">
-<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
 </div>';
                                     ?>
                                 </div>
@@ -176,19 +162,19 @@
                                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
 
-                                    $usuario = mysqli_fetch_assoc($product);
+                                    $product = mysqli_fetch_assoc($product);
 
                                     echo
                                     '
-<a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+<a href="products/products_page.php?productId=' . $product['idProduct'] . '">
                                 <div class="card">
 
-<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
 <div class="card-body">
-<h5 class="card-title">' . $usuario['productName'] . '</h5>
+<h5 class="card-title">' . $product['productName'] . '</h5>
 <div class="price">
 <span class="currency" style="font-size: 20px;">R$</span>
-<span style="font-size: 30px;">' . $usuario['price'] . '</span>
+<span style="font-size: 30px;">' . $product['price'] . '</span>
 <span style="font-size: 20px;"></span>
 <span style="font-size: 20px;"></span>
 </div>
@@ -196,7 +182,7 @@
 </div>
 </a>
 <div class="add__to__cart">
-<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
 </div>';
                                     ?>
                                 </div>
@@ -207,26 +193,26 @@
                                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
 
-                                    $usuario = mysqli_fetch_assoc($product);
+                                    $product = mysqli_fetch_assoc($product);
 
                                     echo
                                     '
-<a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+<a href="products/products_page.php?productId=' . $product['idProduct'] . '">
                                 <div class="card">
 
-<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
 <div class="card-body">
-<h5 class="card-title">' . $usuario['productName'] . '</h5>
+<h5 class="card-title">' . $product['productName'] . '</h5>
 <div class="price">
 <span class="currency" style="font-size: 20px;">R$</span>
-<span style="font-size: 30px;">' . $usuario['price'] . '</span>
+<span style="font-size: 30px;">' . $product['price'] . '</span>
 <span style="font-size: 20px;"></span>
 <span style="font-size: 20px;"></span>
 </div>
 </div>
 </div>
 <div class="add__to__cart">
-<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
 </div>
 </a>
 ';
@@ -245,26 +231,26 @@
                                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
 
-                                    $usuario = mysqli_fetch_assoc($product);
+                                    $product = mysqli_fetch_assoc($product);
 
                                     echo
                                     '
-<a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+<a href="products/products_page.php?productId=' . $product['idProduct'] . '">
                                 <div class="card">
 
-<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
 <div class="card-body">
-<h5 class="card-title">' . $usuario['productName'] . '</h5>
+<h5 class="card-title">' . $product['productName'] . '</h5>
 <div class="price">
 <span class="currency" style="font-size: 20px;">R$</span>
-<span style="font-size: 30px;">' . $usuario['price'] . '</span>
+<span style="font-size: 30px;">' . $product['price'] . '</span>
 <span style="font-size: 20px;"></span>
 <span style="font-size: 20px;"></span>
 </div>
 </div>
 </div>
 <div class="add__to__cart">
-<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
 </div>
 </a>
 ';
@@ -277,26 +263,26 @@
                                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
 
-                                    $usuario = mysqli_fetch_assoc($product);
+                                    $product = mysqli_fetch_assoc($product);
 
                                     echo
                                     '
-<a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+<a href="products/products_page.php?productId=' . $product['idProduct'] . '">
                                 <div class="card">
 
-<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
 <div class="card-body">
-<h5 class="card-title">' . $usuario['productName'] . '</h5>
+<h5 class="card-title">' . $product['productName'] . '</h5>
 <div class="price">
 <span class="currency" style="font-size: 20px;">R$</span>
-<span style="font-size: 30px;">' . $usuario['price'] . '</span>
+<span style="font-size: 30px;">' . $product['price'] . '</span>
 <span style="font-size: 20px;"></span>
 <span style="font-size: 20px;"></span>
 </div>
 </div>
 </div>
 <div class="add__to__cart">
-<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
 </div>
 </a>
 ';
@@ -311,19 +297,19 @@
                                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
 
-                                    $usuario = mysqli_fetch_assoc($product);
+                                    $product = mysqli_fetch_assoc($product);
 
                                     echo
                                     '
-<a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+<a href="products/products_page.php?productId=' . $product['idProduct'] . '">
                                 <div class="card">
 
-<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
 <div class="card-body">
-<h5 class="card-title">' . $usuario['productName'] . '</h5>
+<h5 class="card-title">' . $product['productName'] . '</h5>
 <div class="price">
 <span class="currency" style="font-size: 20px;">R$</span>
-<span style="font-size: 30px;">' . $usuario['price'] . '</span>
+<span style="font-size: 30px;">' . $product['price'] . '</span>
 <span style="font-size: 20px;"></span>
 <span style="font-size: 20px;"></span>
 </div>
@@ -331,7 +317,7 @@
 </div>
 </a>
 <div class="add__to__cart">
-<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
 </div>';
                                     ?>
                                 </div>
@@ -349,18 +335,18 @@
                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
 
-                    $usuario = mysqli_fetch_assoc($product);
+                    $product = mysqli_fetch_assoc($product);
 
                     echo
                     '
-    <a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+    <a href="products/products_page.php?productId=' . $product['idProduct'] . '">
     <div class="card">
-    <img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+    <img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
     <div class="card-body">
-    <h5 class="card-title">' . $usuario['productName'] . '</h5>
+    <h5 class="card-title">' . $product['productName'] . '</h5>
     <div class="price">
     <span class="currency" style="font-size: 20px;">R$</span>
-    <span style="font-size: 30px;">' . $usuario['price'] . '</span>
+    <span style="font-size: 30px;">' . $product['price'] . '</span>
     <span style="font-size: 20px;"></span>
     <span style="font-size: 20px;"></span>
     </div>
@@ -368,7 +354,7 @@
     </div>
     </a>
     <div class="add__to__cart">
-    <a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+    <a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>';
                     ?>
                 </div>
@@ -386,18 +372,18 @@
                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
 
-                    $usuario = mysqli_fetch_assoc($product);
+                    $product = mysqli_fetch_assoc($product);
 
                     echo
                     '
-<a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+<a href="products/products_page.php?productId=' . $product['idProduct'] . '">
 <div class="card">
-<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
 <div class="card-body">
-<h5 class="card-title">' . $usuario['productName'] . '</h5>
+<h5 class="card-title">' . $product['productName'] . '</h5>
 <div class="price">
 <span class="currency" style="font-size: 20px;">R$</span>
-<span style="font-size: 30px;">' . $usuario['price'] . '</span>
+<span style="font-size: 30px;">' . $product['price'] . '</span>
 <span style="font-size: 20px;"></span>
 <span style="font-size: 20px;"></span>
 </div>
@@ -405,7 +391,7 @@
 </div>
 </a>
 <div class="add__to__cart">
-<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
 </div>';
                     ?>
                 </div>
@@ -418,18 +404,18 @@
                     $product = mysqli_query($conn, "SELECT * FROM `product` WHERE `idProduct` = $randomInt");
 
 
-                    $usuario = mysqli_fetch_assoc($product);
+                    $product = mysqli_fetch_assoc($product);
 
                     echo
                     '
-<a href="products/products_page.php?productId=' . $usuario['idProduct'] . '">
+<a href="products/products_page.php?productId=' . $product['idProduct'] . '">
 <div class="card">
-<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $usuario['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
+<img src="/php_programs/Wutai/Wutai/website/seller/productCRUD/' . $product['productImage'] . '" alt="" class="img-thumbnail rounded-0" class="card-img-top" style="width: 19vw; height: 19vw;" alt="...">
 <div class="card-body">
-<h5 class="card-title">' . $usuario['productName'] . '</h5>
+<h5 class="card-title">' . $product['productName'] . '</h5>
 <div class="price">
 <span class="currency" style="font-size: 20px;">R$</span>
-<span style="font-size: 30px;">' . $usuario['price'] . '</span>
+<span style="font-size: 30px;">' . $product['price'] . '</span>
 <span style="font-size: 20px;"></span>
 <span style="font-size: 20px;"></span>
 </div>
@@ -437,7 +423,7 @@
 </div>
 </a>
 <div class="add__to__cart">
-<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $usuario['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
+<a href="/php_programs/Wutai/Wutai/website/user/cart/addProductCart.act.php?productId=' . $product['idProduct'] . '"><i class="fa-solid fa-cart-shopping"></i></a>
 </div>';
                     ?>
                 </div>

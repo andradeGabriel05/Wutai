@@ -14,6 +14,7 @@ $sqlDeleteQuery = mysqli_query($conn, $sqlDelete);
 
 var_dump($sqlDelete);
 
+
 if($sqlDelete) {
     echo "APAGOU";
     header('Location: /php_programs/Wutai/Wutai/website/seller/affiliatePanel.php');
