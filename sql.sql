@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 21/06/2024 às 15:31
+-- Tempo de geração: 25/06/2024 às 03:30
 -- Versão do servidor: 8.3.0
 -- Versão do PHP: 8.2.18
 
@@ -52,7 +52,6 @@ CREATE TABLE IF NOT EXISTS `address` (
 --
 
 INSERT INTO `address` (`idAddress`, `completeName`, `zipcode`, `state`, `city`, `country`, `address`, `houseNumber`, `complement`, `neighborhood`, `phoneNumber`, `idUser`) VALUES
-(27, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 10),
 (28, 'ga an', '08257', 'SP', 'São Paulo', 'brasil', 'casas', 40, 'casa', 'regiao nordeste', '40028922', 11),
 (33, 'teste usuario', '08257-080', 'Rondonia', 'Rio Grande do Norte', 'Argentina', 'casas', 123, 'casa', 'regiao nordeste', '11945376714', 8),
 (34, 'ga an', '31231', 'São Paulo', 'São Paulo', 'Brasil', 'casas', 0, 'casa', 'RODEIOOOO', '40028922', 8),
@@ -121,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `cart_items` (
   PRIMARY KEY (`idCartItem`),
   KEY `fkCartItemsCart` (`idCart`),
   KEY `fkCartItemsProduct` (`idProduct`)
-) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=237 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Despejando dados para a tabela `cart_items`
@@ -133,7 +132,7 @@ INSERT INTO `cart_items` (`idCartItem`, `idCart`, `idProduct`, `quantity`, `adde
 (215, 12, 21, 1, '2024-06-11 23:41:59'),
 (224, 26, 18, 1, '2024-06-12 00:12:06'),
 (231, 4, 28, 1, '2024-06-18 19:57:51'),
-(234, 27, 28, 1, '2024-06-20 23:50:14');
+(236, 27, 29, 1, '2024-06-25 00:21:30');
 
 -- --------------------------------------------------------
 
@@ -175,7 +174,7 @@ INSERT INTO `product` (`idProduct`, `productName`, `category`, `quantity`, `prod
 (39, 'Drone de Fotografia Profissional SkyVision', 'electronic', 50, 'Explore novos horizontes com o Drone de Fotografia Profissional SkyVision. Equipado com uma câmera de alta resolução 4K e estabilização de imagem de última geração, este drone captura imagens e vídeos aéreos incríveis com qualidade cinematográfica. Com uma autonomia de voo de até 30 minutos e um alcance de transmissão de até 5 km, permite explorar e registrar paisagens de maneira única. Possui modos inteligentes de voo, como seguimento de objeto e trajetória programada, além de ser dobrável e fácil de transportar. Ideal para fotógrafos, videomakers e entusiastas de tecnologia.', 'productImages/e8276a43a61c5aacf9e0026393696962.jpg', 3499.00, 'Wutai', 8),
 (40, 'Smartphone XTech Pro 5G', 'electronic', 100, 'O Smartphone XTech Pro 5G oferece uma experiência móvel de última geração com sua conectividade 5G ultra-rápida, tela AMOLED de 6,7 polegadas com resolução Full HD+ e taxa de atualização de 120Hz. Equipado com um poderoso processador octa-core, 8GB de RAM e 256GB de armazenamento interno, este smartphone garante desempenho excepcional em todas as suas tarefas. A câmera traseira tripla de 64MP captura fotos e vídeos de alta qualidade, enquanto a câmera frontal de 32MP é perfeita para selfies detalhadas. Possui bateria de 5000mAh com carregamento rápido e sistema operacional Android mais recente.', 'productImages/1dbcf731cac4a011cef0938e19c2d819.jpg', 2499.00, 'Wutai', 9),
 (41, 'Xiaomi Mi Band 7', 'electronic', 200, 'A Xiaomi Mi Band 7 é a mais recente pulseira inteligente da Xiaomi, projetada para monitorar sua saúde e atividades físicas com precisão. Equipado com uma tela AMOLED de 1,56 polegadas, oferece visibilidade clara e fácil navegação. Inclui recursos como monitoramento de frequência cardíaca, SpO2, sono, passos, calorias queimadas e suporte para mais de 30 modos de exercício. A resistência à água de 5 ATM permite uso durante natação, e a bateria de longa duração oferece até 14 dias de uso com uma única carga. Compatível com Android e iOS, a Mi Band 7 é a escolha perfeita para um estilo de vida ativo e saudável.', 'productImages/d79b4ba56679ed4afa2d001403d02393.jpg', 349.00, 'Wutai', 9),
-(42, 'Huawei MateBook D 14', 'electronic', 50, ' O Huawei MateBook D 14 é um laptop elegante e poderoso, ideal para estudantes e profissionais que precisam de desempenho e portabilidade. Equipado com um processador Intel Core i5 de 11ª geração, 8GB de RAM e um SSD de 512GB, este laptop oferece desempenho rápido e eficiente para todas as suas tarefas. A tela Full HD de 14 polegadas com bordas finas proporciona uma experiência visual imersiva. Possui teclado retroiluminado, leitor de impressões digitais integrado para segurança adicional e uma bateria de longa duração que garante produtividade durante todo o dia. Leve e fino, o MateBook D 14 é fácil de transportar e perfeito para o uso diário.', 'productImages/4b2415b127fb045f24c4cba982b41ef5.jpg', 4999.00, 'Wutai', 9);
+(42, 'Huawei MateBook D 14', 'electronic', 50, ' O Huawei MateBook D 14 é um laptop elegante e poderoso, ideal para estudantes e profissionais que precisam de desempenho e portabilidade. Equipado com um processador Intel Core i5 de 11ª geração, 8GB de RAM e um SSD de 512GB, este laptop oferece desempenho rápido e eficiente para todas as suas tarefas. A tela Full HD de 14 polegadas com bordas finas proporciona uma experiência visual imersiva. Possui teclado retroiluminado, leitor de impressões digitais integrado para segurança adicional e uma bateria de longa duração que garante produtividade durante todo o dia. Leve e fino, o MateBook D 14 é fácil de transportar e perfeito para o uso diário.', 'productImages/b8994b206721ec950b375908d6ab602e.jpg', 4999.00, 'Wutai', 9);
 
 -- --------------------------------------------------------
 
@@ -198,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `product_rating` (
   PRIMARY KEY (`idRating`),
   KEY `fkIdUser` (`idUser`),
   KEY `fkIdProduct` (`idProduct`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `product_rating`
@@ -206,23 +205,51 @@ CREATE TABLE IF NOT EXISTS `product_rating` (
 
 INSERT INTO `product_rating` (`idRating`, `userRating`, `title`, `ratingImage`, `userName`, `userMessage`, `ratingDate`, `ratingLikes`, `idUser`, `idProduct`) VALUES
 (1, 1, '', NULL, '', '', '0000-00-00', 1, 1, 1),
-(2, 0, 'asd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', NULL, 10, 30),
-(3, 0, 'asd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', NULL, 10, 30),
-(4, 0, 'asd', NULL, 'Gabriel2', 'asd', '2024-06-20', NULL, 10, 30),
+(2, 0, 'asd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', 6, 10, 30),
+(3, 0, 'asd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', 2, 10, 30),
+(4, 0, 'asd', NULL, 'Gabriel2', 'asd', '2024-06-20', 4, 10, 30),
 (5, 0, 'asd', NULL, 'Gabriel2', 'asd', '2024-06-20', NULL, 10, 30),
 (6, 0, 'asd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', NULL, 10, 30),
-(7, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
-(8, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
+(7, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', 1, 10, 30),
+(8, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', 1, 10, 30),
 (9, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
 (10, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
 (11, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
 (12, 0, 'asdasd', NULL, 'Gabriel2', 'asdasda', '2024-06-20', NULL, 10, 30),
-(13, 0, 'asdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', NULL, 10, 30),
-(14, 0, 'asdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', NULL, 10, 30),
-(15, 3, 'asdasd', NULL, 'Gabriel2', 'asdasdas', '2024-06-20', NULL, 10, 30),
-(16, 3, 'asdasd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', 3, 10, 28),
+(13, 0, 'asdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', 2, 10, 30),
+(14, 0, 'asdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', 4, 10, 30),
+(15, 3, 'asdasd', NULL, 'Gabriel2', 'asdasdas', '2024-06-20', 1, 10, 30),
+(16, 3, 'asdasd', NULL, 'Gabriel2', 'asdasd', '2024-06-20', 4, 10, 28),
 (17, 4, 'asdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', 1, 10, 28),
-(18, 5, 'asdasdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', 2, 10, 28);
+(18, 5, 'asdasdasd', NULL, 'Gabriel2', 'asdasdasd', '2024-06-20', 2, 10, 28),
+(19, 2, 'äsdas', NULL, 'Gabriel2', 'asdasd', '2024-06-24', NULL, 10, 28);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `rating_like`
+--
+
+DROP TABLE IF EXISTS `rating_like`;
+CREATE TABLE IF NOT EXISTS `rating_like` (
+  `IdLike` int NOT NULL AUTO_INCREMENT,
+  `idRating` int NOT NULL,
+  `idUser` int NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`IdLike`),
+  KEY `fkIdRating` (`idRating`),
+  KEY `fkIdUser` (`idUser`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `rating_like`
+--
+
+INSERT INTO `rating_like` (`IdLike`, `idRating`, `idUser`, `date`) VALUES
+(2, 2, 10, '2024-06-24'),
+(3, 2, 10, '2024-06-24'),
+(4, 14, 10, '2024-06-25'),
+(5, 13, 10, '2024-06-25');
 
 -- --------------------------------------------------------
 
