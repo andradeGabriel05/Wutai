@@ -8,7 +8,7 @@
 
 # www||htdocs
 
-php_programs/Wutai/Wutai/files
+php_programs/Wutai/Wutai/
 
 arrumar = fazer o SCSS
 
