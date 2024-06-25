@@ -5,6 +5,10 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+* img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 
 .contact__wrapper {
   display: flex;
@@ -17,11 +21,11 @@
 .contact__container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1200px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
+  width: 100%;
 }
 .contact__container .contact__form,
 .contact__container .contact__info {
@@ -78,6 +82,9 @@
   background-color: #a4161a;
 }
 
+.contact__info {
+  flex: 10% !important;
+}
 .contact__info h1 {
   margin-bottom: 20px;
   font-size: 24px;

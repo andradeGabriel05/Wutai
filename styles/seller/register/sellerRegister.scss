@@ -1,6 +1,118 @@
-@import '../../global';
+@import "../../global";
 
 body {
-    background-color: #fff;
-    color: #000;
+    background-color: $bg4 !important;
+}
+
+h2,
+h3 {
+  text-align: center;
+  margin-top: $margin;
+}
+
+.title__sellerRegister {
+    color: #fff;
+    margin-top: 30px;
+
+}
+
+section {
+  margin: $margin-center;
+  padding: $padding;
+  width: 80%;
+  max-width: 700px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: $box-shadow;
+}
+
+// Form styles
+form {
+  display: flex;
+  flex-direction: column;
+
+  .name,
+  .email,
+  .website {
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: $input-border-radius;
+    }
+  }
+
+  input[type="submit"] {
+    background-color: $text-color;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: $input-border-radius;
+    cursor: pointer;
+    width: 100%;
+
+    &:hover {
+      background-color: darken($text-color, 10%);
+    }
+  }
+}
+
+// Program Details styles
+#programDetails {
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+// FAQs styles
+#faqs {
+  .faq {
+    margin-bottom: 15px;
+
+    h4 {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+// Contact styles
+#contact {
+  a {
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.accordion-button:not(.collapsed) {
+  color: #fff !important;
+  background-color: $text-color !important;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: $text-color-light !important;
+    outline: 0;
+    box-shadow: 0 0 0 1px #9404049d !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(100.5);
 }

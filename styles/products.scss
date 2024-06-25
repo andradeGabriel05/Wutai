@@ -127,6 +127,10 @@
   }
 }
 
+img {
+  object-fit: contain;
+}
+
 @media (min-width: 768px) {
   .col-md-8 {
       flex: 0 0 auto !important;

@@ -5,9 +5,13 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+* img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 
 aside {
-  width: 32%;
+  width: auto;
 }
 aside ul {
   list-style: none;

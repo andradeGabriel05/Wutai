@@ -10,11 +10,11 @@
 .contact__container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1200px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
+  width: 100%;
 
   .contact__form,
   .contact__info {
@@ -52,7 +52,7 @@
         &:focus {
           border-color: $text-color;
           outline: none;
-          box-shadow: 0 0 0 0.20rem #a4161b9d;
+          box-shadow: 0 0 0 0.2rem #a4161b9d;
         }
       }
     }
@@ -82,6 +82,7 @@
 }
 
 .contact__info {
+  flex: 10% !important;
   h1 {
     margin-bottom: 20px;
     font-size: 24px;

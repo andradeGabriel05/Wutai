@@ -5,8 +5,109 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+* img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 
 body {
+  background-color: #660708 !important;
+}
+
+h2,
+h3 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.title__sellerRegister {
+  color: #fff;
+  margin-top: 30px;
+}
+
+section {
+  margin: 40px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 700px;
   background-color: #fff;
-  color: #000;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+form .name,
+form .email,
+form .website {
+  margin-bottom: 15px;
+}
+form .name label,
+form .email label,
+form .website label {
+  display: block;
+  margin-bottom: 5px;
+}
+form .name input,
+form .email input,
+form .website input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+form input[type=submit] {
+  background-color: #660708;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+form input[type=submit]:hover {
+  background-color: #360404;
+}
+
+#programDetails ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+#programDetails li {
+  margin-bottom: 10px;
+}
+
+#faqs .faq {
+  margin-bottom: 15px;
+}
+#faqs .faq h4 {
+  margin-bottom: 5px;
+}
+
+#contact a {
+  color: #660708;
+  text-decoration: none;
+}
+#contact a:hover {
+  text-decoration: underline;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #fff !important;
+  background-color: #660708 !important;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+}
+
+.accordion-button:focus {
+  z-index: 3;
+  border-color: #a4161a !important;
+  outline: 0;
+  box-shadow: 0 0 0 1px rgba(148, 4, 4, 0.6156862745) !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: brightness(100.5);
 }/*# sourceMappingURL=sellerRegister.css.map */

@@ -4,4 +4,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+}
+* img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=homepage.css.map */

@@ -5,6 +5,10 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+* img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 
 .settings__wrapper {
   display: flex;
@@ -31,9 +35,9 @@
   align-items: center;
   height: 50vh;
   outline: dashed;
-  margin-right: 30px;
+  margin-right: 10px;
   margin-bottom: 30px;
-  width: 20vw;
+  width: 24vw;
 }
 .new__address i {
   font-size: 30px;
@@ -51,6 +55,7 @@
 .addresses {
   padding: 20px 0;
   height: 100%;
+  margin: 0px auto;
 }
 .addresses * {
   border-radius: 5px;
@@ -68,8 +73,8 @@ h1 {
   justify-content: space-evenly;
   padding: 0 20px;
   height: 50vh;
-  margin-right: 30px;
-  width: 20vw;
+  margin-right: 10px;
+  width: 24vw;
 }
 .user__address * {
   margin: 0 10px;

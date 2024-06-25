@@ -4,12 +4,11 @@
   display: flex;
   .vertical__box {
     width: 50%;
-    margin-top: 50px;
+    margin: 10px auto;
   }
   .vertical__box__row {
     display: flex;
     justify-content: space-between;
-    margin-left: 50px;
     padding: 30px;
     border: solid 1px $border;
   }

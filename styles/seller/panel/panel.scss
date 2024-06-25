@@ -4,7 +4,7 @@ body {
     background-color: $bg-aff;
 }
 
-.affiliate__wrapper {
+.seller__wrapper {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -60,14 +60,13 @@ body {
 
             &__alter {
                 width: 15vw;
-                padding: 20px;
                 background-color: $text-color;
                 transition: all 0.3s;
                 border-radius: 5px;
                 a {
                     color: #fff !important;
                     text-decoration: none;
-
+                    padding: 20px;
 
 
                 }
