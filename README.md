@@ -18,9 +18,7 @@ arrumar = fazer o SCSS
 
 // Fazer a compra dos produtos do carrinho
 
-// Arrumar painel de afiliado
-
-// Colocar novo idioma
+// Atualizar idiomas
 
 // Fazer páginas do footer {
 
