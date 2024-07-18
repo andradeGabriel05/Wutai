@@ -8,4 +8,29 @@
 * img {
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.container__homepage {
+  display: flex;
+  padding: 20px;
+}
+.container__homepage h1 {
+  margin-bottom: 15px;
+  border-bottom: solid 1px #000;
+}
+.container__homepage .profile__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.container__homepage .product__card {
+  display: flex;
+  border: solid 1px #6d6d6d;
+  padding: 20px;
+}
+.container__homepage .product__card img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
 }/*# sourceMappingURL=homepage.css.map */
