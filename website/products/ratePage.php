@@ -23,7 +23,7 @@ if (isset($_SESSION['idUser'])) {
 
 <body>
     <?php include('../header/header.php'); ?>
-    <form action="ratePage.act.php?productId=<?php echo $_GET['productId'] ?>" method="POST">
+    <form action="ratePage.act.php?productId=<?php echo $_GET['productId'] ?>&ref=post" method="POST">
         <div class='product__container__ratePage'>
             <div class="product__info__wrapper">
                 <h4>Deixe uma avaliação</h4>

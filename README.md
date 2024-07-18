@@ -1,21 +1,14 @@
 # Wutai
 
-*p = prioridade
 
-*d = demorado
+arrumar = fazer o SCSS
 
-** = prioridade e demorado
+
+* = prioridade/demorado
+
 
 !* = não é prioridade
 
-
-# www||htdocs
-
-php_programs/Wutai/Wutai/
-
-import sql in phpmyadmin
-
-# O que falta
 
 // "Landing page" na página principal
 
@@ -23,11 +16,13 @@ import sql in phpmyadmin
 
 // Página do cliente
 
-// ** -> Fazer a compra dos produtos do carrinho
+// Fazer a compra dos produtos do carrinho
 
 // Arrumar painel de afiliado
 
-// !* -> Fazer páginas do footer {
+// Colocar novo idioma
+
+// Fazer páginas do footer {
 
   // Suporte
 
@@ -39,12 +34,12 @@ import sql in phpmyadmin
 
   // Fale conosco
 
-  // Método de pagamento (integrado com central de ajuda do cliente)
+  // Método de pagamento -> !* (integrado com central de ajuda do cliente)
 
   // 
   
 }
 
-// *d -> Responsividade
+// Responsividade
 
-// *p -> Cookies para manter login
+// Cookies para manter login
